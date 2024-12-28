@@ -17,7 +17,10 @@ export const HeroLeftAligned = ({
   media,
 }: Props) => {
   return (
-    <div className={cn("layout", "text-foreground lg:py-32 md:py-20 py-16")}>
+    <section
+      aria-labelledby="hero-heading"
+      className={cn("layout", "text-foreground lg:py-32 md:py-20 py-16")}
+    >
       <div
         className={cn(
           "col-span-full lg:col-span-6",
@@ -28,13 +31,13 @@ export const HeroLeftAligned = ({
       >
         <div className="space-y-4">
           {tagline && (
-            <Paragraph level="label" className="mb-6">
+            <Paragraph level="label" className="mb-6" aria-label="Tagline">
               {tagline}
             </Paragraph>
           )}
 
           {heading && (
-            <Heading as="h1" className="mb-4">
+            <Heading as="h1" className="mb-4" id="hero-heading">
               {heading}
             </Heading>
           )}
@@ -44,11 +47,14 @@ export const HeroLeftAligned = ({
           {description && <RichText content={description} />}
 
           {Array.isArray(links) && links.length > 0 && (
-            <div className="flex items-center mt-6 lg:mt-8 gap-4">
+            <nav
+              className="flex items-center mt-6 lg:mt-8 gap-4"
+              aria-label="Hero call to action"
+            >
               {links.map((link, idx) => (
                 <CMSLink key={`${link.id}-${idx}`} {...link.link} size="lg" />
               ))}
-            </div>
+            </nav>
           )}
         </div>
       </div>
@@ -68,6 +74,6 @@ export const HeroLeftAligned = ({
           />
         )}
       </div>
-    </div>
+    </section>
   );
 };
