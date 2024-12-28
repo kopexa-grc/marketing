@@ -61,8 +61,7 @@ export const CMSLink = ({
       href={href || url || ""}
       {...newTabProps}
     >
-      {label}
-      {children}
+      {children ? children : label}
     </Link>
   );
 };

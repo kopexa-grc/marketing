@@ -5,6 +5,8 @@ import { MainNav } from "../navigation";
 import { cn } from "@/lib/utils";
 import type { MainMenu } from "@/payload-types";
 import { CMSLink } from "../cms/cms-link";
+import { NavbarMobile } from "../navigation/navbar-mobile";
+import { Logo } from "../ui/logo";
 
 // export const mainNavigation: NavItem[] = [
 //   {
@@ -112,12 +114,12 @@ export const Header = ({ mainMenu }: Props) => {
         isScrolled ? "border-b" : "border-b-transparent"
       )}
     >
-      <div className="hidden lg:flex lg:w-full lg:h-full justify-center px-8">
+      <div className="hidden lg:flex lg:w-full lg:h-full justify-center">
         <div className="layout h-full text-foreground xl:w-full">
           <div className="flex w-full items-center justify-between col-span-full">
             <div className="flex h-full items-center justify-center">
               <div className="mr-12">
-                <span className="font-sans font-semibold text-2xl">KPX</span>
+                <Logo />
               </div>
               <MainNav mainMenu={mainMenu} />
             </div>
@@ -131,6 +133,10 @@ export const Header = ({ mainMenu }: Props) => {
             </div>
           </div>
         </div>
+      </div>
+      {/** mobile */}
+      <div className="block lg:hidden w-full h-full">
+        <NavbarMobile mainMenu={mainMenu} />
       </div>
     </header>
   );
