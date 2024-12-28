@@ -12,6 +12,7 @@ import { mergeOpenGraph } from "@/lib/seo/mergeOpenGraph";
 import { draftMode } from "next/headers";
 import { fetchGlobals } from "@/lib/data";
 import { unstable_cache } from "next/cache";
+import { APP_URL } from "@/lib/config";
 
 export const dynamic = "force-static";
 
@@ -21,9 +22,7 @@ const ManropeFont = Manrope({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://kopexa.com"
-  ),
+  metadataBase: new URL(APP_URL || "https://kopexa.com"),
   openGraph: mergeOpenGraph(),
   twitter: {
     card: "summary_large_image",

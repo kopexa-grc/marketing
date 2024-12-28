@@ -2,6 +2,7 @@ import { payloadToken } from "@/lib/data";
 import { cookies, draftMode } from "next/headers";
 import type { CollectionSlug } from "payload";
 import { redirect } from "next/navigation";
+import { APP_URL } from "@/lib/config";
 
 export async function GET(
   req: {
@@ -50,14 +51,11 @@ export async function GET(
   const draft = await draftMode();
 
   // validate the Payload token
-  const userReq = await fetch(
-    `${process.env.NEXT_PUBLIC_SITE_URL}/api/users/me`,
-    {
-      headers: {
-        Authorization: `JWT ${token?.value}`,
-      },
-    }
-  );
+  const userReq = await fetch(`${APP_URL}/api/users/me`, {
+    headers: {
+      Authorization: `JWT ${token?.value}`,
+    },
+  });
 
   const userRes = await userReq.json();
 
