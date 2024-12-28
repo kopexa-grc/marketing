@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Building, Mail, Phone } from "lucide-react";
 import type { Metadata } from "next";
 import { ContactFormSection } from "./_components/contact-form-section";
+import { Heading } from "@/components/ui/typography";
 
 export const metadata: Metadata = {
   title: "Contact Us | Kopexa",
@@ -16,9 +17,7 @@ export default function ContactPage() {
       <section className="py-16">
         <div className="layout">
           <div className="col-span-full md:col-span-4 lg:col-span-8 lg:col-start-3 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Get in Touch
-            </h1>
+            <Heading as="h1">Get in Touch</Heading>
             <p className="text-lg text-muted-foreground">
               Have questions about Kopexa? We&apos;re here to help. Choose a
               topic below and we&apos;ll connect you with the right person.
@@ -97,9 +96,9 @@ function ContactFaq() {
     <section className="py-12 bg-muted/50">
       <div className="layout">
         <div className="col-span-full md:col-span-4 lg:col-span-8 lg:col-start-3 text-center">
-          <h2 className="text-2xl font-semibold mb-4">
+          <Heading as="h3" level={3} className="mb-4">
             Frequently Asked Questions
-          </h2>
+          </Heading>
           <p className="text-muted-foreground mb-8">
             Can&apos;t find what you&apos;re looking for? Check our help center
             for more information.

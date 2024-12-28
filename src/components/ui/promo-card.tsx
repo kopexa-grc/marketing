@@ -12,7 +12,7 @@ export const PromoCardRoot = forwardRef<HTMLDivElement, PromoCardRootProps>(
     return (
       <div
         className={cn(
-          "w-full h-full p-10 lg:p-12 rounded-lg text-foreground bg-accent md:flex md:justify-between lg:items-center",
+          "w-full h-full p-10 lg:p-12 rounded-2xl text-foreground bg-accent md:flex md:justify-between lg:items-center",
           className
         )}
         {...rest}
@@ -35,7 +35,7 @@ export const PromoCardContent = forwardRef<
   return (
     <div
       className={cn(
-        "lg:flex lg:w-full lg:items-center lg:justify-between lg:order-2 lg:gap-12",
+        "flex flex-col lg:flex-row lg:w-full lg:items-center lg:justify-between lg:order-2 gap-12",
         className
       )}
       {...rest}
@@ -86,8 +86,31 @@ export const PromoCardLink = forwardRef<
 
 PromoCardLink.displayName = "PromoCardLink";
 
+export const PromoCardImage = forwardRef<
+  HTMLDivElement,
+  ComponentPropsWithoutRef<"div">
+>((props, ref) => {
+  const { className, ...restProps } = props;
+
+  return (
+    <div
+      className={cn(
+        "w-44 h-28 rounded-2xl mb-6",
+        "lg:shrink-0 lg:order-2 lg:mb-0 lg:mr-6",
+        "xl:order-1 xl:mr-6 xl:ml-0 xl:h-20 xl:w-20",
+        className
+      )}
+      {...restProps}
+      ref={ref}
+    />
+  );
+});
+
+PromoCardImage.displayName = "PromoCardImage";
+
 export const PromoCard = {
   Root: PromoCardRoot,
+  Image: PromoCardImage,
   Content: PromoCardContent,
   Text: PromoCardText,
   Link: PromoCardLink,

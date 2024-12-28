@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { BadgeCheck, ArrowRight } from "lucide-react";
+import { Heading, Paragraph } from "../ui/typography";
 
 const requirements = [
   "Proven expertise in compliance or risk management",
@@ -19,17 +20,19 @@ export function BecomePartner() {
               {/* Left side - Content */}
               <div className="flex-1 space-y-6">
                 <div className="space-y-2">
-                  <h2 className="text-2xl md:text-3xl font-bold">
+                  <Heading as="h3" level={3}>
                     Become a Partner
-                  </h2>
-                  <p className="text-lg text-muted-foreground">
+                  </Heading>
+                  <Paragraph level="large" color="muted">
                     Join our partner ecosystem and help organizations transform
                     their compliance and risk management.
-                  </p>
+                  </Paragraph>
                 </div>
 
                 <div className="space-y-4">
-                  <h3 className="font-semibold">Partner Requirements</h3>
+                  <Heading as="h4" level={6}>
+                    Partner Requirements
+                  </Heading>
                   <ul className="space-y-3">
                     {requirements.map((requirement) => (
                       <li key={requirement} className="flex items-start gap-2">
@@ -50,12 +53,14 @@ export function BecomePartner() {
 
               {/* Right side - Contact Info */}
               <div className="lg:w-72 space-y-6">
-                <div>
-                  <h3 className="font-semibold mb-2">Contact Us</h3>
-                  <p className="text-sm text-muted-foreground">
+                <div className="space-y-2">
+                  <Heading as="h3" level={6}>
+                    Contact Us
+                  </Heading>
+                  <Paragraph level="small" color="muted">
                     Have questions about becoming a partner? Our partnership
                     team is here to help.
-                  </p>
+                  </Paragraph>
                 </div>
 
                 <div>

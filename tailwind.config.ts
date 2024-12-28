@@ -1,15 +1,27 @@
 import type { Config } from "tailwindcss";
 import animate from "tailwindcss-animate";
 import containerQueries from "@tailwindcss/container-queries";
+import typography from "@tailwindcss/typography";
+import { cssVariables } from "./src/css-variables";
+import type { ResolvableTo, ScreensConfig } from "tailwindcss/types/config";
+
+const screens = Object.entries(cssVariables.screens).reduce(
+  (acc, [key, value]) => {
+    acc[key] = `${value}px`;
+    return acc;
+  },
+  {} as Record<string, string>
+) as ResolvableTo<ScreensConfig>;
 
 export default {
   darkMode: ["class"],
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/blocks/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens,
     extend: {
       colors: {
         background: "hsl(var(--background))",
@@ -74,7 +86,17 @@ export default {
       containers: {
         "60": "60cqw",
       },
+      typography: () => ({
+        DEFAULT: {
+          css: [
+            {
+              "--tw-prose-body": "var(--foreground)",
+              "--tw-prose-headings": "var(--foreground)",
+            },
+          ],
+        },
+      }),
     },
   },
-  plugins: [animate, containerQueries],
+  plugins: [animate, containerQueries, typography()],
 } satisfies Config;

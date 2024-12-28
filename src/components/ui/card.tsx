@@ -1,19 +1,31 @@
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
+import { tv, type VariantProps } from "tailwind-variants";
+
+const cardVariants = tv({
+  base: [
+    "relative w-full flex flex-col justify-between",
+    "rounded-xl transition-colors duration-300",
+  ],
+  variants: {
+    variant: {
+      default: "border-2 bg-card text-card-foreground",
+      secondary: "border-none bg-primary/10 text-primary-foreground",
+    },
+  },
+  defaultVariants: {
+    variant: "default",
+  },
+});
 
 const Card = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
+  React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof cardVariants>
+>(({ className, variant, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn(
-      "relative w-full flex flex-col justify-between",
-      "rounded-xl transition-colors duration-300",
-      "border-2 bg-card text-card-foreground",
-      className
-    )}
+    className={cn(cardVariants({ variant }), className)}
     {...props}
   />
 ));
@@ -26,7 +38,7 @@ const CardHeader = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "px-10 pt-10 lg:px-12 lg:pt-12 peer flex flex-col space-y-1.5",
+      "px-6 pt-6 lg:px-8 lg:pt-8 peer flex flex-col space-y-1.5",
       className
     )}
     {...props}
@@ -68,7 +80,7 @@ const CardContent = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "p-10 lg:p-12 relative text-foreground",
+      "p-6 lg:p-8 relative text-foreground",
       "peer-[]:pt-0",
       className
     )}

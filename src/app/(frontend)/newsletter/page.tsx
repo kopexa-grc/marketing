@@ -22,9 +22,9 @@ function NewsletterHero() {
     <section className="py-16 bg-gradient-to-b from-primary/10 to-background">
       <div className="layout">
         <div className="col-span-full md:col-span-4 lg:col-span-8 lg:col-start-3 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <Heading as="h1" className="mb-4">
             Stay Ahead in Compliance & Risk
-          </h1>
+          </Heading>
           <p className="text-lg text-muted-foreground">
             Join thousands of professionals receiving weekly insights on
             compliance, risk management, and industry best practices.
@@ -104,6 +104,7 @@ function NewsletterBenefits() {
 import { Mail } from "lucide-react";
 import { NewsletterFormClient } from "./newsletter-form-client";
 import { Button } from "@/components/ui/button";
+import { Heading, Paragraph } from "@/components/ui/typography";
 
 function NewsletterForm() {
   return (
@@ -116,21 +117,21 @@ function NewsletterForm() {
                 <Mail className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <h2 className="text-2xl font-semibold">
+                <Heading level={4} as="h2">
                   Subscribe to Our Newsletter
-                </h2>
-                <p className="text-muted-foreground">
+                </Heading>
+                <Paragraph color="muted">
                   Get weekly updates delivered straight to your inbox
-                </p>
+                </Paragraph>
               </div>
             </div>
 
             <NewsletterFormClient />
 
-            <p className="text-xs text-muted-foreground mt-4">
+            <Paragraph level="small" color="muted" className="mt-4">
               By subscribing, you agree to our Privacy Policy and consent to
               receive updates from our company. You can unsubscribe at any time.
-            </p>
+            </Paragraph>
           </div>
         </Card>
       </div>
@@ -165,7 +166,9 @@ function NewsletterArchive() {
       <div className="layout">
         <div className="col-span-full lg:col-span-8 lg:col-start-3">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-semibold">Recent Newsletters</h2>
+            <Heading level={3} as="h2">
+              Recent Newsletters
+            </Heading>
             <Button variant="outline">View All</Button>
           </div>
 
@@ -177,13 +180,15 @@ function NewsletterArchive() {
                     <Newspaper className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <div className="text-sm text-muted-foreground mb-1">
+                    <Paragraph level="small" color="muted" className="mb-1">
                       {newsletter.date}
-                    </div>
-                    <h3 className="font-semibold mb-2">{newsletter.title}</h3>
-                    <p className="text-sm text-muted-foreground">
+                    </Paragraph>
+                    <Heading as="h3" level={6} className="mb-2">
+                      {newsletter.title}
+                    </Heading>
+                    <Paragraph level="small" color="muted">
                       {newsletter.preview}
-                    </p>
+                    </Paragraph>
                   </div>
                 </div>
               </Card>

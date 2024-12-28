@@ -2,107 +2,106 @@
 
 import { useScrollHeader } from "@/hooks/use-scroll-header";
 import { MainNav } from "../navigation";
-import type { NavItem } from "../navigation/types";
 import { cn } from "@/lib/utils";
+import type { MainMenu } from "@/payload-types";
+import { CMSLink } from "../cms/cms-link";
 
-export const mainNavigation: NavItem[] = [
-  {
-    id: "product",
-    type: "dropdown",
-    title: "Product",
-    items: [
-      {
-        id: "security",
-        type: "feature",
-        title: "Security & Compliance",
-        description: "Assessment Templates für ISO 27001, DSGVO und mehr",
-        icon: "Shield",
-        badge: {
-          text: "Neu",
-          type: "yellow",
-        },
-      },
-      {
-        id: "risk",
-        type: "feature",
-        title: "Risk Management",
-        description: "OWASP und CVSS 4.0 Risk Assessment",
-        icon: "ActivitySquare",
-      },
-      {
-        id: "ma",
-        type: "feature",
-        title: "M&A Due Diligence",
-        description: "Security & IT Due Diligence Templates",
-        icon: "Building2",
-      },
-      {
-        id: "platform",
-        type: "feature",
-        title: "Flexible Platform",
-        description: "Dynamische Assessments & Custom Workflows",
-        icon: "Settings2",
-      },
-    ],
-  },
-  {
-    id: "solutions",
-    type: "group",
-    title: "Solutions",
-    items: [
-      {
-        id: "enterprise",
-        type: "link",
-        title: "Enterprise Security",
-        href: "/solutions/enterprise",
-        icon: "Building2",
-      },
-      {
-        id: "vendor",
-        type: "link",
-        title: "Vendor Assessment",
-        href: "/solutions/vendor",
-        icon: "Users",
-      },
-      {
-        id: "compliance",
-        type: "link",
-        title: "Compliance Management",
-        href: "/solutions/compliance",
-        icon: "FileCheck",
-      },
-    ],
-  },
-  {
-    id: "resources",
-    type: "dropdown",
-    title: "Resources",
-    items: [
-      {
-        id: "docs",
-        type: "link",
-        title: "Documentation",
-        href: "/docs",
-        icon: "BookOpen",
-      },
-      {
-        id: "support",
-        type: "link",
-        title: "Support",
-        href: "/support",
-        icon: "HelpCircle",
-      },
-    ],
-  },
-  {
-    id: "pricing",
-    type: "link",
-    title: "Pricing",
-    href: "/pricing",
-  },
-];
+// export const mainNavigation: NavItem[] = [
+//   {
+//     id: "product",
+//     type: "dropdown",
+//     title: "Product",
+//     items: [
+//       {
+//         id: "security",
+//         type: "feature",
+//         title: "Security & Compliance",
+//         description: "Assessment Templates für ISO 27001, DSGVO und mehr",
+//         icon: "Shield",
+//         badge: {
+//           text: "Neu",
+//           type: "yellow",
+//         },
+//       },
+//       {
+//         id: "risk",
+//         type: "feature",
+//         title: "Risk Management",
+//         description: "OWASP und CVSS 4.0 Risk Assessment",
+//         icon: "ActivitySquare",
+//       },
+//       {
+//         id: "ma",
+//         type: "feature",
+//         title: "M&A Due Diligence",
+//         description: "Security & IT Due Diligence Templates",
+//         icon: "Building2",
+//       },
+//       {
+//         id: "platform",
+//         type: "feature",
+//         title: "Flexible Platform",
+//         description: "Dynamische Assessments & Custom Workflows",
+//         icon: "Settings2",
+//       },
+//     ],
+//   },
+//   {
+//     id: "solutions",
+//     type: "group",
+//     title: "Solutions",
+//     items: [
+//       {
+//         id: "enterprise",
+//         type: "link",
+//         title: "Enterprise Security",
+//         href: "/solutions/enterprise",
+//         icon: "Building2",
+//       },
+//       {
+//         id: "vendor",
+//         type: "link",
+//         title: "Vendor Assessment",
+//         href: "/solutions/vendor",
+//         icon: "Users",
+//       },
+//       {
+//         id: "compliance",
+//         type: "link",
+//         title: "Compliance Management",
+//         href: "/solutions/compliance",
+//         icon: "FileCheck",
+//       },
+//     ],
+//   },
+//   {
+//     id: "resources",
+//     type: "dropdown",
+//     title: "Resources",
+//     items: [
+//       {
+//         id: "docs",
+//         type: "link",
+//         title: "Documentation",
+//         href: "/docs",
+//         icon: "BookOpen",
+//       },
+//       {
+//         id: "support",
+//         type: "link",
+//         title: "Support",
+//         href: "/support",
+//         icon: "HelpCircle",
+//       },
+//     ],
+//   },
+// ];
 
-export const Header = () => {
+type Props = {
+  mainMenu: MainMenu;
+};
+
+export const Header = ({ mainMenu }: Props) => {
   const isScrolled = useScrollHeader(50);
 
   return (
@@ -120,9 +119,16 @@ export const Header = () => {
               <div className="mr-12">
                 <span className="font-sans font-semibold text-2xl">KPX</span>
               </div>
-              <MainNav items={mainNavigation} />
+              <MainNav mainMenu={mainMenu} />
             </div>
-            <div className="flex h-full items-center justify-center">cta</div>
+            <div className="flex h-full items-center justify-center">
+              {Array.isArray(mainMenu.ctas) &&
+                mainMenu.ctas.map((cta) => (
+                  <div key={`${cta.id}`}>
+                    <CMSLink {...cta.link} />
+                  </div>
+                ))}
+            </div>
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@
 import { Card } from "@/components/ui/card";
 import { ContactForm } from "./contact-form";
 import { MapPin } from "lucide-react";
+import { Heading, Paragraph } from "@/components/ui/typography";
 
 export function ContactFormSection() {
   return (
@@ -9,14 +10,18 @@ export function ContactFormSection() {
       <div className="layout">
         {/* Form Side */}
         <div className="col-span-full lg:col-span-6">
-          <h2 className="text-2xl font-semibold mb-6">Send us a Message</h2>
+          <Heading as="h2" level={3} className="mb-6">
+            Send us a Message
+          </Heading>
           <ContactForm />
         </div>
 
         {/* Contact Information Side */}
         <div className="col-span-full lg:col-span-5 lg:col-start-8 space-y-8">
           <div>
-            <h2 className="text-2xl font-semibold mb-6">Our Offices</h2>
+            <Heading as="h2" level={3} className="mb-6">
+              Our Offices
+            </Heading>
             <div className="space-y-6">
               <Card className="p-6">
                 <div className="flex items-start gap-4">
@@ -39,19 +44,19 @@ export function ContactFormSection() {
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold mb-4">
+            <Heading as="h3" level={4} className="mb-4">
               Additional Information
-            </h3>
-            <div className="prose prose-sm text-muted-foreground">
-              <p>
+            </Heading>
+            <div className="text-muted-foreground">
+              <Paragraph>
                 Our support team is available Monday through Friday, 9:00 AM to
                 6:00 PM (CET). For urgent matters outside of business hours,
                 please use our 24/7 emergency support line.
-              </p>
-              <p className="mt-4">
+              </Paragraph>
+              <Paragraph className="mt-4">
                 For media inquiries, please contact our PR team at
                 press@kopexa.com
-              </p>
+              </Paragraph>
             </div>
           </div>
         </div>

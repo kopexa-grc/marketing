@@ -1,7 +1,8 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight, Shield, Calendar, CheckCircle } from "lucide-react";
+import { Heading, Paragraph } from "../ui/typography";
 
 export default function CTASection() {
   return (
@@ -10,7 +11,7 @@ export default function CTASection() {
         <div className="col-span-full">
           <div className="relative">
             {/* Background with gradient */}
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-primary/5 rounded-3xl" />
+            <div className="absolute inset-0 bg-accent rounded-3xl" />
 
             {/* Content */}
             <div className="relative p-8 md:p-12 lg:p-16 flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
@@ -38,62 +39,70 @@ export default function CTASection() {
 
               {/* Right side - Stats/Features */}
               <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Card className="p-6 bg-white/50 backdrop-blur-sm">
-                  <div className="flex items-start gap-4">
-                    <div className="p-2 bg-primary/10 rounded-lg">
-                      <Shield className="h-6 w-6 text-primary" />
+                <Card>
+                  <CardContent>
+                    <div className="flex items-start gap-4">
+                      <div className="p-2 bg-primary/10 rounded-lg">
+                        <Shield className="h-6 w-6 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold mb-1">
+                          Enterprise Security
+                        </h3>
+                        <p className="text-sm text-muted-foreground">
+                          Bank-grade encryption and security measures
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">
-                        Enterprise Security
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        Bank-grade encryption and security measures
-                      </p>
-                    </div>
-                  </div>
+                  </CardContent>
                 </Card>
 
-                <Card className="p-6 bg-white/50 backdrop-blur-sm">
-                  <div className="flex items-start gap-4">
+                <Card>
+                  <CardHeader className="flex flex-row gap-4 items-center">
                     <div className="p-2 bg-primary/10 rounded-lg">
                       <Calendar className="h-6 w-6 text-primary" />
                     </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">Quick Setup</h3>
-                      <p className="text-sm text-muted-foreground">
-                        Get started in minutes, not weeks
-                      </p>
-                    </div>
-                  </div>
+                    <Heading as="h3" level={5}>
+                      Quick Setup
+                    </Heading>
+                  </CardHeader>
+                  <CardContent>
+                    <Paragraph level="small" color="muted">
+                      Get started in minutes, not weeks
+                    </Paragraph>
+                  </CardContent>
                 </Card>
 
-                <Card className="p-6 bg-white/50 backdrop-blur-sm">
-                  <div className="flex items-start gap-4">
-                    <div className="p-2 bg-primary/10 rounded-lg">
-                      <CheckCircle className="h-6 w-6 text-primary" />
+                <Card>
+                  <CardContent>
+                    <div className="flex items-start gap-4">
+                      <div className="p-2 bg-primary/10 rounded-lg">
+                        <CheckCircle className="h-6 w-6 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold mb-1">Compliance Ready</h3>
+                        <p className="text-sm text-muted-foreground">
+                          Pre-built templates for major standards
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">Compliance Ready</h3>
-                      <p className="text-sm text-muted-foreground">
-                        Pre-built templates for major standards
-                      </p>
-                    </div>
-                  </div>
+                  </CardContent>
                 </Card>
 
-                <Card className="p-6 bg-white/50 backdrop-blur-sm">
-                  <div className="flex items-start gap-4">
-                    <div className="p-2 bg-primary/10 rounded-lg">
-                      <Shield className="h-6 w-6 text-primary" />
+                <Card>
+                  <CardContent>
+                    <div className="flex items-start gap-4">
+                      <div className="p-2 bg-primary/10 rounded-lg">
+                        <Shield className="h-6 w-6 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold mb-1">24/7 Support</h3>
+                        <p className="text-sm text-muted-foreground">
+                          Expert assistance whenever you need it
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">24/7 Support</h3>
-                      <p className="text-sm text-muted-foreground">
-                        Expert assistance whenever you need it
-                      </p>
-                    </div>
-                  </div>
+                  </CardContent>
                 </Card>
               </div>
             </div>

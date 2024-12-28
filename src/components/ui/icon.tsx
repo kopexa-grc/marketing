@@ -2,8 +2,10 @@ import { cn } from "@/lib/utils";
 import { icons } from "lucide-react";
 import { memo } from "react";
 
+export type IconName = keyof typeof icons;
+
 export type IconProps = {
-  name: keyof typeof icons;
+  name: IconName;
   className?: string;
   strokeWidth?: number;
 };

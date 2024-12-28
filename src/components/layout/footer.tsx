@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Separator } from "../ui/separator";
 import { type ComponentPropsWithoutRef, forwardRef } from "react";
 import { cn } from "@/lib/utils";
+import type { Footer as FooterType } from "@/payload-types";
 
 const legal = [
   {
@@ -50,11 +51,11 @@ const items = [
     links: [
       {
         label: "Company",
-        href: "#",
+        href: "/about-us",
       },
       {
         label: "Careers",
-        href: "#",
+        href: "/careers",
       },
     ],
   },
@@ -77,13 +78,29 @@ const items = [
   },
 ];
 
-export const Footer = () => {
+export type FooterProps = {
+  footer: FooterType;
+};
+
+export const Footer = ({ footer }: FooterProps) => {
+  const { columns = [] } = footer;
+
   return (
-    <footer className="layout mt-12">
+    <footer className="layout mt-40">
       <div className="col-span-full">
         <div>{/** mobile */}</div>
         <div className="hidden lg:flex flex:justify-between lg:mb-24">
           {/** desktop */}
+          {columns?.map((column) => (
+            <div
+              key={`${column.id}`}
+              className="text-start border-b lg:w-1/4 lg:shrink-0 lg:border-none hidden"
+            >
+              <span className="block text-sm leading-none font-semibold lg:mb-6">
+                {column.label}
+              </span>
+            </div>
+          ))}
           {items.map((item) => (
             <FooterSection key={item.label} section={item} />
           ))}

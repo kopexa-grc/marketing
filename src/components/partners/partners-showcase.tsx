@@ -53,7 +53,7 @@ export function PartnersShowcase() {
         {featuredPartners.map((partner) => (
           <Card
             key={partner.name}
-            className={`col-span-full lg:col-span-8 lg:col-start-3`}
+            className={"col-span-full lg:col-span-8 lg:col-start-3"}
           >
             <div className="p-6">
               <div className="flex items-start gap-6">
@@ -75,7 +75,6 @@ export function PartnersShowcase() {
                       {partner.type}
                     </Badge>
                     <Badge
-                      variant="secondary"
                       className={`rounded-full ${
                         partner.level === "Platinum"
                           ? "bg-primary/10 text-primary"
@@ -95,7 +94,7 @@ export function PartnersShowcase() {
                     {partner.specialties.map((specialty) => (
                       <Badge
                         key={specialty}
-                        variant="secondary"
+                        variant="outline"
                         className="rounded-full"
                       >
                         {specialty}
