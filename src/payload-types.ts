@@ -83,7 +83,7 @@ export interface Page {
   fullTitle?: string | null;
   noindex?: boolean | null;
   hero: {
-    type: 'default';
+    type: 'default' | 'hero';
     tagline?: string | null;
     heading?: string | null;
     description?: {
@@ -120,7 +120,7 @@ export interface Page {
           id?: string | null;
         }[]
       | null;
-    media: number | Media;
+    media?: (number | null) | Media;
   };
   layout: (CallToActionBlock | PromoCardBlock | TextWithImageBlock | DividerBlock | MetricsBlock)[];
   publishedAt?: string | null;

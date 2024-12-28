@@ -16,6 +16,10 @@ export const hero: Field = {
           label: "Default",
           value: "default",
         },
+        {
+          label: "Hero",
+          value: "hero",
+        },
       ],
       required: true,
     },
@@ -23,7 +27,7 @@ export const hero: Field = {
       name: "tagline",
       type: "text",
       admin: {
-        condition: (_, { type }) => type === "default",
+        condition: (_, { type }) => type === "default" || type === "hero",
       },
     },
     {
@@ -39,7 +43,7 @@ export const hero: Field = {
       name: "media",
       type: "upload",
       relationTo: "media",
-      required: true,
+      required: false,
     },
   ],
 };
