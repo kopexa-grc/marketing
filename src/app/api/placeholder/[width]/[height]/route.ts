@@ -3,11 +3,19 @@ import type { NextRequest } from "next/server";
 
 export const runtime = "edge";
 
+interface Context {
+  params: Promise<{
+    width: string;
+    height: string;
+  }>;
+}
+
 export async function GET(
   request: NextRequest,
-  { params }: { params: { width: string; height: string } }
+  { params: promiseParams }: Context
 ): Promise<ImageResponse> {
   try {
+    const params = await promiseParams;
     const width = Number.parseInt(params.width);
     const height = Number.parseInt(params.height);
 

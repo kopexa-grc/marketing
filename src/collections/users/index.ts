@@ -1,4 +1,3 @@
-import { authenticated } from "@/lib/access/authenticated";
 import {
   isAdmin,
   isAdminFieldLevel,

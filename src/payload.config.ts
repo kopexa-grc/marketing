@@ -17,6 +17,7 @@ import { Footer } from "./globals/footer";
 import { Partners } from "./collections/partners";
 import { PartnerProgram } from "./globals/partner-program";
 import { MainMenu } from "./globals/main-menu";
+import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -62,6 +63,17 @@ export default buildConfig({
       generateLabel: (_, doc) => doc.title as string,
       generateURL: (docs) =>
         docs.reduce((url, doc) => `${url}/${doc.slug as string}`, ""),
+    }),
+    vercelBlobStorage({
+      cacheControlMaxAge: 60 * 60 * 24 * 365, // 1 year
+      collections: {
+        media: {
+          generateFileURL: ({ filename }) =>
+            `https://${process.env.BLOB_STORE_ID}/${filename}`,
+        },
+      },
+      enabled: Boolean(process.env.BLOB_STORAGE_ENABLED) || false,
+      token: process.env.BLOB_READ_WRITE_TOKEN || "",
     }),
   ],
 });
