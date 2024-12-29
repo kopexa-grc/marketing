@@ -12,6 +12,7 @@ import { TextWithImage } from "@/blocks/text-with-image/config";
 import { Divider } from "@/blocks/divider/config";
 import { Metrics } from "@/blocks/metrics/config";
 import { Content } from "@/blocks/content/config";
+import { CardGrid } from "@/blocks/card-grid/config";
 
 export const Pages: CollectionConfig<"pages"> = {
   slug: "pages",
@@ -82,6 +83,7 @@ export const Pages: CollectionConfig<"pages"> = {
                 Divider,
                 Metrics,
                 Content,
+                CardGrid,
               ],
               required: true,
               admin: {

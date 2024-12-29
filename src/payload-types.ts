@@ -104,26 +104,21 @@ export interface Page {
     } | null;
     links?:
       | {
-          link: {
-            type?: ('reference' | 'custom') | null;
-            newTab?: boolean | null;
-            reference?: {
-              relationTo: 'pages';
-              value: number | Page;
-            } | null;
-            url?: string | null;
-            label: string;
-            /**
-             * Choose how the link should be rendered.
-             */
-            appearance?: ('default' | 'outline') | null;
-          };
+          link: CMSLinkField;
           id?: string | null;
         }[]
       | null;
     media?: (number | null) | Media;
   };
-  layout: (CallToActionBlock | PromoCardBlock | TextWithImageBlock | DividerBlock | MetricsBlock | ContentBlock)[];
+  layout: (
+    | CallToActionBlock
+    | PromoCardBlock
+    | TextWithImageBlock
+    | DividerBlock
+    | MetricsBlock
+    | ContentBlock
+    | CardGridBlock
+  )[];
   publishedAt?: string | null;
   slug?: string | null;
   slugLock?: boolean | null;
@@ -147,6 +142,24 @@ export interface Page {
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CMSLinkField".
+ */
+export interface CMSLinkField {
+  type?: ('reference' | 'custom') | null;
+  newTab?: boolean | null;
+  reference?: {
+    relationTo: 'pages';
+    value: number | Page;
+  } | null;
+  url?: string | null;
+  label: string;
+  /**
+   * Choose how the link should be rendered.
+   */
+  appearance?: ('default' | 'outline') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -190,17 +203,7 @@ export interface CallToActionBlock {
   } | null;
   links?:
     | {
-        link: {
-          type?: ('reference' | 'custom') | null;
-          newTab?: boolean | null;
-          reference?: {
-            relationTo: 'pages';
-            value: number | Page;
-          } | null;
-          url?: string | null;
-          label: string;
-          description?: string | null;
-        };
+        link: CMSLinkField;
         id?: string | null;
       }[]
     | null;
@@ -215,20 +218,7 @@ export interface CallToActionBlock {
 export interface PromoCardBlock {
   heading: string;
   description?: string | null;
-  link: {
-    type?: ('reference' | 'custom') | null;
-    newTab?: boolean | null;
-    reference?: {
-      relationTo: 'pages';
-      value: number | Page;
-    } | null;
-    url?: string | null;
-    label: string;
-    /**
-     * Choose how the link should be rendered.
-     */
-    appearance?: ('default' | 'outline') | null;
-  };
+  link: CMSLinkField;
   dark?: boolean | null;
   icon?: 'Sparkles' | null;
   id?: string | null;
@@ -356,6 +346,37 @@ export interface ContentBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'content';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CardGridBlock".
+ */
+export interface CardGridBlock {
+  heading?: string | null;
+  description?: string | null;
+  layout?: ('grid' | 'list' | 'masonry') | null;
+  cards?:
+    | {
+        title: string;
+        subtitle?: string | null;
+        description?: string | null;
+        media?: (number | null) | Media;
+        link: CMSLinkField;
+        appearance?: {
+          theme?: ('default' | 'primary' | 'secondary') | null;
+          enableHover?: boolean | null;
+          aspectRatio?: ('16/9' | '4/3' | '1/1' | 'auto') | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  settings?: {
+    columns?: ('2' | '3' | '4') | null;
+    gap?: ('small' | 'medium' | 'large') | null;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'cardGrid';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -682,16 +703,7 @@ export interface PagesSelect<T extends boolean = true> {
         links?:
           | T
           | {
-              link?:
-                | T
-                | {
-                    type?: T;
-                    newTab?: T;
-                    reference?: T;
-                    url?: T;
-                    label?: T;
-                    appearance?: T;
-                  };
+              link?: T | CMSLinkFieldSelect<T>;
               id?: T;
             };
         media?: T;
@@ -705,6 +717,7 @@ export interface PagesSelect<T extends boolean = true> {
         divider?: T | DividerBlockSelect<T>;
         metrics?: T | MetricsBlockSelect<T>;
         content?: T | ContentBlockSelect<T>;
+        cardGrid?: T | CardGridBlockSelect<T>;
       };
   publishedAt?: T;
   slug?: T;
@@ -731,6 +744,18 @@ export interface PagesSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CMSLinkField_select".
+ */
+export interface CMSLinkFieldSelect<T extends boolean = true> {
+  type?: T;
+  newTab?: T;
+  reference?: T;
+  url?: T;
+  label?: T;
+  appearance?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "CallToActionBlock_select".
  */
 export interface CallToActionBlockSelect<T extends boolean = true> {
@@ -739,16 +764,7 @@ export interface CallToActionBlockSelect<T extends boolean = true> {
   links?:
     | T
     | {
-        link?:
-          | T
-          | {
-              type?: T;
-              newTab?: T;
-              reference?: T;
-              url?: T;
-              label?: T;
-              description?: T;
-            };
+        link?: T | CMSLinkFieldSelect<T>;
         id?: T;
       };
   id?: T;
@@ -761,16 +777,7 @@ export interface CallToActionBlockSelect<T extends boolean = true> {
 export interface PromoCardBlockSelect<T extends boolean = true> {
   heading?: T;
   description?: T;
-  link?:
-    | T
-    | {
-        type?: T;
-        newTab?: T;
-        reference?: T;
-        url?: T;
-        label?: T;
-        appearance?: T;
-      };
+  link?: T | CMSLinkFieldSelect<T>;
   dark?: T;
   icon?: T;
   id?: T;
@@ -821,6 +828,40 @@ export interface ContentBlockSelect<T extends boolean = true> {
   columnOne?: T;
   columnTwo?: T;
   columnThree?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CardGridBlock_select".
+ */
+export interface CardGridBlockSelect<T extends boolean = true> {
+  heading?: T;
+  description?: T;
+  layout?: T;
+  cards?:
+    | T
+    | {
+        title?: T;
+        subtitle?: T;
+        description?: T;
+        media?: T;
+        link?: T | CMSLinkFieldSelect<T>;
+        appearance?:
+          | T
+          | {
+              theme?: T;
+              enableHover?: T;
+              aspectRatio?: T;
+            };
+        id?: T;
+      };
+  settings?:
+    | T
+    | {
+        columns?: T;
+        gap?: T;
+      };
   id?: T;
   blockName?: T;
 }
@@ -1066,28 +1107,12 @@ export interface MainMenu {
     | {
         label: string;
         enableDirectLink?: boolean | null;
-        link?: {
-          type?: ('reference' | 'custom') | null;
-          newTab?: boolean | null;
-          reference?: {
-            relationTo: 'pages';
-            value: number | Page;
-          } | null;
-          url?: string | null;
-        };
+        link?: CMSLinkField;
         navItems?:
           | {
               label: string;
               description?: string | null;
-              link?: {
-                type?: ('reference' | 'custom') | null;
-                newTab?: boolean | null;
-                reference?: {
-                  relationTo: 'pages';
-                  value: number | Page;
-                } | null;
-                url?: string | null;
-              };
+              link?: CMSLinkField;
               id?: string | null;
             }[]
           | null;
@@ -1096,20 +1121,7 @@ export interface MainMenu {
     | null;
   ctas?:
     | {
-        link: {
-          type?: ('reference' | 'custom') | null;
-          newTab?: boolean | null;
-          reference?: {
-            relationTo: 'pages';
-            value: number | Page;
-          } | null;
-          url?: string | null;
-          label: string;
-          /**
-           * Choose how the link should be rendered.
-           */
-          appearance?: ('default' | 'outline') | null;
-        };
+        link: CMSLinkField;
         id?: string | null;
       }[]
     | null;
@@ -1127,16 +1139,7 @@ export interface Footer {
         label: string;
         navItems?:
           | {
-              link: {
-                type?: ('reference' | 'custom') | null;
-                newTab?: boolean | null;
-                reference?: {
-                  relationTo: 'pages';
-                  value: number | Page;
-                } | null;
-                url?: string | null;
-                label: string;
-              };
+              link: CMSLinkField;
               id?: string | null;
             }[]
           | null;
@@ -1169,27 +1172,13 @@ export interface MainMenuSelect<T extends boolean = true> {
     | {
         label?: T;
         enableDirectLink?: T;
-        link?:
-          | T
-          | {
-              type?: T;
-              newTab?: T;
-              reference?: T;
-              url?: T;
-            };
+        link?: T | CMSLinkFieldSelect<T>;
         navItems?:
           | T
           | {
               label?: T;
               description?: T;
-              link?:
-                | T
-                | {
-                    type?: T;
-                    newTab?: T;
-                    reference?: T;
-                    url?: T;
-                  };
+              link?: T | CMSLinkFieldSelect<T>;
               id?: T;
             };
         id?: T;
@@ -1197,16 +1186,7 @@ export interface MainMenuSelect<T extends boolean = true> {
   ctas?:
     | T
     | {
-        link?:
-          | T
-          | {
-              type?: T;
-              newTab?: T;
-              reference?: T;
-              url?: T;
-              label?: T;
-              appearance?: T;
-            };
+        link?: T | CMSLinkFieldSelect<T>;
         id?: T;
       };
   updatedAt?: T;
@@ -1225,15 +1205,7 @@ export interface FooterSelect<T extends boolean = true> {
         navItems?:
           | T
           | {
-              link?:
-                | T
-                | {
-                    type?: T;
-                    newTab?: T;
-                    reference?: T;
-                    url?: T;
-                    label?: T;
-                  };
+              link?: T | CMSLinkFieldSelect<T>;
               id?: T;
             };
         id?: T;

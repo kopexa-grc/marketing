@@ -52,7 +52,10 @@ export const CallToActionBlock = ({ title, description, links, id }: Props) => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                {link.description && <Paragraph>{link.description}</Paragraph>}
+                {
+                  // @ts-expect-error intented
+                  link.description && <Paragraph>{link.description}</Paragraph>
+                }
                 <div className="flex items-center justify-end">
                   <div className="rounded-full size-8 bg-black group-hover:bg-primary text-primary-foreground grid place-content-center transition-colors duration-300">
                     <Icon className="size-4" name="ArrowRight" />

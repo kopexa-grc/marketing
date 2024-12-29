@@ -5,6 +5,7 @@ import { TextWithImageBlock } from "./text-with-image/text-with-image-block";
 import { DividerBlock } from "./divider/divider-block";
 import { MetricsBlock } from "./metrics/metrics-block";
 import { ContentBlock } from "./content/content-block";
+import { CardGridBlock } from "./card-grid/card-grid-block";
 
 type Block = Page["layout"][0];
 
@@ -34,6 +35,9 @@ export const RenderBlocks = ({ blocks }: RenderBlocksProps) => {
       }
       case "content": {
         return <ContentBlock key={`${block.id}`} {...block} />;
+      }
+      case "cardGrid": {
+        return <CardGridBlock key={`${block.id}`} {...block} />;
       }
       default: {
         return null;

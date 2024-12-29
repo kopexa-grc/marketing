@@ -30,6 +30,7 @@ export const link: LinkType = ({
   const linkResult: Field = {
     name: "link",
     type: "group",
+    interfaceName: "CMSLinkField",
     admin: {
       hideGutter: true,
     },
