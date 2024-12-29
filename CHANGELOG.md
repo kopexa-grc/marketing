@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/kopexa-grc/marketing/compare/v1.0.0...v1.1.0) (2024-12-29)
+
+
+### Features
+
+* migrations ([1e60b6f](https://github.com/kopexa-grc/marketing/commit/1e60b6ff10a05e699d4003d7527bf1e5f7099e39))
+
 ## 1.0.0 (2024-12-29)
 
 
