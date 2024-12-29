@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.2.0](https://github.com/kopexa-grc/marketing/compare/v1.1.0...v1.2.0) (2024-12-29)
+
+
+### Features
+
+* added content and modified heros ([b4494d6](https://github.com/kopexa-grc/marketing/commit/b4494d66e5bb01cd6107971576529c1a237cf925))
+* new card grid block ([66ef92c](https://github.com/kopexa-grc/marketing/commit/66ef92c1099fe9e41543abad5ef99da6e8e75cc3))
+
+
+### Bug Fixes
+
+* url generation ([859af81](https://github.com/kopexa-grc/marketing/commit/859af8130d07d01473b676a5f7c4d52a35e0f2e9))
+
 ## [1.1.0](https://github.com/kopexa-grc/marketing/compare/v1.0.0...v1.1.0) (2024-12-29)
 
 
