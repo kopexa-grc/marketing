@@ -1,0 +1,35 @@
+on:
+  push:
+    branches:
+      - main
+name: release-please
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    permissions:
+      contents: write # to create release commit (google-github-actions/release-please-action)
+      pull-requests: write # to create release PR (google-github-actions/release-please-action)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: googleapis/release-please-action@v4
+        id: release
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          release-type: node
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - if: ${{ steps.release.outputs.release_created }}
+        name: Push to release branch
+        run: |
+          git checkout release || git checkout -b release
+          git merge --ff-only main
+          git push origin release
