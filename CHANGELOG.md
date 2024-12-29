@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.1](https://github.com/kopexa-grc/marketing/compare/v1.2.0...v1.2.1) (2024-12-29)
+
+
+### Bug Fixes
+
+* card footer arrow placement ([4c4cfbe](https://github.com/kopexa-grc/marketing/commit/4c4cfbec6c9d6ea7218dc6611b80b7292c6722f6))
+* fixed color palette ([513f15f](https://github.com/kopexa-grc/marketing/commit/513f15fdf7aa96876995008747d0e3eb42e4768b))
+
 ## [1.2.0](https://github.com/kopexa-grc/marketing/compare/v1.1.0...v1.2.0) (2024-12-29)
 
 
