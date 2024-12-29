@@ -25,8 +25,19 @@ const styles = tv({
       "transition-all duration-300",
       //"motion-safe:hover:border-primary",
     ],
+    content: [
+      "p-6",
+      "flex flex-col",
+      "h-full", // To allow footer to push to bottom
+    ],
+    contentBody: [
+      "flex-1", // Takes available space
+    ],
+    footer: [
+      "mt-6", // Spacing from content
+      "flex justify-end", // Align arrow to end
+    ],
     arrowWrapper: [
-      "absolute bottom-6 right-6",
       "h-10 w-10",
       "rounded-full",
       "bg-foreground",
@@ -41,7 +52,6 @@ const styles = tv({
       "group-hover:text-primary-foreground",
     ],
     media: ["relative", "w-full", "bg-muted"],
-    content: ["p-6", "relative"],
     cardTitle: ["mb-2"],
     cardSubtitle: ["text-sm", "mb-4"],
     cardDescription: ["text-muted-foreground", "line-clamp-3"],
@@ -220,26 +230,30 @@ export const CardGridBlock = ({
                     </div>
                   )}
                   <div className={css.content()}>
-                    <Heading level={4} as="h3" className={css.cardTitle()}>
-                      {card.title}
-                    </Heading>
+                    <div className={css.contentBody()}>
+                      <Heading level={4} as="h3" className={css.cardTitle()}>
+                        {card.title}
+                      </Heading>
 
-                    {card.subtitle && (
-                      <Paragraph color="muted" className={css.cardSubtitle()}>
-                        {card.subtitle}
-                      </Paragraph>
-                    )}
+                      {card.subtitle && (
+                        <Paragraph color="muted" className={css.cardSubtitle()}>
+                          {card.subtitle}
+                        </Paragraph>
+                      )}
 
-                    {card.description && (
-                      <p className={css.cardDescription()}>
-                        {card.description}
-                      </p>
-                    )}
+                      {card.description && (
+                        <p className={css.cardDescription()}>
+                          {card.description}
+                        </p>
+                      )}
+                    </div>
 
                     {hasLink && (
-                      <div className={css.arrowWrapper()}>
-                        <ArrowRight className={css.arrow()} />
-                      </div>
+                      <footer className={css.footer()}>
+                        <div className={css.arrowWrapper()}>
+                          <ArrowRight className={css.arrow()} />
+                        </div>
+                      </footer>
                     )}
                   </div>
                 </CardWrapper>
