@@ -1,4 +1,4 @@
-import type { Page } from "@/payload-types";
+import type { CMSLinkField, Page } from "@/payload-types";
 import { buttonVariants, type ButtonProps } from "../ui/button";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -21,6 +21,43 @@ type CMSLinkType = {
   "aria-describedby"?: string;
 };
 
+type LinkType = CMSLinkField["type"];
+type Reference = CMSLinkField["reference"];
+
+type GenerateSlugType = {
+  reference?: Reference;
+  type?: LinkType;
+  url?: null | string;
+};
+
+const generateHref = (args: GenerateSlugType) => {
+  const { type, reference, url } = args;
+
+  if ((type === "custom" || type === undefined) && url) {
+    return url;
+  }
+
+  if (
+    type === "reference" &&
+    reference?.value &&
+    typeof reference.value !== "string"
+  ) {
+    if (reference.relationTo === "pages") {
+      const value = reference.value as Page;
+      const breadcrumbs = value?.breadcrumbs;
+      const hasBreadcrumbs =
+        breadcrumbs && Array.isArray(breadcrumbs) && breadcrumbs.length > 0;
+      if (hasBreadcrumbs) {
+        return breadcrumbs[breadcrumbs.length - 1]?.url as string;
+      }
+    }
+
+    return "";
+  }
+
+  return "";
+};
+
 /**
  * Renders a Link based on the Link Field.
  */
@@ -37,14 +74,7 @@ export const CMSLink = ({
   "aria-label": ariaLabel,
   "aria-describedby": ariadescribedby,
 }: CMSLinkType) => {
-  const href =
-    type === "reference" &&
-    typeof reference?.value === "object" &&
-    reference.value.slug
-      ? `${reference?.relationTo !== "pages" ? `/${reference?.relationTo}` : ""}/${
-          reference.value.slug
-        }`
-      : url;
+  const href = generateHref({ type, reference, url });
 
   if (!href) return null;
 
