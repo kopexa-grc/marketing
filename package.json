@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "engines": {
-    "node": ">=21.0.0"
+    "node": "^18.20.2 || >=20.9.0"
   },
+  "type": "module",
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev --turbopack",
     "generate:importmap": "payload generate:importmap",
     "generate:types": "payload generate:types",
     "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
