@@ -24,6 +24,25 @@ export const hero: Field = {
       required: true,
     },
     {
+      name: "layout",
+      type: "select",
+      label: "Layout",
+      enumName: "enum_hero_layout",
+      options: [
+        {
+          label: "Centered",
+          value: "centered",
+        },
+        {
+          label: "Start (left)",
+          value: "start",
+        },
+      ],
+      admin: {
+        condition: (_, { type }) => type === "hero",
+      },
+    },
+    {
       name: "tagline",
       type: "text",
       admin: {

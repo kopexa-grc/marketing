@@ -4,6 +4,7 @@ import { PromoCardBlock } from "./promo-card/promo-card-block";
 import { TextWithImageBlock } from "./text-with-image/text-with-image-block";
 import { DividerBlock } from "./divider/divider-block";
 import { MetricsBlock } from "./metrics/metrics-block";
+import { ContentBlock } from "./content/content-block";
 
 type Block = Page["layout"][0];
 
@@ -30,6 +31,9 @@ export const RenderBlocks = ({ blocks }: RenderBlocksProps) => {
       }
       case "metrics": {
         return <MetricsBlock key={`${block.id}`} {...block} />;
+      }
+      case "content": {
+        return <ContentBlock key={`${block.id}`} {...block} />;
       }
       default: {
         return null;

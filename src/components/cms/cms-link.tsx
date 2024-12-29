@@ -17,6 +17,8 @@ type CMSLinkType = {
   url?: string | null;
   type?: ("reference" | "custom") | null;
   className?: string;
+  "aria-label"?: string;
+  "aria-describedby"?: string;
 };
 
 /**
@@ -32,6 +34,8 @@ export const CMSLink = ({
   appearance,
   size,
   children,
+  "aria-label": ariaLabel,
+  "aria-describedby": ariadescribedby,
 }: CMSLinkType) => {
   const href =
     type === "reference" &&
@@ -60,6 +64,8 @@ export const CMSLink = ({
       )}
       href={href || url || ""}
       {...newTabProps}
+      aria-label={ariaLabel}
+      aria-describedby={ariadescribedby}
     >
       {children ? children : label}
     </Link>

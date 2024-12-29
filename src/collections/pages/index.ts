@@ -11,6 +11,7 @@ import { PromoCardBlock } from "@/blocks/promo-card/config";
 import { TextWithImage } from "@/blocks/text-with-image/config";
 import { Divider } from "@/blocks/divider/config";
 import { Metrics } from "@/blocks/metrics/config";
+import { Content } from "@/blocks/content/config";
 
 export const Pages: CollectionConfig<"pages"> = {
   slug: "pages",
@@ -80,6 +81,7 @@ export const Pages: CollectionConfig<"pages"> = {
                 TextWithImage,
                 Divider,
                 Metrics,
+                Content,
               ],
               required: true,
               admin: {

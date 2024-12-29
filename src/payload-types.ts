@@ -84,6 +84,7 @@ export interface Page {
   noindex?: boolean | null;
   hero: {
     type: 'default' | 'hero';
+    layout?: ('centered' | 'start') | null;
     tagline?: string | null;
     heading?: string | null;
     description?: {
@@ -122,7 +123,7 @@ export interface Page {
       | null;
     media?: (number | null) | Media;
   };
-  layout: (CallToActionBlock | PromoCardBlock | TextWithImageBlock | DividerBlock | MetricsBlock)[];
+  layout: (CallToActionBlock | PromoCardBlock | TextWithImageBlock | DividerBlock | MetricsBlock | ContentBlock)[];
   publishedAt?: string | null;
   slug?: string | null;
   slugLock?: boolean | null;
@@ -300,6 +301,61 @@ export interface MetricsBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'metrics';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ContentBlock".
+ */
+export interface ContentBlock {
+  layout?: ('oneColumn' | 'twoColumns' | 'threeColumns') | null;
+  columnOne: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  columnTwo?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  columnThree?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'content';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -619,6 +675,7 @@ export interface PagesSelect<T extends boolean = true> {
     | T
     | {
         type?: T;
+        layout?: T;
         tagline?: T;
         heading?: T;
         description?: T;
@@ -647,6 +704,7 @@ export interface PagesSelect<T extends boolean = true> {
         'text-with-image'?: T | TextWithImageBlockSelect<T>;
         divider?: T | DividerBlockSelect<T>;
         metrics?: T | MetricsBlockSelect<T>;
+        content?: T | ContentBlockSelect<T>;
       };
   publishedAt?: T;
   slug?: T;
@@ -751,6 +809,18 @@ export interface MetricsBlockSelect<T extends boolean = true> {
         value?: T;
         id?: T;
       };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ContentBlock_select".
+ */
+export interface ContentBlockSelect<T extends boolean = true> {
+  layout?: T;
+  columnOne?: T;
+  columnTwo?: T;
+  columnThree?: T;
   id?: T;
   blockName?: T;
 }
