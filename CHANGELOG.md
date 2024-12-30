@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.5.0](https://github.com/kopexa-grc/marketing/compare/v1.4.0...v1.5.0) (2024-12-30)
+
+
+### Features
+
+* solutions showcase ([c38ca66](https://github.com/kopexa-grc/marketing/commit/c38ca6684a5d6988b2920e3269b9bf648d0c17d8))
+
+
+### Bug Fixes
+
+* sql migration ([995ed44](https://github.com/kopexa-grc/marketing/commit/995ed4437a46104ee446df736497f0878e7045dd))
+* sql migration ([29edc24](https://github.com/kopexa-grc/marketing/commit/29edc24b2ef1daa98164e480ae4ba07052428fa7))
+
 ## [1.4.0](https://github.com/kopexa-grc/marketing/compare/v1.3.0...v1.4.0) (2024-12-30)
 
 
