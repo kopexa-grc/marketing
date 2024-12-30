@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.3.0](https://github.com/kopexa-grc/marketing/compare/v1.2.1...v1.3.0) (2024-12-30)
+
+
+### Features
+
+* feature grid block ([761c8ee](https://github.com/kopexa-grc/marketing/commit/761c8eee406003a245420aa3939fbb44f6ce3727))
+
+
+### Bug Fixes
+
+* type issue ([e4a2938](https://github.com/kopexa-grc/marketing/commit/e4a2938f0e53e16b7f1401874b63e400d762c970))
+
 ## [1.2.1](https://github.com/kopexa-grc/marketing/compare/v1.2.0...v1.2.1) (2024-12-29)
 
 
