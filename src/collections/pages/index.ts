@@ -13,6 +13,7 @@ import { Divider } from "@/blocks/divider/config";
 import { Metrics } from "@/blocks/metrics/config";
 import { Content } from "@/blocks/content/config";
 import { CardGrid } from "@/blocks/card-grid/config";
+import { FeatureGrid } from "@/blocks/feature-grid/config";
 
 export const Pages: CollectionConfig<"pages"> = {
   slug: "pages",
@@ -84,6 +85,7 @@ export const Pages: CollectionConfig<"pages"> = {
                 Metrics,
                 Content,
                 CardGrid,
+                FeatureGrid,
               ],
               required: true,
               admin: {

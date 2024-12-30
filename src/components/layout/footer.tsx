@@ -1,19 +1,15 @@
 import Link from "next/link";
 import { Separator } from "../ui/separator";
-import { type ComponentPropsWithoutRef, forwardRef } from "react";
 import { cn } from "@/lib/utils";
 import type { Footer as FooterType } from "@/payload-types";
-
-const legal = [
-  {
-    label: "Imprint/Legal",
-    href: "#",
-  },
-  {
-    label: "Privacy",
-    href: "#",
-  },
-];
+import { CMSLink } from "../cms/cms-link";
+import {
+  ArrowUpRight,
+  GithubIcon,
+  LinkedinIcon,
+  TwitterIcon,
+} from "lucide-react";
+import { Button } from "../ui/button";
 
 const items = [
   {
@@ -83,102 +79,123 @@ export type FooterProps = {
 };
 
 export const Footer = ({ footer }: FooterProps) => {
-  const { columns = [] } = footer;
+  const { columns = [], social, legal } = footer;
 
   return (
-    <footer className="layout mt-40">
-      <div className="col-span-full">
-        <div>{/** mobile */}</div>
-        <div className="hidden lg:flex flex:justify-between lg:mb-24">
-          {/** desktop */}
-          {columns?.map((column) => (
-            <div
-              key={`${column.id}`}
-              className="text-start border-b lg:w-1/4 lg:shrink-0 lg:border-none hidden"
-            >
-              <span className="block text-sm leading-none font-semibold lg:mb-6">
-                {column.label}
-              </span>
-            </div>
-          ))}
-          {items.map((item) => (
-            <FooterSection key={item.label} section={item} />
-          ))}
-        </div>
-        <ul className="flex flex-col mb-16 lg:flex-row lg:flex-wrap lg:justify-center lg:mb-6">
-          {/** bottom */}
-          {legal.map((item, index) => (
-            <li
-              key={item.label}
-              className="mb-6 lg:mb-0 lg:flex lg:items-center"
-            >
-              <Link
-                className="flex items-center transition-colors duration-300 text-sm hover:text-primary"
-                href={item.href}
+    <footer className="mt-40 relative isolate pb-12">
+      {/* Background with subtle gradient and pattern */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background to-muted/50 -z-10" />
+      <div
+        className="absolute inset-0 opacity-[0.03] -z-10"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at center, currentColor 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+        }}
+      />
+      <div className="layout relative">
+        <div className="col-span-full">
+          <div
+            className={cn(
+              "grid gap-12",
+              "grid-cols-1 md:grid-cols-2 lg:grid-cols-4",
+              "mb-16 lg:mb-24"
+            )}
+          >
+            {columns?.map((column) => (
+              <div
+                className={cn("group", "text-start border-b lg:border-none")}
+                key={`${column.id}`}
               >
-                {item.label}
-              </Link>
-              {index < legal.length - 1 && (
-                <Separator
-                  orientation="vertical"
-                  className="hidden lg:block mx-2"
-                />
-              )}
-            </li>
-          ))}
-        </ul>
-        <p className="text-sm lg:text-center md:mb-16 lg:mb-24">
-          &copy; {new Date().getFullYear()} kopexa. All rights reserved.{" "}
-        </p>
+                <h4 className="text-base font-semibold mb-6">{column.label}</h4>
+                <ul className="space-y-3">
+                  {Array.isArray(column.navItems) &&
+                    column.navItems.map((link) => (
+                      <li key={`${link.id}`}>
+                        <CMSLink
+                          {...link.link}
+                          className={cn(
+                            "text-sm text-muted-foreground",
+                            "hover:text-primary transition-colors",
+                            "flex items-center gap-1 group/link"
+                          )}
+                          appearance="none"
+                        >
+                          {link.link.label}
+                          <ArrowUpRight className="h-3 w-3 opacity-0 -translate-y-1 group-hover/link:opacity-100 group-hover/link:translate-y-0 transition-all" />
+                        </CMSLink>
+                      </li>
+                    ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          {/* Social Links */}
+          {social?.links && social.links.length > 0 && (
+            <div className="flex items-center justify-center gap-4 mb-12">
+              {social.links.map((socialLink) => (
+                <Button
+                  key={socialLink.platform}
+                  variant="ghost"
+                  size="icon"
+                  className="rounded-full hover:scale-110 transition-transform"
+                  asChild
+                >
+                  <Link href={socialLink.link?.url ?? "#"}>
+                    {socialLink.platform === "twitter" && (
+                      <TwitterIcon className="h-4 w-4" />
+                    )}
+                    {socialLink.platform === "linkedin" && (
+                      <LinkedinIcon className="h-4 w-4" />
+                    )}
+                    {socialLink.platform === "github" && (
+                      <GithubIcon className="h-4 w-4" />
+                    )}
+                  </Link>
+                </Button>
+              ))}
+            </div>
+          )}
+
+          {/* Bottom Section */}
+          <div
+            className={cn(
+              "pt-8 border-t",
+              "flex flex-col lg:flex-row items-center justify-between",
+              "gap-8"
+            )}
+          >
+            {/* Legal Links */}
+            <div className="flex flex-wrap justify-center gap-4">
+              {legal?.links?.map((item, index) => (
+                <div key={item.link?.label} className="flex items-center">
+                  <Link
+                    className={cn(
+                      "text-sm text-muted-foreground",
+                      "hover:text-primary transition-colors",
+                      "flex items-center gap-1 group"
+                    )}
+                    href={item.link?.url ?? "#"}
+                  >
+                    {item.link?.label}
+                    <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </Link>
+                  {index < (legal.links?.length ?? 0) - 1 && (
+                    <Separator orientation="vertical" className="mx-4 h-4" />
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {/* Copyright */}
+            <p className={cn("text-sm text-muted-foreground", "lg:text-right")}>
+              {legal?.copyrightText ??
+                `© ${new Date().getFullYear()} All rights reserved.`}
+            </p>
+          </div>
+        </div>
       </div>
     </footer>
   );
 };
-
-type NavLink = {
-  label: string;
-  href: string;
-};
-
-type Section = {
-  label: string;
-  links: NavLink[];
-};
-
-const FooterSection = forwardRef<
-  HTMLDivElement,
-  ComponentPropsWithoutRef<"div"> & {
-    section: Section;
-  }
->((props, ref) => {
-  const { className, section, ...rest } = props;
-
-  return (
-    <div
-      className={cn(
-        "text-start border-b lg:w-1/4 lg:shrink-0 lg:border-none",
-        className
-      )}
-      {...rest}
-      ref={ref}
-    >
-      <span className="block text-sm leading-none font-semibold lg:mb-6">
-        {section.label}
-      </span>
-      <ul className="space-y-1.5">
-        {section.links.map((link) => (
-          <li key={link.label}>
-            <Link
-              className="transition-colors duration-300 hover:text-primary text-sm"
-              href={link.href}
-            >
-              {link.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-});
-
-FooterSection.displayName = "FooterSection";

@@ -7,9 +7,10 @@ export const Pricing: Block = {
     {
       name: "plans",
       type: "array",
+      required: true,
       fields: [
         {
-          name: "name",
+          name: "planName",
           type: "text",
           required: true,
         },

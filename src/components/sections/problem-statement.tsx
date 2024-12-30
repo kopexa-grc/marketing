@@ -110,7 +110,7 @@ export const ProblemStatement = () => {
                   assessment process to focus on your daily business.
                 </p>
               </PromoCard.Text>
-              <PromoCard.Link href="/product">Get Started</PromoCard.Link>
+              {/* <PromoCard.Link href="/product">Get Started</PromoCard.Link> */}
             </PromoCard.Content>
           </PromoCard.Root>
         </div>

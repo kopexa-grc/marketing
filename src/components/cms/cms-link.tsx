@@ -4,18 +4,11 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import type { ReactNode } from "react";
 
-type CMSLinkType = {
+export type CMSLinkType = CMSLinkField & {
   appearance?: ButtonProps["variant"] | "none";
   size?: ButtonProps["size"];
-  newTab?: boolean | null;
   label?: string | null;
   children?: ReactNode;
-  reference?: {
-    relationTo: "pages";
-    value: number | Page;
-  } | null;
-  url?: string | null;
-  type?: ("reference" | "custom") | null;
   className?: string;
   "aria-label"?: string;
   "aria-describedby"?: string;

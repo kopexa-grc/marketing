@@ -1,7 +1,7 @@
 import { type ComponentPropsWithoutRef, forwardRef } from "react";
 import { buttonVariants } from "./button";
 import { cn } from "@/lib/utils";
-import Link, { type LinkProps } from "next/link";
+import { CMSLink, type CMSLinkType } from "../cms/cms-link";
 
 export type PromoCardRootProps = ComponentPropsWithoutRef<"div">;
 
@@ -65,12 +65,12 @@ PromoCardText.displayName = "PromoCardText";
 
 export const PromoCardLink = forwardRef<
   HTMLAnchorElement,
-  ComponentPropsWithoutRef<"a"> & LinkProps
->((props, ref) => {
+  Omit<ComponentPropsWithoutRef<"a">, "type"> & CMSLinkType
+>((props, _ref) => {
   const { className, ...rest } = props;
 
   return (
-    <Link
+    <CMSLink
       className={cn(
         buttonVariants({
           variant: "outline",
@@ -79,7 +79,6 @@ export const PromoCardLink = forwardRef<
         className
       )}
       {...rest}
-      ref={ref}
     />
   );
 });

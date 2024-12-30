@@ -6,6 +6,56 @@
  * and re-run `payload generate:types` to regenerate this file.
  */
 
+/**
+ * Configure the footer navigation columns
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FooterColumn".
+ */
+export type FooterColumn =
+  | {
+      /**
+       * Section heading
+       */
+      label: string;
+      /**
+       * Links in this section
+       */
+      navItems?:
+        | {
+            link: CMSLinkField;
+            id?: string | null;
+          }[]
+        | null;
+      id?: string | null;
+    }[]
+  | null;
+/**
+ * Add social media links
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FooterSocialMediaLink".
+ */
+export type FooterSocialMediaLink =
+  | {
+      platform: 'twitter' | 'linkedin' | 'github' | 'instagram';
+      link?: CMSLinkField;
+      id?: string | null;
+    }[]
+  | null;
+/**
+ * Add legal/policy links
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FooterLegalLink".
+ */
+export type FooterLegalLink =
+  | {
+      link: CMSLinkField;
+      id?: string | null;
+    }[]
+  | null;
+
 export interface Config {
   auth: {
     users: UserAuthOperations;
@@ -118,6 +168,7 @@ export interface Page {
     | MetricsBlock
     | ContentBlock
     | CardGridBlock
+    | FeatureGridBlock
   )[];
   publishedAt?: string | null;
   slug?: string | null;
@@ -156,10 +207,6 @@ export interface CMSLinkField {
   } | null;
   url?: string | null;
   label: string;
-  /**
-   * Choose how the link should be rendered.
-   */
-  appearance?: ('default' | 'outline') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -377,6 +424,42 @@ export interface CardGridBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'cardGrid';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FeatureGridBlock".
+ */
+export interface FeatureGridBlock {
+  layout?: ('grid' | 'list' | 'masonry') | null;
+  headline: {
+    title: string;
+    description: string;
+    alignment?: ('center' | 'left' | 'right') | null;
+  };
+  cards?:
+    | {
+        /**
+         * Name of the Lucide icon to use
+         */
+        icon: string;
+        title: string;
+        description: string;
+        id?: string | null;
+      }[]
+    | null;
+  showPromoCard?: boolean | null;
+  /**
+   * Optional promotional card at the bottom
+   */
+  promoCard?: {
+    dark?: boolean | null;
+    title?: string | null;
+    description?: string | null;
+    link: CMSLinkField;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'featureGrid';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -718,6 +801,7 @@ export interface PagesSelect<T extends boolean = true> {
         metrics?: T | MetricsBlockSelect<T>;
         content?: T | ContentBlockSelect<T>;
         cardGrid?: T | CardGridBlockSelect<T>;
+        featureGrid?: T | FeatureGridBlockSelect<T>;
       };
   publishedAt?: T;
   slug?: T;
@@ -752,7 +836,6 @@ export interface CMSLinkFieldSelect<T extends boolean = true> {
   reference?: T;
   url?: T;
   label?: T;
-  appearance?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -861,6 +944,39 @@ export interface CardGridBlockSelect<T extends boolean = true> {
     | {
         columns?: T;
         gap?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FeatureGridBlock_select".
+ */
+export interface FeatureGridBlockSelect<T extends boolean = true> {
+  layout?: T;
+  headline?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        alignment?: T;
+      };
+  cards?:
+    | T
+    | {
+        icon?: T;
+        title?: T;
+        description?: T;
+        id?: T;
+      };
+  showPromoCard?: T;
+  promoCard?:
+    | T
+    | {
+        dark?: T;
+        title?: T;
+        description?: T;
+        link?: T | CMSLinkFieldSelect<T>;
       };
   id?: T;
   blockName?: T;
@@ -1134,18 +1250,17 @@ export interface MainMenu {
  */
 export interface Footer {
   id: number;
-  columns?:
-    | {
-        label: string;
-        navItems?:
-          | {
-              link: CMSLinkField;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-      }[]
-    | null;
+  columns?: FooterColumn;
+  social?: {
+    links?: FooterSocialMediaLink;
+  };
+  legal?: {
+    links?: FooterLegalLink;
+    /**
+     * Custom copyright text (optional)
+     */
+    copyrightText?: string | null;
+  };
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -1198,21 +1313,52 @@ export interface MainMenuSelect<T extends boolean = true> {
  * via the `definition` "footer_select".
  */
 export interface FooterSelect<T extends boolean = true> {
-  columns?:
+  columns?: T | FooterColumnSelect<T>;
+  social?:
     | T
     | {
-        label?: T;
-        navItems?:
-          | T
-          | {
-              link?: T | CMSLinkFieldSelect<T>;
-              id?: T;
-            };
-        id?: T;
+        links?: T | FooterSocialMediaLinkSelect<T>;
+      };
+  legal?:
+    | T
+    | {
+        links?: T | FooterLegalLinkSelect<T>;
+        copyrightText?: T;
       };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FooterColumn_select".
+ */
+export interface FooterColumnSelect<T extends boolean = true> {
+  label?: T;
+  navItems?:
+    | T
+    | {
+        link?: T | CMSLinkFieldSelect<T>;
+        id?: T;
+      };
+  id?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FooterSocialMediaLink_select".
+ */
+export interface FooterSocialMediaLinkSelect<T extends boolean = true> {
+  platform?: T;
+  link?: T | CMSLinkFieldSelect<T>;
+  id?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FooterLegalLink_select".
+ */
+export interface FooterLegalLinkSelect<T extends boolean = true> {
+  link?: T | CMSLinkFieldSelect<T>;
+  id?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

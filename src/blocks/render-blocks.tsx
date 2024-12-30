@@ -6,6 +6,7 @@ import { DividerBlock } from "./divider/divider-block";
 import { MetricsBlock } from "./metrics/metrics-block";
 import { ContentBlock } from "./content/content-block";
 import { CardGridBlock } from "./card-grid/card-grid-block";
+import { FeatureGridBlock } from "./feature-grid/feature-grid-block";
 
 type Block = Page["layout"][0];
 
@@ -38,6 +39,9 @@ export const RenderBlocks = ({ blocks }: RenderBlocksProps) => {
       }
       case "cardGrid": {
         return <CardGridBlock key={`${block.id}`} {...block} />;
+      }
+      case "featureGrid": {
+        return <FeatureGridBlock key={`${block.id}`} {...block} />;
       }
       default: {
         return null;
