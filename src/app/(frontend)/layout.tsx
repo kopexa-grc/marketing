@@ -50,7 +50,9 @@ export default async function RootLayout({
           <link href="https://www.google-analytics.com" rel="preconnect" />
           <GoogleAnalytics />
         </head>
-        <body className={`antialiased ${ManropeFont.variable}`}>
+        <body
+          className={`antialiased bg-background text-foreground ${ManropeFont.variable}`}
+        >
           <GoogleTagManager />
           <Providers>
             <Header mainMenu={mainMenu} />

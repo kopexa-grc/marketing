@@ -1,8 +1,8 @@
+import { ColorMode } from "@/components/cms/color-mode";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Icon, type IconName } from "@/components/ui/icon";
 import { PromoCard } from "@/components/ui/promo-card";
 import { Heading, Paragraph } from "@/components/ui/typography";
-import { cn } from "@/lib/utils";
 import type { FeatureGridBlock as FeatureGridBlockProps } from "@/payload-types";
 import { tv } from "tailwind-variants";
 
@@ -67,6 +67,7 @@ export const FeatureGridBlock = ({
   cards = [],
   showPromoCard,
   promoCard,
+  theme,
 }: Props) => {
   const css = styles({
     layout: layout ?? "grid",
@@ -74,7 +75,7 @@ export const FeatureGridBlock = ({
   });
 
   return (
-    <section className={css.root()}>
+    <ColorMode as="section" theme={theme} className={css.root()}>
       <div className={css.container()}>
         {/* Header */}
         {headline && (
@@ -114,8 +115,8 @@ export const FeatureGridBlock = ({
 
         {/* Optional Promo Card */}
         {showPromoCard && promoCard?.title && promoCard?.description && (
-          <div className="col-span-full">
-            <PromoCard.Root className={cn(promoCard.dark && "dark")}>
+          <ColorMode className="col-span-full" theme={promoCard.theme}>
+            <PromoCard.Root>
               <PromoCard.Content>
                 <PromoCard.Text>
                   <p className="text-2xl font-semibold mb-3">
@@ -130,9 +131,9 @@ export const FeatureGridBlock = ({
                 )}
               </PromoCard.Content>
             </PromoCard.Root>
-          </div>
+          </ColorMode>
         )}
       </div>
-    </section>
+    </ColorMode>
   );
 };

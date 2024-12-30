@@ -1,4 +1,5 @@
 import { link } from "@/fields/link";
+import { themeField } from "@/fields/theme";
 import type { Block } from "payload";
 
 export const FeatureGrid: Block = {
@@ -9,6 +10,7 @@ export const FeatureGrid: Block = {
     plural: "Feature Grids",
   },
   fields: [
+    themeField(),
     {
       name: "layout",
       type: "select",
@@ -92,17 +94,7 @@ export const FeatureGrid: Block = {
         condition: (_, siblingData) => siblingData?.showPromoCard,
       },
       fields: [
-        {
-          name: "dark",
-          type: "checkbox",
-          label: "Is dark?",
-          admin: {
-            style: {
-              alignSelf: "flex-end",
-            },
-            width: "50%",
-          },
-        },
+        themeField(),
         {
           name: "title",
           type: "text",

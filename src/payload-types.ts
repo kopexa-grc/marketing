@@ -430,6 +430,7 @@ export interface CardGridBlock {
  * via the `definition` "FeatureGridBlock".
  */
 export interface FeatureGridBlock {
+  theme: ThemeField;
   layout?: ('grid' | 'list' | 'masonry') | null;
   headline: {
     title: string;
@@ -452,7 +453,7 @@ export interface FeatureGridBlock {
    * Optional promotional card at the bottom
    */
   promoCard?: {
-    dark?: boolean | null;
+    theme: ThemeField;
     title?: string | null;
     description?: string | null;
     link: CMSLinkField;
@@ -460,6 +461,13 @@ export interface FeatureGridBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'featureGrid';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ThemeField".
+ */
+export interface ThemeField {
+  colorMode: 'light' | 'dark';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -953,6 +961,7 @@ export interface CardGridBlockSelect<T extends boolean = true> {
  * via the `definition` "FeatureGridBlock_select".
  */
 export interface FeatureGridBlockSelect<T extends boolean = true> {
+  theme?: T | ThemeFieldSelect<T>;
   layout?: T;
   headline?:
     | T
@@ -973,13 +982,20 @@ export interface FeatureGridBlockSelect<T extends boolean = true> {
   promoCard?:
     | T
     | {
-        dark?: T;
+        theme?: T | ThemeFieldSelect<T>;
         title?: T;
         description?: T;
         link?: T | CMSLinkFieldSelect<T>;
       };
   id?: T;
   blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ThemeField_select".
+ */
+export interface ThemeFieldSelect<T extends boolean = true> {
+  colorMode?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

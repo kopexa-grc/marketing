@@ -5,7 +5,7 @@ import { tv, type VariantProps } from "tailwind-variants";
 import { cn } from "@/lib/utils";
 
 export const headingVariants = tv({
-  base: "font-semibold m-0",
+  base: "font-semibold m-0 text-foreground",
   variants: {
     level: {
       1: "text-4xl md:text-5xl lg:text-7xl",
