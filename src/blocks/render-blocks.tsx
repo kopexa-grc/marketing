@@ -7,6 +7,7 @@ import { MetricsBlock } from "./metrics/metrics-block";
 import { ContentBlock } from "./content/content-block";
 import { CardGridBlock } from "./card-grid/card-grid-block";
 import { FeatureGridBlock } from "./feature-grid/feature-grid-block";
+import { SolutionShowcaseBlock } from "./solution-showcase/solution-showcase-block";
 
 type Block = Page["layout"][0];
 
@@ -42,6 +43,9 @@ export const RenderBlocks = ({ blocks }: RenderBlocksProps) => {
       }
       case "featureGrid": {
         return <FeatureGridBlock key={`${block.id}`} {...block} />;
+      }
+      case "solutionShowcase": {
+        return <SolutionShowcaseBlock key={`${block.id}`} {...block} />;
       }
       default: {
         return null;

@@ -169,6 +169,7 @@ export interface Page {
     | ContentBlock
     | CardGridBlock
     | FeatureGridBlock
+    | SolutionShowcaseBlock
   )[];
   publishedAt?: string | null;
   slug?: string | null;
@@ -468,6 +469,38 @@ export interface FeatureGridBlock {
  */
 export interface ThemeField {
   colorMode: 'light' | 'dark';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SolutionShowcaseBlock".
+ */
+export interface SolutionShowcaseBlock {
+  theme: ThemeField;
+  heading: {
+    title: string;
+    description?: string | null;
+    alignment?: ('center' | 'left') | null;
+  };
+  /**
+   * Add solutions or use cases to display
+   */
+  solutions: {
+    theme: ThemeField;
+    title: string;
+    description: string;
+    media?: {
+      mediaType?: ('image' | 'icon') | null;
+      image?: (number | null) | Media;
+      /**
+       * Name of the Lucide icon to use
+       */
+      icon?: string | null;
+    };
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'solutionShowcase';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -810,6 +843,7 @@ export interface PagesSelect<T extends boolean = true> {
         content?: T | ContentBlockSelect<T>;
         cardGrid?: T | CardGridBlockSelect<T>;
         featureGrid?: T | FeatureGridBlockSelect<T>;
+        solutionShowcase?: T | SolutionShowcaseBlockSelect<T>;
       };
   publishedAt?: T;
   slug?: T;
@@ -996,6 +1030,37 @@ export interface FeatureGridBlockSelect<T extends boolean = true> {
  */
 export interface ThemeFieldSelect<T extends boolean = true> {
   colorMode?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SolutionShowcaseBlock_select".
+ */
+export interface SolutionShowcaseBlockSelect<T extends boolean = true> {
+  theme?: T | ThemeFieldSelect<T>;
+  heading?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        alignment?: T;
+      };
+  solutions?:
+    | T
+    | {
+        theme?: T | ThemeFieldSelect<T>;
+        title?: T;
+        description?: T;
+        media?:
+          | T
+          | {
+              mediaType?: T;
+              image?: T;
+              icon?: T;
+            };
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

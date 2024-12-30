@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import { ComponentPropsWithoutRef, forwardRef } from "react";
+import { type ComponentPropsWithoutRef, forwardRef } from "react";
 
 type FeatureProps = ComponentPropsWithoutRef<"div">;
 
@@ -80,8 +80,31 @@ export const FeatureImage = forwardRef<HTMLDivElement, FeatureImageProps>(
 
 FeatureImage.displayName = "FeatureImageWrapper";
 
+export const FeatureMediaWrapper = forwardRef<
+  HTMLDivElement,
+  ComponentPropsWithoutRef<"div">
+>((props, ref) => {
+  const { className, ...rest } = props;
+
+  return (
+    <div
+      className={cn(
+        "flex h-full items-center justify-center mt-10 lg:mt-12 @60:lg:mx-auto",
+        className
+      )}
+      {...rest}
+      ref={ref}
+    >
+      {props.children}
+    </div>
+  );
+});
+
+FeatureMediaWrapper.displayName = "FeatureMediaWrapper";
+
 export const Feature = {
   Root: FeatureRoot,
   TextWrapper: FeatureTextWrapper,
   Image: FeatureImage,
+  Media: FeatureMediaWrapper,
 };

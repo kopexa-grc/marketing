@@ -14,6 +14,7 @@ import { Metrics } from "@/blocks/metrics/config";
 import { Content } from "@/blocks/content/config";
 import { CardGrid } from "@/blocks/card-grid/config";
 import { FeatureGrid } from "@/blocks/feature-grid/config";
+import { SolutionShowcase } from "@/blocks/solution-showcase/config";
 
 export const Pages: CollectionConfig<"pages"> = {
   slug: "pages",
@@ -86,6 +87,7 @@ export const Pages: CollectionConfig<"pages"> = {
                 Content,
                 CardGrid,
                 FeatureGrid,
+                SolutionShowcase,
               ],
               required: true,
               admin: {
