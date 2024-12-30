@@ -82,17 +82,10 @@ export const Footer = ({ footer }: FooterProps) => {
   const { columns = [], social, legal } = footer;
 
   return (
-    <footer className="mt-40 relative isolate pb-12">
-      {/* Background with subtle gradient and pattern */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background to-muted/50 -z-10" />
-      <div
-        className="absolute inset-0 opacity-[0.03] -z-10"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at center, currentColor 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
-        }}
-      />
+    <footer
+      data-theme="dark"
+      className="py-20 relative isolate pb-12 bg-footer text-footer-foreground"
+    >
       <div className="layout relative">
         <div className="col-span-full">
           <div
@@ -115,7 +108,7 @@ export const Footer = ({ footer }: FooterProps) => {
                         <CMSLink
                           {...link.link}
                           className={cn(
-                            "text-sm text-muted-foreground",
+                            "text-sm text-foreground/80",
                             "hover:text-primary transition-colors",
                             "flex items-center gap-1 group/link"
                           )}
@@ -172,7 +165,7 @@ export const Footer = ({ footer }: FooterProps) => {
                 <div key={item.link?.label} className="flex items-center">
                   <Link
                     className={cn(
-                      "text-sm text-muted-foreground",
+                      "text-sm text-foreground/80",
                       "hover:text-primary transition-colors",
                       "flex items-center gap-1 group"
                     )}
@@ -189,7 +182,7 @@ export const Footer = ({ footer }: FooterProps) => {
             </div>
 
             {/* Copyright */}
-            <p className={cn("text-sm text-muted-foreground", "lg:text-right")}>
+            <p className={cn("text-sm text-foreground/80", "lg:text-right")}>
               {legal?.copyrightText ??
                 `© ${new Date().getFullYear()} All rights reserved.`}
             </p>
