@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.4.0](https://github.com/kopexa-grc/marketing/compare/v1.3.0...v1.4.0) (2024-12-30)
+
+
+### Features
+
+* color mode on feature grid ([4570638](https://github.com/kopexa-grc/marketing/commit/45706383d9687a72ace975d0c5d4aa5075ed49d4))
+
+
+### Bug Fixes
+
+* footer colors ([a8fb557](https://github.com/kopexa-grc/marketing/commit/a8fb557f65fb8eb02de212b736c646361c354a0b))
+
 ## [1.3.0](https://github.com/kopexa-grc/marketing/compare/v1.2.1...v1.3.0) (2024-12-30)
 
 
