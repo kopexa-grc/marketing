@@ -15,7 +15,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
       "_order" integer NOT NULL,
       "_parent_id" varchar NOT NULL,
       "id" varchar PRIMARY KEY NOT NULL,
-      "theme_color_mode" "enum_theme_color_mode" DEFAULT 'light',
+      "theme_color_mode" "enum_theme_color_mode",
       "title" varchar,
       "description" varchar,
       "media_media_type" "enum_solutionshowcase_media_type" DEFAULT 'image',
@@ -28,7 +28,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
       "_parent_id" integer NOT NULL,
       "_path" text NOT NULL,
       "id" varchar PRIMARY KEY NOT NULL,
-      "theme_color_mode" "enum_theme_color_mode" DEFAULT 'light',
+      "theme_color_mode" "enum_theme_color_mode",
       "heading_title" varchar,
       "heading_description" varchar,
       "heading_alignment" "enum_pages_blocks_solution_showcase_heading_alignment" DEFAULT 'center',
@@ -39,7 +39,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
       "_order" integer NOT NULL,
       "_parent_id" integer NOT NULL,
       "id" serial PRIMARY KEY NOT NULL,
-      "theme_color_mode" "enum_theme_color_mode" DEFAULT 'light',
+      "theme_color_mode" "enum_theme_color_mode",
       "title" varchar,
       "description" varchar,
       "media_media_type" "enum_solutionshowcase_media_type" DEFAULT 'image',
@@ -53,7 +53,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
       "_parent_id" integer NOT NULL,
       "_path" text NOT NULL,
       "id" serial PRIMARY KEY NOT NULL,
-      "theme_color_mode" "enum_theme_color_mode" DEFAULT 'light',
+      "theme_color_mode" "enum_theme_color_mode",
       "heading_title" varchar,
       "heading_description" varchar,
       "heading_alignment" "enum__pages_v_blocks_solution_showcase_heading_alignment" DEFAULT 'center',
@@ -63,24 +63,61 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
 
     -- Fixing theme_color_mode in existing tables
     ALTER TABLE "pages_blocks_feature_grid"
-    ALTER COLUMN "theme_color_mode" SET DATA TYPE enum_theme_color_mode USING theme_color_mode::TEXT::enum_theme_color_mode;
+    ADD COLUMN "theme_color_mode_temp" "enum_theme_color_mode" DEFAULT 'light';
+    UPDATE "pages_blocks_feature_grid"
+    SET "theme_color_mode_temp" = "theme_color_mode"::TEXT::"enum_theme_color_mode";
+    ALTER TABLE "pages_blocks_feature_grid" DROP COLUMN "theme_color_mode";
+    ALTER TABLE "pages_blocks_feature_grid" RENAME COLUMN "theme_color_mode_temp" TO "theme_color_mode";
+
     ALTER TABLE "pages_blocks_feature_grid"
+    ADD COLUMN "promo_card_theme_color_mode_temp" "enum_theme_color_mode" DEFAULT 'light';
+    UPDATE "pages_blocks_feature_grid"
+    SET "promo_card_theme_color_mode_temp" = "promo_card_theme_color_mode"::TEXT::"enum_theme_color_mode";
+    ALTER TABLE "pages_blocks_feature_grid" DROP COLUMN "promo_card_theme_color_mode";
+    ALTER TABLE "pages_blocks_feature_grid" RENAME COLUMN "promo_card_theme_color_mode_temp" TO "promo_card_theme_color_mode";
+
+    ALTER TABLE "_pages_v_blocks_feature_grid"
+    ADD COLUMN "theme_color_mode_temp" "enum_theme_color_mode" DEFAULT 'light';
+    UPDATE "_pages_v_blocks_feature_grid"
+    SET "theme_color_mode_temp" = "theme_color_mode"::TEXT::"enum_theme_color_mode";
+    ALTER TABLE "_pages_v_blocks_feature_grid" DROP COLUMN "theme_color_mode";
+    ALTER TABLE "_pages_v_blocks_feature_grid" RENAME COLUMN "theme_color_mode_temp" TO "theme_color_mode";
+
+    ALTER TABLE "_pages_v_blocks_feature_grid"
+    ADD COLUMN "promo_card_theme_color_mode_temp" "enum_theme_color_mode" DEFAULT 'light';
+    UPDATE "_pages_v_blocks_feature_grid"
+    SET "promo_card_theme_color_mode_temp" = "promo_card_theme_color_mode"::TEXT::"enum_theme_color_mode";
+    ALTER TABLE "_pages_v_blocks_feature_grid" DROP COLUMN "promo_card_theme_color_mode";
+    ALTER TABLE "_pages_v_blocks_feature_grid" RENAME COLUMN "promo_card_theme_color_mode_temp" TO "promo_card_theme_color_mode";
+
+    -- Adding default values explicitly after data migration
+    UPDATE "pages_blocks_solution_showcase_solutions"
+    SET theme_color_mode = 'light'
+    WHERE theme_color_mode IS NULL;
+
+    UPDATE "pages_blocks_solution_showcase"
+    SET theme_color_mode = 'light'
+    WHERE theme_color_mode IS NULL;
+
+    UPDATE "_pages_v_blocks_solution_showcase_solutions"
+    SET theme_color_mode = 'light'
+    WHERE theme_color_mode IS NULL;
+
+    UPDATE "_pages_v_blocks_solution_showcase"
+    SET theme_color_mode = 'light'
+    WHERE theme_color_mode IS NULL;
+
+    ALTER TABLE "pages_blocks_solution_showcase_solutions"
     ALTER COLUMN "theme_color_mode" SET DEFAULT 'light';
 
-    ALTER TABLE "pages_blocks_feature_grid"
-    ALTER COLUMN "promo_card_theme_color_mode" SET DATA TYPE enum_theme_color_mode USING promo_card_theme_color_mode::TEXT::enum_theme_color_mode;
-    ALTER TABLE "pages_blocks_feature_grid"
-    ALTER COLUMN "promo_card_theme_color_mode" SET DEFAULT 'light';
-
-    ALTER TABLE "_pages_v_blocks_feature_grid"
-    ALTER COLUMN "theme_color_mode" SET DATA TYPE enum_theme_color_mode USING theme_color_mode::TEXT::enum_theme_color_mode;
-    ALTER TABLE "_pages_v_blocks_feature_grid"
+    ALTER TABLE "pages_blocks_solution_showcase"
     ALTER COLUMN "theme_color_mode" SET DEFAULT 'light';
 
-    ALTER TABLE "_pages_v_blocks_feature_grid"
-    ALTER COLUMN "promo_card_theme_color_mode" SET DATA TYPE enum_theme_color_mode USING promo_card_theme_color_mode::TEXT::enum_theme_color_mode;
-    ALTER TABLE "_pages_v_blocks_feature_grid"
-    ALTER COLUMN "promo_card_theme_color_mode" SET DEFAULT 'light';
+    ALTER TABLE "_pages_v_blocks_solution_showcase_solutions"
+    ALTER COLUMN "theme_color_mode" SET DEFAULT 'light';
+
+    ALTER TABLE "_pages_v_blocks_solution_showcase"
+    ALTER COLUMN "theme_color_mode" SET DEFAULT 'light';
 
     -- Foreign key constraints
     DO $$ BEGIN
