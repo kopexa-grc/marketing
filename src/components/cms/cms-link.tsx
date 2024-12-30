@@ -4,7 +4,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import type { ReactNode } from "react";
 
-export type CMSLinkType = CMSLinkField & {
+export type CMSLinkType = Omit<CMSLinkField, "label"> & {
   appearance?: ButtonProps["variant"] | "none";
   size?: ButtonProps["size"];
   label?: string | null;
