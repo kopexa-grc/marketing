@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.1](https://github.com/kopexa-grc/marketing/compare/v2.0.0...v2.0.1) (2025-01-01)
+
+
+### Bug Fixes
+
+* **hero:** i18n support ([91ccf1b](https://github.com/kopexa-grc/marketing/commit/91ccf1bb45c89ede3a5ec2d8403c7e7753d1e3f6))
+* i18n for menu ([b347132](https://github.com/kopexa-grc/marketing/commit/b3471321d2d193923c437e02b864deec778b5a76))
+
 ## [2.0.0](https://github.com/kopexa-grc/marketing/compare/v1.5.0...v2.0.0) (2025-01-01)
 
 
