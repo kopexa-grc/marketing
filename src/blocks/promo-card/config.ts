@@ -10,10 +10,12 @@ export const PromoCardBlock: Block = {
       name: "heading",
       type: "text",
       required: true,
+      localized: true,
     },
     {
       name: "description",
       type: "text",
+      localized: true,
     },
     link(),
     {
