@@ -4,7 +4,8 @@ import { getPayload } from "payload";
 import config from "@payload-config";
 
 export const fetchPage = async (
-  incomingSlugSegments: string[]
+  incomingSlugSegments: string[],
+  locale: "en" | "de"
 ): Promise<null | Page> => {
   const { isEnabled: draft } = await draftMode();
 
@@ -17,6 +18,7 @@ export const fetchPage = async (
     depth: 2,
     draft,
     limit: 1,
+    locale,
     where: {
       and: [
         {
@@ -84,17 +86,21 @@ export const fetchPages = async (): Promise<Partial<Page>[]> => {
 
 export const payloadToken = "payload-token";
 
-export const fetchGlobals = async (): Promise<{
+export const fetchGlobals = async (
+  locale: "en" | "de"
+): Promise<{
   footer: Footer;
   mainMenu: MainMenu;
 }> => {
   const payload = await getPayload({ config });
   const mainMenu = await payload.findGlobal({
     slug: "main-menu",
+    locale,
     depth: 1,
   });
   const footer = await payload.findGlobal({
     slug: "footer",
+    locale,
     depth: 1,
   });
 

@@ -1,9 +1,9 @@
 import { generateHref } from "@/components/cms/cms-link";
 import { Box } from "@/components/ui/box";
+import { Link } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 import type { CMSLinkField } from "@/payload-types";
 import { ChevronDown } from "lucide-react";
-import Link from "next/link";
 import { forwardRef, type ComponentProps, type ReactNode } from "react";
 
 export type NavigationLabelProps = ComponentProps<"li"> & {

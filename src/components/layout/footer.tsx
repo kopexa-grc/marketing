@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Separator } from "../ui/separator";
 import { cn } from "@/lib/utils";
 import type { Footer as FooterType } from "@/payload-types";
@@ -10,6 +9,7 @@ import {
   TwitterIcon,
 } from "lucide-react";
 import { Button } from "../ui/button";
+import { Link } from "@/i18n/routing";
 
 const items = [
   {

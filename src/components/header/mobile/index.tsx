@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { Logo } from "../../ui/logo";
 import { ArrowRight, ChevronRight, MenuIcon } from "lucide-react";
 import {
@@ -16,6 +15,7 @@ import { CMSLink } from "../../cms/cms-link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { Link } from "@/i18n/routing";
 
 interface NavProps {
   mainMenu: MainMenu;

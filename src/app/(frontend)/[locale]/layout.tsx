@@ -1,18 +1,18 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { Metadata } from "next";
-import "../globals.css";
+import "../../globals.css";
 import { PrivacyProvider } from "@/providers/privacy";
 import { GoogleAnalytics } from "@/components/analytics/google-analytics";
 import { GoogleTagManager } from "@/components/analytics/google-tag-manager";
 import { Providers } from "@/providers";
 import { PrivacyBanner } from "@/components/privacy-banner";
-import { Header } from "@/components/header/header";
 import { Manrope } from "next/font/google";
-import { Footer } from "@/components/layout/footer";
 import { mergeOpenGraph } from "@/lib/seo/mergeOpenGraph";
-import { draftMode } from "next/headers";
-import { fetchGlobals } from "@/lib/data";
-import { unstable_cache } from "next/cache";
+import { NextIntlClientProvider } from "next-intl";
 import { APP_URL } from "@/lib/config";
+import { routing } from "@/i18n/routing";
+import { notFound } from "next/navigation";
+import { getMessages } from "next-intl/server";
 
 export const dynamic = "force-static";
 
@@ -32,11 +32,22 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
+  params: promiseParams,
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }>) {
+  const params = await promiseParams;
+
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+  if (!routing.locales.includes(params.locale as any)) {
+    notFound();
+  }
+
+  const messages = await getMessages();
+
   return (
-    <html lang="en">
+    <html lang={params.locale}>
       <PrivacyProvider>
         <head>
           <link href="https://www.googletagmanager.com" rel="preconnect" />
@@ -46,11 +57,13 @@ export default async function RootLayout({
         <body
           className={`antialiased bg-background text-foreground ${ManropeFont.variable}`}
         >
-          <GoogleTagManager />
-          <Providers>
-            {children}
-            <PrivacyBanner />
-          </Providers>
+          <NextIntlClientProvider messages={messages}>
+            <GoogleTagManager />
+            <Providers>
+              {children}
+              <PrivacyBanner />
+            </Providers>
+          </NextIntlClientProvider>
         </body>
       </PrivacyProvider>
     </html>

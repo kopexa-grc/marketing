@@ -9,19 +9,22 @@ import { unstable_cache } from "next/cache";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 
-const getPage = async (slug: string[], draft?: boolean) =>
-  draft ? fetchPage(slug) : unstable_cache(fetchPage, [`page-${slug}`])(slug);
+const getPage = async (slug: string[], locale: "en" | "de", draft?: boolean) =>
+  draft
+    ? fetchPage(slug, locale)
+    : unstable_cache(fetchPage, [`page-${slug}`])(slug, locale);
 
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{
     slug: string[];
+    locale: "en" | "de";
   }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
+  const { slug, locale } = await params;
   const { isEnabled: draft } = await draftMode();
-  const page = await getPage(slug, draft);
+  const page = await getPage(slug, locale, draft);
 
   const ogImage =
     typeof page?.meta?.image === "object" &&
@@ -57,10 +60,11 @@ const Page = async ({
 }: {
   params: Promise<{
     slug: string[];
+    locale: "en" | "de";
   }>;
 }) => {
   const { isEnabled: draft } = await draftMode();
-  const { slug } = await params;
+  const { slug, locale } = await params;
   //   const url = `/${Array.isArray(slug) ? slug.join("/") : slug}`;
 
   const getGlobals = draft
@@ -68,8 +72,8 @@ const Page = async ({
     : unstable_cache(fetchGlobals, ["footer"]);
 
   const [page, { footer, mainMenu }] = await Promise.all([
-    getPage(slug, draft),
-    getGlobals(),
+    getPage(slug, locale, draft),
+    getGlobals(locale),
   ]);
 
   if (!page) {

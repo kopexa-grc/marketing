@@ -1,8 +1,8 @@
 import type { CMSLinkField, Page } from "@/payload-types";
 import { buttonVariants, type ButtonProps } from "../ui/button";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
 import type { ReactNode } from "react";
+import { Link } from "@/i18n/routing";
 
 export type CMSLinkType = Omit<CMSLinkField, "label"> & {
   appearance?: ButtonProps["variant"] | "none";

@@ -4,10 +4,10 @@ import type { MainMenu } from "@/payload-types";
 import { NavigationLabel } from "./navigation-label";
 import { useCallback, useState } from "react";
 import { Panel } from "./panel";
-import Link from "next/link";
 import { Logo } from "@/components/ui/logo";
 import { CMSLink } from "@/components/cms/cms-link";
 import { cn } from "@/lib/utils";
+import { Link } from "@/i18n/routing";
 
 interface MainNavProps {
   mainMenu: MainMenu;

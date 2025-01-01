@@ -2,9 +2,9 @@
 
 import { cn } from "@/lib/utils";
 import { usePrivacy } from "@/providers/privacy";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 export const PrivacyBanner: React.FC = () => {
   const [closeBanner, setCloseBanner] = useState(false);
@@ -45,7 +45,7 @@ export const PrivacyBanner: React.FC = () => {
             className={
               "hover:text-primary border-dotted border-b border-primary hover:opacity-80"
             }
-            href="/cookie"
+            href="/legal/cookie"
             prefetch={false}
           >
             cookie policy
