@@ -1,13 +1,10 @@
 "use client";
 
 import { useScrollHeader } from "@/hooks/use-scroll-header";
-import { MainNav } from "../navigation";
+import { MainNav } from "./desktop";
 import { cn } from "@/lib/utils";
-import type { MainMenu } from "@/payload-types";
-import { CMSLink } from "../cms/cms-link";
-import { NavbarMobile } from "../navigation/navbar-mobile";
-import { Logo } from "../ui/logo";
-import Link from "next/link";
+import type { MainMenu, ThemeField } from "@/payload-types";
+import { NavbarMobile } from "./mobile";
 
 // export const mainNavigation: NavItem[] = [
 //   {
@@ -102,58 +99,28 @@ import Link from "next/link";
 
 type Props = {
   mainMenu: MainMenu;
+  theme: ThemeField;
 };
 
-export const Header = ({ mainMenu }: Props) => {
+export const Header = ({ mainMenu, theme }: Props) => {
   const isScrolled = useScrollHeader(50);
 
   return (
     <>
       {/* Sticky container - wraps everything */}
-      <div className="fixed top-0 left-0 right-0 z-50">
-        {/* Enterprise-grade backdrop with subtle patterns */}
+      <header
+        className="fixed top-0 w-full z-50"
+        data-theme={isScrolled ? "light" : (theme.colorMode ?? "light")}
+      >
         <div
           className={cn(
-            "absolute inset-0",
-            "bg-background/95 backdrop-blur-2xl",
-            "transition-all duration-500",
-            isScrolled
-              ? "border-b border-border/40 shadow-sm"
-              : "border-b-transparent",
-            // Subtle grid pattern
-            "before:absolute before:inset-0 before:opacity-[0.015]",
-            "before:bg-[linear-gradient(to_right,rgb(var(--foreground)/10)_1px,transparent_1px),linear-gradient(to_bottom,rgb(var(--foreground)/10)_1px,transparent_1px)]",
-            "before:bg-[size:24px_24px]"
+            "absolute w-full min-h-20 h-full top-0 left-0",
+            "bg-background border-b shadow transition-opacity duration-200",
+            isScrolled ? "opacity-100" : "opacity-0"
           )}
         />
 
-        {/* Premium announcement bar */}
-        {/* {!isScrolled && (
-          <div className="relative bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 border-b border-primary/10">
-            <div className="layout py-2">
-              <div className="col-span-full flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <span className="bg-primary/10 text-primary text-xs px-2 py-0.5 rounded-full font-medium">
-                    Enterprise
-                  </span>
-                  <span className="text-sm text-muted-foreground">
-                    Trusted by Fortune 500 companies worldwide
-                  </span>
-                </div>
-                <div className="text-sm">
-                  <Link
-                    href="/enterprise"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    Learn more about Enterprise →
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        )} */}
-
-        <header className="relative h-20">
+        <div className="relative h-20">
           {/* Subtle line decoration */}
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
 
@@ -161,24 +128,7 @@ export const Header = ({ mainMenu }: Props) => {
           <div className="hidden lg:flex h-full">
             <div className="layout">
               <div className="col-span-full flex items-center justify-between h-full">
-                {/* Left side: Logo & Nav */}
-                <div className="flex items-center space-x-12">
-                  <Link href="/" className="relative group">
-                    <Logo />
-                  </Link>
-                  <MainNav mainMenu={mainMenu} />
-                </div>
-                {/* Right side: CTAs */}
-                <div className="flex items-center space-x-6">
-                  {Array.isArray(mainMenu.ctas) &&
-                    mainMenu.ctas.map((cta) => (
-                      <CMSLink
-                        key={`${cta.id}`}
-                        {...cta.link}
-                        className={cn("transition-colors duration-200")}
-                      />
-                    ))}
-                </div>
+                <MainNav mainMenu={mainMenu} isScrolled={isScrolled} />
               </div>
             </div>
           </div>
@@ -197,10 +147,8 @@ export const Header = ({ mainMenu }: Props) => {
               isScrolled ? "opacity-100" : "opacity-0"
             )}
           />
-        </header>
-      </div>
-      {/* Spacer to prevent content jump */}
-      <div className="h-20" />
+        </div>
+      </header>
     </>
   );
 };

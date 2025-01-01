@@ -38,6 +38,20 @@ export default buildConfig({
       collections: ["pages"],
     },
   },
+  localization: {
+    locales: [
+      {
+        label: "English",
+        code: "en",
+      },
+      {
+        label: "Deutsch",
+        code: "de",
+      },
+    ],
+    defaultLocale: "en",
+    fallback: true,
+  },
   globals: [MainMenu, Footer, PartnerProgram],
   collections: [Pages, Users, Media, Partners],
   editor: lexicalEditor(),

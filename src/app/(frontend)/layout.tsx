@@ -5,7 +5,7 @@ import { GoogleAnalytics } from "@/components/analytics/google-analytics";
 import { GoogleTagManager } from "@/components/analytics/google-tag-manager";
 import { Providers } from "@/providers";
 import { PrivacyBanner } from "@/components/privacy-banner";
-import { Header } from "@/components/layout/header";
+import { Header } from "@/components/header/header";
 import { Manrope } from "next/font/google";
 import { Footer } from "@/components/layout/footer";
 import { mergeOpenGraph } from "@/lib/seo/mergeOpenGraph";
@@ -35,13 +35,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { isEnabled: draft } = await draftMode();
-  const getGlobals = draft
-    ? fetchGlobals
-    : unstable_cache(fetchGlobals, ["footer"]);
-
-  const { footer, mainMenu } = await getGlobals();
-
   return (
     <html lang="en">
       <PrivacyProvider>
@@ -55,10 +48,7 @@ export default async function RootLayout({
         >
           <GoogleTagManager />
           <Providers>
-            <Header mainMenu={mainMenu} />
-            <main className="block stack">{children}</main>
-
-            <Footer footer={footer} />
+            {children}
             <PrivacyBanner />
           </Providers>
         </body>

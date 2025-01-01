@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Logo } from "../ui/logo";
+import { Logo } from "../../ui/logo";
 import { ArrowRight, ChevronRight, MenuIcon } from "lucide-react";
 import {
   Sheet,
@@ -9,10 +9,10 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "../ui/sheet";
-import { Button } from "../ui/button";
+} from "../../ui/sheet";
+import { Button } from "../../ui/button";
 import type { MainMenu } from "@/payload-types";
-import { CMSLink } from "../cms/cms-link";
+import { CMSLink } from "../../cms/cms-link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -128,7 +128,7 @@ export const NavbarMobile = ({ mainMenu }: NavProps) => {
                               activeTab === tab.id ? "max-h-[500px]" : "max-h-0"
                             )}
                           >
-                            <div className="my-2 space-y-1 rounded-2xl bg-muted/50 py-3">
+                            {/* <div className="my-2 space-y-1 rounded-2xl bg-muted/50 py-3">
                               {tab.navItems?.map((item) => (
                                 <CMSLink
                                   key={item.id}
@@ -146,7 +146,7 @@ export const NavbarMobile = ({ mainMenu }: NavProps) => {
                                   )}
                                 </CMSLink>
                               ))}
-                            </div>
+                            </div> */}
                           </div>
                         )}
                       </div>

@@ -14,7 +14,7 @@ const screens = Object.entries(cssVariables.screens).reduce(
 ) as ResolvableTo<ScreensConfig>;
 
 export default {
-  darkMode: ["class"],
+  darkMode: ["selector", '[data-mode="dark"]'],
   content: [
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/blocks/**/*.{js,ts,jsx,tsx,mdx}",
@@ -89,8 +89,16 @@ export default {
       containers: {
         "60": "60cqw",
       },
-      typography:
-        '() => ({\\n        DEFAULT: {\\n          css: [\\n            {\\n              "--tw-prose-body": "var(--foreground)",\\n              "--tw-prose-headings": "var(--foreground)",\\n            },\\n          ],\\n        },\\n      })',
+      typography: () => ({
+        DEFAULT: {
+          css: [
+            {
+              "--tw-prose-body": "var(--foreground)",
+              "--tw-prose-headings": "var(--foreground)",
+            },
+          ],
+        },
+      }),
       keyframes: {
         "accordion-down": {
           from: {

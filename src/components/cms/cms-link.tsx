@@ -23,7 +23,7 @@ type GenerateSlugType = {
   url?: null | string;
 };
 
-const generateHref = (args: GenerateSlugType) => {
+export const generateHref = (args: GenerateSlugType) => {
   const { type, reference, url } = args;
 
   if ((type === "custom" || type === undefined) && url) {
@@ -43,6 +43,8 @@ const generateHref = (args: GenerateSlugType) => {
       if (hasBreadcrumbs) {
         return breadcrumbs[breadcrumbs.length - 1]?.url as string;
       }
+
+      return `/${value.slug}`;
     }
 
     return "";

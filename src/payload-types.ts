@@ -7,6 +7,45 @@
  */
 
 /**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MainMenuPanels".
+ */
+export type MainMenuPanels =
+  | {
+      label: string;
+      enableDirectLink?: boolean | null;
+      link?: CMSLinkField;
+      navItems?: MainMenuSections;
+      id?: string | null;
+    }[]
+  | null;
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MainMenuSections".
+ */
+export type MainMenuSections =
+  | {
+      /**
+       * The title of the dropdown section
+       */
+      title?: string | null;
+      links?: MainMenuSectionLinks;
+      id?: string | null;
+    }[]
+  | null;
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MainMenuSectionLinks".
+ */
+export type MainMenuSectionLinks =
+  | {
+      label: string;
+      description?: string | null;
+      link?: CMSLinkField;
+      id?: string | null;
+    }[]
+  | null;
+/**
  * Configure the footer navigation columns
  *
  * This interface was referenced by `Config`'s JSON-Schema
@@ -96,7 +135,7 @@ export interface Config {
     footer: FooterSelect<false> | FooterSelect<true>;
     'partner-program': PartnerProgramSelect<false> | PartnerProgramSelect<true>;
   };
-  locale: null;
+  locale: 'en' | 'de';
   user: User & {
     collection: 'users';
   };
@@ -134,6 +173,7 @@ export interface Page {
   noindex?: boolean | null;
   hero: {
     type: 'default' | 'hero';
+    theme: ThemeField;
     layout?: ('centered' | 'start') | null;
     tagline?: string | null;
     heading?: string | null;
@@ -194,6 +234,13 @@ export interface Page {
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ThemeField".
+ */
+export interface ThemeField {
+  colorMode: 'light' | 'dark';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -462,13 +509,6 @@ export interface FeatureGridBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'featureGrid';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ThemeField".
- */
-export interface ThemeField {
-  colorMode: 'light' | 'dark';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -820,6 +860,7 @@ export interface PagesSelect<T extends boolean = true> {
     | T
     | {
         type?: T;
+        theme?: T | ThemeFieldSelect<T>;
         layout?: T;
         tagline?: T;
         heading?: T;
@@ -867,6 +908,13 @@ export interface PagesSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ThemeField_select".
+ */
+export interface ThemeFieldSelect<T extends boolean = true> {
+  colorMode?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1023,13 +1071,6 @@ export interface FeatureGridBlockSelect<T extends boolean = true> {
       };
   id?: T;
   blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ThemeField_select".
- */
-export interface ThemeFieldSelect<T extends boolean = true> {
-  colorMode?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1300,22 +1341,7 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  */
 export interface MainMenu {
   id: number;
-  tabs?:
-    | {
-        label: string;
-        enableDirectLink?: boolean | null;
-        link?: CMSLinkField;
-        navItems?:
-          | {
-              label: string;
-              description?: string | null;
-              link?: CMSLinkField;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-      }[]
-    | null;
+  tabs?: MainMenuPanels;
   ctas?:
     | {
         link: CMSLinkField;
@@ -1363,22 +1389,7 @@ export interface PartnerProgram {
  * via the `definition` "main-menu_select".
  */
 export interface MainMenuSelect<T extends boolean = true> {
-  tabs?:
-    | T
-    | {
-        label?: T;
-        enableDirectLink?: T;
-        link?: T | CMSLinkFieldSelect<T>;
-        navItems?:
-          | T
-          | {
-              label?: T;
-              description?: T;
-              link?: T | CMSLinkFieldSelect<T>;
-              id?: T;
-            };
-        id?: T;
-      };
+  tabs?: T | MainMenuPanelsSelect<T>;
   ctas?:
     | T
     | {
@@ -1388,6 +1399,36 @@ export interface MainMenuSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MainMenuPanels_select".
+ */
+export interface MainMenuPanelsSelect<T extends boolean = true> {
+  label?: T;
+  enableDirectLink?: T;
+  link?: T | CMSLinkFieldSelect<T>;
+  navItems?: T | MainMenuSectionsSelect<T>;
+  id?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MainMenuSections_select".
+ */
+export interface MainMenuSectionsSelect<T extends boolean = true> {
+  title?: T;
+  links?: T | MainMenuSectionLinksSelect<T>;
+  id?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MainMenuSectionLinks_select".
+ */
+export interface MainMenuSectionLinksSelect<T extends boolean = true> {
+  label?: T;
+  description?: T;
+  link?: T | CMSLinkFieldSelect<T>;
+  id?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

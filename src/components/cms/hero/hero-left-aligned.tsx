@@ -4,14 +4,22 @@ import { RichText } from "../rich-text";
 import { CMSLink } from "../cms-link";
 import { Media } from "../media";
 import { tv } from "tailwind-variants";
+import { ColorMode } from "../color-mode";
 
-type Picked = "tagline" | "heading" | "description" | "links" | "media";
+type Picked =
+  | "tagline"
+  | "heading"
+  | "description"
+  | "links"
+  | "media"
+  | "theme";
 
 type Props = Pick<Page["hero"], Picked>;
 
 const hero = tv({
   slots: {
-    section: ["layout", "text-foreground", "py-16 md:py-20 lg:py-32"],
+    wrapper: ["bg-background text-foreground"],
+    section: ["layout", "py-16 md:py-20 lg:py-32"],
     content: [
       "col-span-full lg:col-span-6",
       "flex flex-col order-1 mb-4",
@@ -46,56 +54,64 @@ export const HeroLeftAligned = ({
   description,
   links,
   media,
+  theme,
 }: Props) => {
   const css = hero();
 
   return (
-    <section
+    <ColorMode
+      theme={theme}
+      as="section"
       aria-labelledby="hero-heading"
-      className={css.section()}
+      className={css.wrapper()}
       data-hero="default"
     >
-      <div className={css.content()}>
-        <div className={css.contentInner()}>
-          {tagline && (
-            <Paragraph
-              level="label"
-              className={css.tagline()}
-              aria-label="Tagline"
-            >
-              {tagline}
-            </Paragraph>
-          )}
+      <div className={css.section()}>
+        <div className={css.content()}>
+          <div className={css.contentInner()}>
+            {tagline && (
+              <Paragraph
+                level="label"
+                className={css.tagline()}
+                aria-label="Tagline"
+              >
+                {tagline}
+              </Paragraph>
+            )}
 
-          {heading && (
-            <Heading as="h1" className={css.heading()} id="hero-heading">
-              {heading}
-            </Heading>
-          )}
+            {heading && (
+              <Heading as="h1" className={css.heading()} id="hero-heading">
+                {heading}
+              </Heading>
+            )}
+          </div>
+
+          <div className={css.description()}>
+            {description && <RichText content={description} />}
+
+            {Array.isArray(links) && links.length > 0 && (
+              <nav
+                className={css.navigation()}
+                aria-label="Hero call to action"
+              >
+                {links.map((link, idx) => (
+                  <CMSLink key={`${link.id}-${idx}`} {...link.link} size="lg" />
+                ))}
+              </nav>
+            )}
+          </div>
         </div>
-
-        <div className={css.description()}>
-          {description && <RichText content={description} />}
-
-          {Array.isArray(links) && links.length > 0 && (
-            <nav className={css.navigation()} aria-label="Hero call to action">
-              {links.map((link, idx) => (
-                <CMSLink key={`${link.id}-${idx}`} {...link.link} size="lg" />
-              ))}
-            </nav>
+        <div className={css.mediaWrapper()}>
+          {media && typeof media === "object" && (
+            <Media
+              className={css.media()}
+              imgClassName={css.mediaImage()}
+              priority
+              resource={media}
+            />
           )}
         </div>
       </div>
-      <div className={css.mediaWrapper()}>
-        {media && typeof media === "object" && (
-          <Media
-            className={css.media()}
-            imgClassName={css.mediaImage()}
-            priority
-            resource={media}
-          />
-        )}
-      </div>
-    </section>
+    </ColorMode>
   );
 };

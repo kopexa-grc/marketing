@@ -26,6 +26,7 @@ export const Footer: GlobalConfig = {
           admin: {
             description: "Section heading",
           },
+          localized: true,
         },
         {
           name: "navItems",
@@ -37,6 +38,9 @@ export const Footer: GlobalConfig = {
           fields: [
             link({
               appearances: false,
+              overrides: {
+                localized: true,
+              },
             }),
           ],
         },

@@ -1,6 +1,8 @@
 import { RenderBlocks } from "@/blocks/render-blocks";
 import { HeroBlock } from "@/components/cms/hero";
-import { fetchPage, fetchPages } from "@/lib/data";
+import { Footer } from "@/components/layout/footer";
+import { Header } from "@/components/header/header";
+import { fetchGlobals, fetchPage, fetchPages } from "@/lib/data";
 import { mergeOpenGraph } from "@/lib/seo/mergeOpenGraph";
 import type { Metadata } from "next";
 import { unstable_cache } from "next/cache";
@@ -61,7 +63,14 @@ const Page = async ({
   const { slug } = await params;
   //   const url = `/${Array.isArray(slug) ? slug.join("/") : slug}`;
 
-  const page = await getPage(slug, draft);
+  const getGlobals = draft
+    ? fetchGlobals
+    : unstable_cache(fetchGlobals, ["footer"]);
+
+  const [page, { footer, mainMenu }] = await Promise.all([
+    getPage(slug, draft),
+    getGlobals(),
+  ]);
 
   if (!page) {
     notFound();
@@ -69,8 +78,12 @@ const Page = async ({
 
   return (
     <>
-      <HeroBlock page={page} />
-      <RenderBlocks blocks={page.layout} />
+      <Header mainMenu={mainMenu} theme={page.hero.theme} />
+      <main>
+        <HeroBlock page={page} />
+        <RenderBlocks blocks={page.layout} />
+      </main>
+      <Footer footer={footer} />
     </>
   );
 };

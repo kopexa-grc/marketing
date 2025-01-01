@@ -15,11 +15,11 @@ export const Logo = forwardRef<HTMLSpanElement, ComponentProps<"span">>(
         {...restProps}
         ref={ref}
       >
-        <span className="font-light tracking-tighter">K</span>
+        <span className="font-light text-foreground tracking-tighter">K</span>
         <span className="font-black bg-gradient-to-r from-primary/80 to-primary bg-clip-text text-transparent">
           P
         </span>
-        <span className="font-extrabold">X</span>
+        <span className="font-extrabold text-foreground">X</span>
       </span>
     );
   }

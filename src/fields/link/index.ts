@@ -20,12 +20,14 @@ type LinkType = (options?: {
   appearances?: LinkAppearances[] | false;
   disableLabel?: boolean;
   additionalFields?: Field[];
+  overrides?: Partial<Field>;
 }) => Field;
 
 export const link: LinkType = ({
   appearances,
   disableLabel = false,
   additionalFields = [],
+  overrides = {},
 } = {}) => {
   const linkResult: Field = {
     name: "link",
@@ -46,6 +48,7 @@ export const link: LinkType = ({
               width: "50%",
             },
             defaultValue: "reference",
+            enumName: "enum_link_type",
             options: [
               {
                 label: "Internal Link",
@@ -148,5 +151,5 @@ export const link: LinkType = ({
 
   linkResult.fields.push(...additionalFields);
 
-  return deepMerge(linkResult, {});
+  return deepMerge(linkResult, overrides);
 };

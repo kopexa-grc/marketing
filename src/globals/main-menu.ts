@@ -14,6 +14,7 @@ export const MainMenu: GlobalConfig = {
     {
       name: "tabs",
       type: "array",
+      interfaceName: "MainMenuPanels",
       fields: [
         {
           name: "label",
@@ -45,6 +46,7 @@ export const MainMenu: GlobalConfig = {
         {
           type: "collapsible",
           label: "Dropdown Menu",
+
           admin: {
             condition: (_, siblingData) => !siblingData.enableDirectLink,
           },
@@ -52,20 +54,39 @@ export const MainMenu: GlobalConfig = {
             {
               name: "navItems",
               type: "array",
+              interfaceName: "MainMenuSections",
               fields: [
                 {
-                  name: "label",
                   type: "text",
-                  required: true,
+                  name: "title",
+                  label: "Title",
+                  localized: true,
+                  admin: {
+                    description: "The title of the dropdown section",
+                  },
                 },
                 {
-                  name: "description",
-                  type: "textarea",
+                  name: "links",
+                  type: "array",
+                  interfaceName: "MainMenuSectionLinks",
+                  fields: [
+                    {
+                      name: "label",
+                      type: "text",
+                      required: true,
+                      localized: true,
+                    },
+                    {
+                      name: "description",
+                      type: "textarea",
+                      localized: true,
+                    },
+                    link({
+                      appearances: false,
+                      disableLabel: true,
+                    }),
+                  ],
                 },
-                link({
-                  appearances: false,
-                  disableLabel: true,
-                }),
               ],
             },
           ],

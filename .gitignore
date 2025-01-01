@@ -16,6 +16,8 @@
 # next.js
 /.next/
 /out/
+# personal note stash
+/.stash
 
 # production
 /build
