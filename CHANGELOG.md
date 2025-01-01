@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.2](https://github.com/kopexa-grc/marketing/compare/v2.0.1...v2.0.2) (2025-01-01)
+
+
+### Bug Fixes
+
+* **hero:** migration ([181ba41](https://github.com/kopexa-grc/marketing/commit/181ba413e592e9f86250a5ccbb47f7e8d543086a))
+
 ## [2.0.1](https://github.com/kopexa-grc/marketing/compare/v2.0.0...v2.0.1) (2025-01-01)
 
 
