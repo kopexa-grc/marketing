@@ -18,12 +18,14 @@ export const appearanceOptions: Record<
 
 type LinkType = (options?: {
   appearances?: LinkAppearances[] | false;
+  localized?: boolean;
   disableLabel?: boolean;
   additionalFields?: Field[];
   overrides?: Partial<Field>;
 }) => Field;
 
 export const link: LinkType = ({
+  localized = false,
   appearances,
   disableLabel = false,
   additionalFields = [],
@@ -119,6 +121,7 @@ export const link: LinkType = ({
           },
           label: "Label",
           required: true,
+          localized,
         },
       ],
     });

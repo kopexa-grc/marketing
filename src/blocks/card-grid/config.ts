@@ -9,11 +9,13 @@ export const CardGrid: Block = {
       name: "heading",
       type: "text",
       label: "Heading",
+      localized: true,
     },
     {
       name: "description",
       type: "text",
       label: "Description",
+      localized: true,
     },
     {
       name: "layout",
@@ -50,14 +52,17 @@ export const CardGrid: Block = {
           name: "title",
           type: "text",
           required: true,
+          localized: true,
         },
         {
           name: "subtitle",
           type: "text",
+          localized: true,
         },
         {
           name: "description",
           type: "textarea",
+          localized: true,
         },
         {
           name: "media",
@@ -65,7 +70,7 @@ export const CardGrid: Block = {
           relationTo: "media",
           required: false,
         },
-        link(),
+        link({ localized: true }),
         {
           name: "appearance",
           type: "group",
