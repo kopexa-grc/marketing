@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/kopexa-grc/marketing/compare/v2.0.2...v2.1.0) (2025-01-01)
+
+
+### Features
+
+* **i18n:** added i18n-next and routing ([87e92a5](https://github.com/kopexa-grc/marketing/commit/87e92a53ae086b64fb4968de58524dcea92a5ee3))
+
 ## [2.0.2](https://github.com/kopexa-grc/marketing/compare/v2.0.1...v2.0.2) (2025-01-01)
 
 
