@@ -20,6 +20,7 @@ export const MainMenu: GlobalConfig = {
           name: "label",
           type: "text",
           required: true,
+          localized: true,
         },
         {
           type: "row",
