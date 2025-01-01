@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/kopexa-grc/marketing/compare/v1.5.0...v2.0.0) (2025-01-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* **i18n:** i18n
+
+### Features
+
+* **i18n:** i18n ([e913982](https://github.com/kopexa-grc/marketing/commit/e91398251129c3afcb01c0c71fb277cb8c3f647d))
+
 ## [1.5.0](https://github.com/kopexa-grc/marketing/compare/v1.4.0...v1.5.0) (2024-12-30)
 
 
