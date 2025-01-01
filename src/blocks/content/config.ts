@@ -27,9 +27,11 @@ export const Content: Block = {
     },
     richText({
       name: "columnOne",
+      localized: true,
     }),
     richText({
       name: "columnTwo",
+      localized: true,
       admin: {
         condition: (_, siblingData) =>
           [
@@ -42,6 +44,7 @@ export const Content: Block = {
     }),
     richText({
       name: "columnThree",
+      localized: true,
       admin: {
         condition: (_, siblingData) => siblingData.layout === "threeColumns",
       },
