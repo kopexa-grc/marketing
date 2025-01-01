@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.2.0](https://github.com/kopexa-grc/marketing/compare/v2.1.0...v2.2.0) (2025-01-01)
+
+
+### Features
+
+* **i18n:** localize content block ([92a05b6](https://github.com/kopexa-grc/marketing/commit/92a05b6594c34311075244d039e7f6316b041ca9))
+* **i18n:** localize promo card block ([ef76ddf](https://github.com/kopexa-grc/marketing/commit/ef76ddfd4219e7c9b1f7e3e2034298d32946ab48))
+* **i18n:** translate card grid ([1666836](https://github.com/kopexa-grc/marketing/commit/1666836d0c2cce5bbb41952c1bcd98a69a645a3a))
+
 ## [2.1.0](https://github.com/kopexa-grc/marketing/compare/v2.0.2...v2.1.0) (2025-01-01)
 
 
