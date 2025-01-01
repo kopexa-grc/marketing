@@ -47,6 +47,7 @@ export const hero: Field = {
     {
       name: "tagline",
       type: "text",
+      localized: true,
       admin: {
         condition: (_, { type }) => type === "default" || type === "hero",
       },
@@ -54,10 +55,12 @@ export const hero: Field = {
     {
       name: "heading",
       type: "text",
+      localized: true,
     },
     {
       name: "description",
       type: "richText",
+      localized: true,
     },
     linkGroup(),
     {
