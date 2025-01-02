@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.3.0](https://github.com/kopexa-grc/marketing/compare/v2.2.1...v2.3.0) (2025-01-02)
+
+
+### Features
+
+* colored heroes ([75b4260](https://github.com/kopexa-grc/marketing/commit/75b4260b2e59998a6a381f0a7b1ce24b4a58ff12))
+* updated header and hero color palette ([976319c](https://github.com/kopexa-grc/marketing/commit/976319c1774b3714acfcaa2a81f04b262c9f2614))
+
+
+### Bug Fixes
+
+* static param generation for pages ([34797cb](https://github.com/kopexa-grc/marketing/commit/34797cb9832d2a9a2dcbe0af6610bf6d5047ed68))
+
 ## [2.2.1](https://github.com/kopexa-grc/marketing/compare/v2.2.0...v2.2.1) (2025-01-02)
 
 
