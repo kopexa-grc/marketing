@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.4.2](https://github.com/kopexa-grc/marketing/compare/v2.4.1...v2.4.2) (2025-01-02)
+
+
+### Bug Fixes
+
+* cta block link ([fc108c9](https://github.com/kopexa-grc/marketing/commit/fc108c9834b60871084992cb46dc8aa06fff613f))
+* link label handling ([4d2d15e](https://github.com/kopexa-grc/marketing/commit/4d2d15e79cd8981ff0e86b23f3369f45ae151f96))
+* minor fixes and eslint config restructure ([455ff9d](https://github.com/kopexa-grc/marketing/commit/455ff9d8b594c87efbea22f01cd3ee25fc9cffc7))
+* missing migration ([965f68d](https://github.com/kopexa-grc/marketing/commit/965f68df184160df67be26e912a124016680979c))
+
 ## [2.4.1](https://github.com/kopexa-grc/marketing/compare/v2.4.0...v2.4.1) (2025-01-02)
 
 
