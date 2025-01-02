@@ -504,7 +504,8 @@ export interface FeatureGridBlock {
     theme: ThemeField;
     title?: string | null;
     description?: string | null;
-    link: CMSLinkField;
+    label?: string | null;
+    link?: CMSLinkField;
   };
   id?: string | null;
   blockName?: string | null;
@@ -1106,6 +1107,7 @@ export interface FeatureGridBlockSelect<T extends boolean = true> {
         theme?: T | ThemeFieldSelect<T>;
         title?: T;
         description?: T;
+        label?: T;
         link?: T | CMSLinkFieldSelect<T>;
       };
   id?: T;

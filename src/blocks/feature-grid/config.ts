@@ -109,9 +109,14 @@ export const FeatureGrid: Block = {
           type: "textarea",
           localized: true,
         },
+        {
+          name: "label",
+          type: "text",
+          localized: true,
+        },
         link({
           appearances: false,
-          disableLabel: false,
+          disableLabel: true,
         }),
       ],
     },

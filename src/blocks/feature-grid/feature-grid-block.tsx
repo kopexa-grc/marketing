@@ -131,7 +131,7 @@ export const FeatureGridBlock = ({
                 </PromoCard.Text>
                 {promoCard.link && (
                   <PromoCard.Link {...promoCard.link}>
-                    {promoCard.link.label}
+                    {promoCard.label}
                   </PromoCard.Link>
                 )}
               </PromoCard.Content>
