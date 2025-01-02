@@ -39,14 +39,14 @@ export const LinkSection = ({ section, sectionsLength }: LinkSectionProps) => {
                 <div
                   className={cn(
                     "flex flex-col py-3 px-4 rounded-2xl",
-                    "group-hover:bg-white"
+                    "group-hover:bg-white transition-colors"
                   )}
                 >
                   <div className="flex flex-col gap-1">
-                    <span className="text-navbar-panel-label-foreground font-semibold leading-none text-sm group-hover:text-primary">
+                    <span className="text-navbar-panel-label-foreground font-semibold leading-none text-sm group-hover:text-primary transition-colors">
                       {link.label}
                     </span>
-                    <span className="text-sm text-white/80 group-hover:text-neutral-800">
+                    <span className="text-sm text-white/80 group-hover:text-neutral-800 transition-colors">
                       {link.description}
                     </span>
                   </div>
