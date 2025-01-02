@@ -255,6 +255,7 @@ export interface CMSLinkField {
     value: number | Page;
   } | null;
   url?: string | null;
+  label?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -966,6 +967,7 @@ export interface CMSLinkFieldSelect<T extends boolean = true> {
   newTab?: T;
   reference?: T;
   url?: T;
+  label?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

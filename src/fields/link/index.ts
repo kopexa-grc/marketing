@@ -80,54 +80,45 @@ export const link: LinkType = ({
 
   const linkTypes: Field[] = [
     {
-      name: "reference",
-      type: "relationship",
-      admin: {
-        condition: (_, siblingData) => siblingData?.type === "reference",
-      },
-      label: "Document to link to",
-      relationTo: ["pages"],
-      required: true,
-    },
-    {
-      name: "url",
-      type: "text",
-      admin: {
-        condition: (_, siblingData) => siblingData?.type === "custom",
-      },
-      label: "Custom URL",
-      required: true,
-    },
-  ];
-
-  if (!disableLabel) {
-    linkTypes.map((linkType) => ({
-      ...linkType,
-      admin: {
-        ...linkType.admin,
-        width: "50%",
-      },
-    }));
-
-    linkResult.fields.push({
       type: "row",
       fields: [
-        ...linkTypes,
+        {
+          name: "reference",
+          type: "relationship",
+          admin: {
+            condition: (_, siblingData) => siblingData?.type === "reference",
+            width: disableLabel ? "100%" : "50%",
+          },
+          label: "Document to link to",
+          relationTo: ["pages"],
+          required: true,
+        },
+        {
+          name: "url",
+          type: "text",
+          admin: {
+            condition: (_, siblingData) => siblingData?.type === "custom",
+            width: disableLabel ? "100%" : "50%",
+          },
+          label: "Custom URL",
+          required: true,
+        },
         {
           name: "label",
           type: "text",
           admin: {
             width: "50%",
+            hidden: disableLabel,
           },
           label: "Label",
-          required: true,
+          required: false,
           localized,
         },
       ],
-    });
-  } else {
-    linkResult.fields = [...linkResult.fields, ...linkTypes];
-  }
+    },
+  ];
+
+  linkResult.fields = [...linkResult.fields, ...linkTypes];
 
   if (appearances !== false) {
     let appearanceOptionsToUse = [

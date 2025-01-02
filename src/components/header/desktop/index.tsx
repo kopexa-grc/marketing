@@ -111,7 +111,7 @@ export function MainNav({ mainMenu }: MainNavProps) {
               key={`${cta.id}`}
               {...cta.link}
               className={cn("transition-colors duration-200")}
-              aria-label={cta.link.label}
+              aria-label={cta.link.label ?? ""}
             />
           ))}
       </div>
