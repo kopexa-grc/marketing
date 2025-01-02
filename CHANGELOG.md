@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.3](https://github.com/kopexa-grc/marketing/compare/v2.4.2...v2.4.3) (2025-01-02)
+
+
+### Bug Fixes
+
+* removed the static about us page ([7149dde](https://github.com/kopexa-grc/marketing/commit/7149dde571dea0559a54452c7ca0267510c42594))
+
 ## [2.4.2](https://github.com/kopexa-grc/marketing/compare/v2.4.1...v2.4.2) (2025-01-02)
 
 
