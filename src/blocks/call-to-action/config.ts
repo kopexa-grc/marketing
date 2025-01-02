@@ -8,13 +8,16 @@ export const CallToAction: Block = {
     {
       name: "title",
       type: "text",
+      localized: true,
     },
     {
       name: "description",
       type: "richText",
+      localized: true,
     },
     linkGroup({
       appearances: false,
+      localized: true,
       overrides: {
         maxRows: 2,
       },
@@ -22,6 +25,7 @@ export const CallToAction: Block = {
         {
           name: "description",
           type: "text",
+          localized: true,
         },
       ],
     }),

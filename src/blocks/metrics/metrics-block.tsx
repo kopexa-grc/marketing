@@ -7,7 +7,7 @@ type Props = MetricsProps;
 
 export const MetricsBlock = ({ title, metrics }: Props) => {
   return (
-    <div className="layout">
+    <div className="layout pt-xhuge">
       <div className="col-span-full">
         <div className="mx-auto max-w-2xl lg:max-w-none">
           <div className="text-center">
@@ -18,14 +18,14 @@ export const MetricsBlock = ({ title, metrics }: Props) => {
               metrics.map((metric) => (
                 <div
                   key={`${metric.id}`}
-                  className="flex flex-col bg-accent p-8 space-y-2"
+                  className="flex flex-col bg-primary/5 p-8 space-y-2"
                 >
-                  <dt className="text-base/6 text-accent-foreground">
+                  <dt className="text-lg/6 text-accent-foreground">
                     {metric.label}
                   </dt>
                   <dd
                     className={cn(
-                      headingVariants({ level: 2 }),
+                      headingVariants({ level: 4 }),
                       "order-first text-foreground"
                     )}
                   >

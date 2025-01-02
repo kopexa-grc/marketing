@@ -5,12 +5,14 @@ type LinkGroupOptions = {
   appearances?: LinkAppearances[] | false;
   overrides?: Partial<ArrayField>;
   additionalFields?: Field[];
+  localized?: boolean;
 };
 
 export const linkGroup = ({
   appearances,
   overrides = {},
   additionalFields,
+  localized,
 }: LinkGroupOptions = {}) => {
   const lg: Field = {
     name: "links",
@@ -19,6 +21,7 @@ export const linkGroup = ({
       link({
         appearances,
         additionalFields,
+        localized,
       }),
     ],
     admin: {

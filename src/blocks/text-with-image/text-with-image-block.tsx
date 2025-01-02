@@ -7,7 +7,7 @@ type Props = TextWithImageBlockProps;
 
 export const TextWithImageBlock = ({ title, description, media }: Props) => {
   return (
-    <div className="layout">
+    <div className="layout pt-xhuge">
       <div className="order-2 lg:order-1 col-span-full lg:col-span-6">
         <div className="flex flex-col space-y-4">
           {title && (
@@ -22,8 +22,7 @@ export const TextWithImageBlock = ({ title, description, media }: Props) => {
         <div className="relative w-full">
           {media && typeof media === "object" && (
             <Media
-              fill
-              className="relative w-full h-full aspect-square"
+              className="relative w-full h-full"
               imgClassName="w-full h-auto max-w-full rounded-2xl"
               priority
               resource={media}
