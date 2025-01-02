@@ -63,7 +63,7 @@ export const Panel = ({
       className={cn(
         "absolute top-full -left-4 invisible opacity-0 will-change-[transform, opacity] cursor-default",
         "min-w-[100vw] max-w-full border-t border-white/30",
-        "-translate-x-full bg-navbar-panel shadow"
+        "-translate-x-full bg-navbar-panel shadow-md"
       )}
       data-theme="light"
     >

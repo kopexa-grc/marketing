@@ -51,8 +51,9 @@ export const NavbarMobile = ({ mainMenu }: NavProps) => {
                 aria-label="Open menu"
                 aria-expanded={isOpen}
                 aria-controls="mobile-menu"
+                className="w-12 h-12 text-white"
               >
-                <MenuIcon />
+                <MenuIcon className="!size-6" />
               </Button>
             </SheetTrigger>
             <SheetContent

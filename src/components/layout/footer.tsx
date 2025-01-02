@@ -34,7 +34,10 @@ export const Footer = ({ footer }: FooterProps) => {
           >
             {columns?.map((column) => (
               <div
-                className={cn("group", "text-start border-b lg:border-none")}
+                className={cn(
+                  "group",
+                  "text-start border-b border-white/30 max-lg:pb-12 lg:border-none"
+                )}
                 key={`${column.id}`}
               >
                 <h6 className="text-base font-semibold mb-6">{column.label}</h6>

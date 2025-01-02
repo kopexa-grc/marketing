@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --color-primary: 224 81% 49%;
+    --color-primary: 223 81% 35%;
   }
 
   :root,
@@ -18,7 +18,8 @@
     /** my awesome yellow --primary: 47.9 95.8% 53.1%; --primary-foreground: 26 83.3% 14.1%; */
     /* --primary: 176 61% 19%; green */
     /** hsl(213, 80%, 46%)*/
-    --primary: 224 81% 49%;
+    /* --primary: 224 81% 49%; */
+    --primary: 223 81% 35%;
     --primary-foreground: 0 0% 100%;
     /* --secondary: 131 18% 69%; */
     --secondary: 42 100% 60%;
@@ -51,7 +52,7 @@
     --card-foreground: 60 9.1% 97.8%;
     --popover: 20 14.3% 4.1%;
     --popover-foreground: 60 9.1% 97.8%;
-    --primary: 224 81% 49%;
+    --primary: 223 81% 35%;
     --primary-foreground: 0 0% 100%;
     --secondary: 42 100% 60%;
     --secondary-foreground: 20 14.3% 4.1%;
