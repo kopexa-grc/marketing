@@ -12,7 +12,7 @@ export const SolutionShowcaseBlock = ({ theme, heading, solutions }: Props) => {
   return (
     <ColorMode
       as="section"
-      className="py-16 space-y-8 lg:space-y-12"
+      className="pt-xhuge space-y-8 lg:space-y-12"
       theme={theme}
     >
       {/* Headline Section */}
@@ -21,7 +21,7 @@ export const SolutionShowcaseBlock = ({ theme, heading, solutions }: Props) => {
           <div
             className={cn(
               "col-span-full mb-12 space-y-4",
-              "lg:col-span-8",
+              "lg:col-span-8 lg:col-start-3",
               heading.alignment === "center" ? "text-center" : "text-left"
             )}
           >

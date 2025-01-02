@@ -10,7 +10,7 @@ type Props = FeatureGridBlockProps;
 
 const styles = tv({
   slots: {
-    root: ["bg-background py-16 space-y-8 lg:space-y-12"],
+    root: ["bg-background pt-xhuge space-y-8 lg:space-y-12"],
     container: ["layout"],
     header: ["col-span-full max-w-2xl mb-12"],
     title: ["mb-4"],
@@ -75,7 +75,12 @@ export const FeatureGridBlock = ({
   });
 
   return (
-    <ColorMode as="section" theme={theme} className={css.root()}>
+    <ColorMode
+      as="section"
+      theme={theme}
+      className={css.root()}
+      data-section="feature-grid"
+    >
       <div className={css.container()}>
         {/* Header */}
         {headline && (

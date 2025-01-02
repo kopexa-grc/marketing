@@ -128,6 +128,10 @@ export default {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      spacing: {
+        huge: "7.5rem",
+        xhuge: "10rem",
+      },
     },
   },
   plugins: [animate, containerQueries, typography()],

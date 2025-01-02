@@ -15,7 +15,7 @@ export const PromoCardBlock = ({
   icon,
 }: Props) => {
   return (
-    <div className={cn("layout", dark && "dark")}>
+    <div className={cn("layout pt-xhuge", dark && "dark")}>
       <div className="col-span-full">
         <PromoCard.Root>
           {icon && (

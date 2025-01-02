@@ -5,7 +5,7 @@ import { tv } from "tailwind-variants";
 
 const variants = tv({
   slots: {
-    root: "layout",
+    root: "layout pt-xhuge",
     column: "flex flex-col gap-6",
   },
   variants: {
@@ -37,25 +37,25 @@ export const ContentBlock = ({
   const css = variants({ layout: layout ?? "oneColumn" });
 
   return (
-    <div className={cn(css.root())}>
+    <section className={cn(css.root())} aria-label="Content Block">
       {/* Column One */}
-      <div className={cn(css.column(), "lg:col-start-1")}>
+      <article className={cn(css.column(), "lg:col-start-1")}>
         <RichText content={columnOne} />
-      </div>
+      </article>
 
       {/* Column Two */}
       {layout !== "oneColumn" && columnTwo && (
-        <div className={cn(css.column(), "lg:col-start-7")}>
+        <article className={cn(css.column(), "lg:col-start-7")}>
           <RichText content={columnTwo} />
-        </div>
+        </article>
       )}
 
       {/* Column Three */}
       {layout === "threeColumns" && columnThree && (
-        <div className={cn(css.column(), "lg:col-start-9")}>
+        <article className={cn(css.column(), "lg:col-start-9")}>
           <RichText content={columnThree} />
-        </div>
+        </article>
       )}
-    </div>
+    </section>
   );
 };

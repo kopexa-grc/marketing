@@ -11,69 +11,6 @@ import {
 import { Button } from "../ui/button";
 import { Link } from "@/i18n/routing";
 
-const items = [
-  {
-    label: "Product",
-    links: [
-      {
-        label: "What is kopexa?",
-        href: "#",
-      },
-      {
-        label: "Features",
-        href: "#",
-      },
-      {
-        label: "Pricing",
-        href: "#",
-      },
-    ],
-  },
-  {
-    label: "Docs & Support",
-    links: [
-      {
-        label: "Documentation",
-        href: "#",
-      },
-      {
-        label: "Support",
-        href: "#",
-      },
-    ],
-  },
-  {
-    label: "About us",
-    links: [
-      {
-        label: "Company",
-        href: "/about-us",
-      },
-      {
-        label: "Careers",
-        href: "/careers",
-      },
-    ],
-  },
-  {
-    label: "Get in touch",
-    links: [
-      {
-        label: "Contact",
-        href: "/contact",
-      },
-      {
-        label: "Newsletter",
-        href: "/newsletter",
-      },
-      {
-        label: "Partners",
-        href: "/partners",
-      },
-    ],
-  },
-];
-
 export type FooterProps = {
   footer: FooterType;
 };
@@ -84,7 +21,7 @@ export const Footer = ({ footer }: FooterProps) => {
   return (
     <footer
       data-theme="dark"
-      className="py-20 relative isolate pb-12 bg-footer text-footer-foreground"
+      className="py-20 relative isolate pb-12 bg-footer text-footer-foreground mt-xhuge"
     >
       <div className="layout relative">
         <div className="col-span-full">
