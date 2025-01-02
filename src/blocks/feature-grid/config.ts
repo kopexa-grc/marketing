@@ -30,12 +30,14 @@ export const FeatureGrid: Block = {
           type: "text",
           required: true,
           label: "Title",
+          localized: true,
         },
         {
           name: "description",
           type: "textarea",
           required: true,
           label: "Description",
+          localized: true,
         },
         {
           name: "alignment",
@@ -70,12 +72,14 @@ export const FeatureGrid: Block = {
           type: "text",
           required: true,
           label: "Title",
+          localized: true,
         },
         {
           name: "description",
           type: "textarea",
           required: true,
           label: "Description",
+          localized: true,
         },
       ],
     },
@@ -98,10 +102,12 @@ export const FeatureGrid: Block = {
         {
           name: "title",
           type: "text",
+          localized: true,
         },
         {
           name: "description",
           type: "textarea",
+          localized: true,
         },
         link({
           appearances: false,
