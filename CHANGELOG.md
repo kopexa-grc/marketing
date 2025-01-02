@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.3.3](https://github.com/kopexa-grc/marketing/compare/v2.3.2...v2.3.3) (2025-01-02)
+
+
+### Bug Fixes
+
+* added locale support for path revalidation ([54c7f64](https://github.com/kopexa-grc/marketing/commit/54c7f64e80d3ee02f345a1788040dbe9094c3b42))
+* footer navigation ([d45a751](https://github.com/kopexa-grc/marketing/commit/d45a751c69dff1a73a91617e1a5c33799103164a))
+
 ## [2.3.2](https://github.com/kopexa-grc/marketing/compare/v2.3.1...v2.3.2) (2025-01-02)
 
 
