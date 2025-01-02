@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import type { Footer as FooterType } from "@/payload-types";
 import { CMSLink } from "../cms/cms-link";
 import {
+  ArrowRight,
   ArrowUpRight,
   GithubIcon,
   LinkedinIcon,
@@ -21,7 +22,7 @@ export const Footer = ({ footer }: FooterProps) => {
   return (
     <footer
       data-theme="dark"
-      className="py-20 relative isolate pb-12 bg-footer text-footer-foreground mt-xhuge"
+      className="py-20 relative isolate pb-12 bg-primary text-primary-foreground mt-xhuge"
     >
       <div className="layout relative">
         <div className="col-span-full">
@@ -45,14 +46,14 @@ export const Footer = ({ footer }: FooterProps) => {
                         <CMSLink
                           {...link.link}
                           className={cn(
-                            "text-sm text-foreground/80",
-                            "hover:text-primary transition-colors",
+                            "text-sm text-white/80",
+                            "hover:text-white transition-colors",
                             "flex items-center gap-1 group/link"
                           )}
                           appearance="none"
                         >
                           {link.link.label}
-                          <ArrowUpRight className="h-3 w-3 opacity-0 -translate-y-1 group-hover/link:opacity-100 group-hover/link:translate-y-0 transition-all" />
+                          <ArrowRight className="h-3 w-3 opacity-0 -translate-y-1 group-hover/link:opacity-100 group-hover/link:translate-y-0 transition-all" />
                         </CMSLink>
                       </li>
                     ))}
@@ -91,7 +92,7 @@ export const Footer = ({ footer }: FooterProps) => {
           {/* Bottom Section */}
           <div
             className={cn(
-              "pt-8 border-t",
+              "pt-8 border-t border-white/30",
               "flex flex-col lg:flex-row items-center justify-between",
               "gap-8"
             )}
@@ -102,17 +103,20 @@ export const Footer = ({ footer }: FooterProps) => {
                 <div key={item.link?.label} className="flex items-center">
                   <Link
                     className={cn(
-                      "text-sm text-foreground/80",
-                      "hover:text-primary transition-colors",
+                      "text-sm text-white/80",
+                      "hover:text-white transition-colors",
                       "flex items-center gap-1 group"
                     )}
                     href={item.link?.url ?? "#"}
                   >
                     {item.link?.label}
-                    <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <ArrowRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </Link>
                   {index < (legal.links?.length ?? 0) - 1 && (
-                    <Separator orientation="vertical" className="mx-4 h-4" />
+                    <Separator
+                      orientation="vertical"
+                      className="mx-2 h-4 bg-white/30"
+                    />
                   )}
                 </div>
               ))}

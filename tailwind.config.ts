@@ -25,10 +25,6 @@ export default {
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        footer: {
-          DEFAULT: "hsl(var(--footer-background))",
-          foreground: "hsl(var(--footer-foreground))",
-        },
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
