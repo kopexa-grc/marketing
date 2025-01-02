@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.3.2](https://github.com/kopexa-grc/marketing/compare/v2.3.1...v2.3.2) (2025-01-02)
+
+
+### Bug Fixes
+
+* disable label for card links ([ff83618](https://github.com/kopexa-grc/marketing/commit/ff83618d6728883970737dbfb1a3faaa86fe88c3))
+* hero text colors ([9b0582a](https://github.com/kopexa-grc/marketing/commit/9b0582ad283d7ede9068e6a9688e2a9b1c718549))
+* remove label from card links ([1494fb6](https://github.com/kopexa-grc/marketing/commit/1494fb6234012c85e035ae847ec883edad6dbc15))
+
 ## [2.3.1](https://github.com/kopexa-grc/marketing/compare/v2.3.0...v2.3.1) (2025-01-02)
 
 
