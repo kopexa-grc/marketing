@@ -8,18 +8,35 @@ type LinkSectionProps = {
 };
 
 export const LinkSection = ({ section, sectionsLength }: LinkSectionProps) => {
+  const linkCount = Array.isArray(section.links) ? section.links.length : 0;
+
   return (
-    <div className="border-r border-white/30 last:border-none flex-auto p-4">
-      {section.title && (
-        <p
-          className={cn(
-            "font-sans text-base px-4 py-2.5 text-secondary",
-            "font-semibold"
-          )}
-        >
-          {section.title}
-        </p>
+    <div
+      className={cn(
+        "border-r border-white/30 last:border-none flex-auto p-4",
+        linkCount > 4 && sectionsLength <= 2 && "col-span-2"
       )}
+    >
+      {(section.title || section.description) && (
+        <div className="pb-4">
+          {section.title && (
+            <p
+              className={cn(
+                "font-sans text-base px-4 py-2.5 text-secondary",
+                "font-semibold"
+              )}
+            >
+              {section.title}
+            </p>
+          )}
+          {section.description && (
+            <p className="px-4 text-sm font-sans italic">
+              {section.description}
+            </p>
+          )}
+        </div>
+      )}
+
       {Array.isArray(section.links) && (
         <ul
           className={cn(
@@ -38,7 +55,7 @@ export const LinkSection = ({ section, sectionsLength }: LinkSectionProps) => {
               >
                 <div
                   className={cn(
-                    "flex flex-col py-3 px-4 rounded-2xl",
+                    "flex flex-col py-3 px-4 rounded-md",
                     "group-hover:bg-white transition-colors"
                   )}
                 >

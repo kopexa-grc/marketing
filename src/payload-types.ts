@@ -29,6 +29,10 @@ export type MainMenuSections =
        * The title of the dropdown section
        */
       title?: string | null;
+      /**
+       * The description of the dropdown section
+       */
+      description?: string | null;
       links?: MainMenuSectionLinks;
       id?: string | null;
     }[]
@@ -1488,6 +1492,7 @@ export interface MainMenuPanelsSelect<T extends boolean = true> {
  */
 export interface MainMenuSectionsSelect<T extends boolean = true> {
   title?: T;
+  description?: T;
   links?: T | MainMenuSectionLinksSelect<T>;
   id?: T;
 }

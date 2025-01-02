@@ -67,6 +67,16 @@ export const MainMenu: GlobalConfig = {
                   },
                 },
                 {
+                  type: "text",
+                  name: "description",
+                  label: "Description",
+                  localized: true,
+                  admin: {
+                    description: "The description of the dropdown section",
+                  },
+                  required: false,
+                },
+                {
                   name: "links",
                   type: "array",
                   interfaceName: "MainMenuSectionLinks",
