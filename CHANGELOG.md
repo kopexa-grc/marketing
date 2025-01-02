@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.5.0](https://github.com/kopexa-grc/marketing/compare/v2.4.3...v2.5.0) (2025-01-02)
+
+
+### Features
+
+* localizeable cta ([68e5d7a](https://github.com/kopexa-grc/marketing/commit/68e5d7ae51734d6bead6c374e8ef3430a6a7c521))
+
 ## [2.4.3](https://github.com/kopexa-grc/marketing/compare/v2.4.2...v2.4.3) (2025-01-02)
 
 
