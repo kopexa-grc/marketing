@@ -51,7 +51,7 @@ export const Footer = ({ footer }: FooterProps) => {
                           )}
                           appearance="none"
                         >
-                          {link.link.label}
+                          {link.link?.label}
                           <ArrowRight className="h-3 w-3 opacity-0 -translate-y-1 group-hover/link:opacity-100 group-hover/link:translate-y-0 transition-all" />
                         </CMSLink>
                       </li>

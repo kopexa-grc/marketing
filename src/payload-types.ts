@@ -62,7 +62,7 @@ export type FooterColumn =
        */
       navItems?:
         | {
-            link: CMSLinkField;
+            link?: CMSLinkField;
             id?: string | null;
           }[]
         | null;
@@ -90,7 +90,7 @@ export type FooterSocialMediaLink =
  */
 export type FooterLegalLink =
   | {
-      link: CMSLinkField;
+      link?: CMSLinkField;
       id?: string | null;
     }[]
   | null;
@@ -194,7 +194,7 @@ export interface Page {
     } | null;
     links?:
       | {
-          link: CMSLinkField;
+          link?: CMSLinkField;
           id?: string | null;
         }[]
       | null;
@@ -299,7 +299,7 @@ export interface CallToActionBlock {
   } | null;
   links?:
     | {
-        link: CMSLinkField;
+        link?: CMSLinkField;
         id?: string | null;
       }[]
     | null;
@@ -314,7 +314,7 @@ export interface CallToActionBlock {
 export interface PromoCardBlock {
   heading: string;
   description?: string | null;
-  link: CMSLinkField;
+  link?: CMSLinkField;
   dark?: boolean | null;
   icon?: 'Sparkles' | null;
   id?: string | null;
@@ -1415,7 +1415,7 @@ export interface MainMenu {
   tabs?: MainMenuPanels;
   ctas?:
     | {
-        link: CMSLinkField;
+        link?: CMSLinkField;
         id?: string | null;
       }[]
     | null;

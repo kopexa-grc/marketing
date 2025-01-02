@@ -133,7 +133,7 @@ export const Hero = ({
                     key={`${link.id}-${idx}`}
                     {...link.link}
                     size="lg"
-                    aria-label={`${link.link.label} - Call to action ${idx + 1}`}
+                    aria-label={`${link.link?.label} - Call to action ${idx + 1}`}
                     aria-describedby={headingId}
                   />
                 ))}

@@ -187,7 +187,7 @@ export const CardGridBlock = ({
 
         <div className={css.grid()}>
           {Array.isArray(cards) &&
-            cards.map((card, i) => {
+            cards.map((card) => {
               const url = card.link ? getCardUrl(card.link) : null;
               const hasLink = Boolean(url);
 
