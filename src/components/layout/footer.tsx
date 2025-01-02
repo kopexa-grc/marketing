@@ -69,7 +69,7 @@ export const Footer = ({ footer }: FooterProps) => {
                   key={socialLink.platform}
                   variant="ghost"
                   size="icon"
-                  className="rounded-full hover:scale-110 transition-transform"
+                  className="rounded-full hover:scale-110 transition-transform hover:bg-secondary hover:text-secondary-foreground"
                   asChild
                 >
                   <Link href={socialLink.link?.url ?? "#"}>
