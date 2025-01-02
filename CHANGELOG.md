@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.0](https://github.com/kopexa-grc/marketing/compare/v2.3.3...v2.4.0) (2025-01-02)
+
+
+### Features
+
+* service cards block ([4c59bc6](https://github.com/kopexa-grc/marketing/commit/4c59bc6ce338be45e96a81e769172879fbd6ddf7))
+
 ## [2.3.3](https://github.com/kopexa-grc/marketing/compare/v2.3.2...v2.3.3) (2025-01-02)
 
 
