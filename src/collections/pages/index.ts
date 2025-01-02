@@ -15,6 +15,7 @@ import { Content } from "@/blocks/content/config";
 import { CardGrid } from "@/blocks/card-grid/config";
 import { FeatureGrid } from "@/blocks/feature-grid/config";
 import { SolutionShowcase } from "@/blocks/solution-showcase/config";
+import { Locales } from "@/i18n/routing";
 
 export const Pages: CollectionConfig<"pages"> = {
   slug: "pages",
@@ -114,22 +115,36 @@ export const Pages: CollectionConfig<"pages"> = {
           doc._status === "published" ||
           doc._status !== previousDoc._status
         ) {
+          const pathsToRevalidate = [];
+
           if (doc.breadcrumbs && doc.breadcrumbs.length > 0) {
-            revalidatePath(doc.breadcrumbs[doc.breadcrumbs.length - 1].url);
-            console.log(
-              `Revalidated: ${doc.breadcrumbs[doc.breadcrumbs.length - 1].url}`
-            );
+            const path = doc.breadcrumbs[doc.breadcrumbs.length - 1].url;
+            for (const locale of Locales) {
+              pathsToRevalidate.push(`/${locale}${path}`);
+            }
+
             if (doc.breadcrumbs[0].url === "/home") {
-              revalidatePath("/");
-              console.log("Revalidated: /");
+              for (const locale of Locales) {
+                pathsToRevalidate.push(`/${locale}/`);
+              }
             }
           } else {
-            revalidatePath(`/${doc.slug}`);
-            console.log(`Revalidated: /${doc.slug}`);
-            if (doc.slug === "home") {
-              revalidatePath("/");
-              console.log("Revalidated: /");
+            const slugPath = `/${doc.slug}`;
+
+            for (const locale of Locales) {
+              pathsToRevalidate.push(`/${locale}${slugPath}`);
             }
+
+            if (doc.slug === "home") {
+              for (const locale of Locales) {
+                pathsToRevalidate.push(`/${locale}/`);
+              }
+            }
+          }
+
+          for (const path of pathsToRevalidate) {
+            revalidatePath(path);
+            console.log(`Revalidated: ${path}`);
           }
         }
       },
