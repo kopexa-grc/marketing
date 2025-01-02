@@ -456,7 +456,7 @@ export interface CardGridBlock {
         subtitle?: string | null;
         description?: string | null;
         media?: (number | null) | Media;
-        link: CMSLinkField;
+        link?: CMSLinkField;
         appearance?: {
           theme?: ('default' | 'primary' | 'secondary') | null;
           enableHover?: boolean | null;
