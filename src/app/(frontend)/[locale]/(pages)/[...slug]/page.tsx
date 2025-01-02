@@ -8,6 +8,7 @@ import type { Metadata } from "next";
 import { unstable_cache } from "next/cache";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
+import { Locales } from "@/i18n/routing";
 
 const getPage = async (slug: string[], locale: "en" | "de", draft?: boolean) =>
   draft
@@ -98,9 +99,12 @@ export async function generateStaticParams() {
   const getPages = unstable_cache(fetchPages, ["pages"]);
   const pages = await getPages();
 
-  return pages.map(({ breadcrumbs }) => ({
-    slug: breadcrumbs?.[breadcrumbs.length - 1]?.url
-      ?.replace(/^\/|\/$/g, "")
-      .split("/"),
-  }));
+  return pages.flatMap(({ breadcrumbs }) =>
+    Locales.map((locale) => ({
+      locale,
+      slug: breadcrumbs?.[breadcrumbs.length - 1]?.url
+        ?.replace(/^\/|\/$/g, "")
+        .split("/"),
+    }))
+  );
 }

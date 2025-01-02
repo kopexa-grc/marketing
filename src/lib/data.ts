@@ -65,7 +65,6 @@ export const fetchPages = async (): Promise<Partial<Page>[]> => {
     select: {
       breadcrumbs: true,
     },
-    locale: "all",
     where: {
       and: [
         {
