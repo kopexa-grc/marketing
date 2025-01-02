@@ -10,7 +10,7 @@ import { Manrope } from "next/font/google";
 import { mergeOpenGraph } from "@/lib/seo/mergeOpenGraph";
 import { NextIntlClientProvider } from "next-intl";
 import { APP_URL } from "@/lib/config";
-import { routing } from "@/i18n/routing";
+import { Locales, routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import { getMessages } from "next-intl/server";
 
@@ -29,6 +29,12 @@ export const metadata: Metadata = {
     creator: "@kopexa",
   },
 };
+
+export async function generateStaticParams() {
+  return Locales.map((locale) => ({
+    locale,
+  }));
+}
 
 export default async function RootLayout({
   children,

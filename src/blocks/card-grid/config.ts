@@ -70,7 +70,7 @@ export const CardGrid: Block = {
           relationTo: "media",
           required: false,
         },
-        link({ localized: true }),
+        link({ localized: true, appearances: false }),
         {
           name: "appearance",
           type: "group",
