@@ -9,7 +9,7 @@ type LinkSectionProps = {
 
 export const LinkSection = ({ section, sectionsLength }: LinkSectionProps) => {
   return (
-    <div className="border-r border-white/30 last:border-none flex-auto p-4 max-w-96">
+    <div className="border-r border-white/30 last:border-none flex-auto p-4">
       {section.title && (
         <p
           className={cn(

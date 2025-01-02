@@ -68,7 +68,7 @@ export const Panel = ({
       <div className="layout">
         <div
           className={cn(
-            "col-span-full flex flex-col w-full box-border border-white/30 mt-4"
+            "col-span-full flex flex-col w-full box-border border-white/30"
           )}
         >
           <div ref={cardRef} className="flex flex-row w-full box-border">
@@ -78,7 +78,12 @@ export const Panel = ({
               className="flex flex-col justify-between box-border grow shrink relative"
             >
               {/** links sections */}
-              <div className="relative flex justify-between">
+              <div
+                className={cn(
+                  "flex-1 gap-0 grid-rows-[minmax(auto,1fr)] auto-rows-auto auto-cols-fr grid-cols-3",
+                  "relative grid"
+                )}
+              >
                 {Array.isArray(panel.navItems) &&
                   panel.navItems.map((item) => (
                     <LinkSection
