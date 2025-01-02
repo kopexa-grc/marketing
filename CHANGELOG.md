@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.2.1](https://github.com/kopexa-grc/marketing/compare/v2.2.0...v2.2.1) (2025-01-02)
+
+
+### Bug Fixes
+
+* i18n layout generation ([c0706ee](https://github.com/kopexa-grc/marketing/commit/c0706ee1bbe3c76dbec80140d6bf270d1466f62b))
+* **i18n:** feature grid locals ([25a79aa](https://github.com/kopexa-grc/marketing/commit/25a79aafd6d160fc4bfb61f617033f0fb8de55fa))
+
 ## [2.2.0](https://github.com/kopexa-grc/marketing/compare/v2.1.0...v2.2.0) (2025-01-01)
 
 
