@@ -4,6 +4,8 @@ import { motion, type Variant } from "motion/react";
 import { cn } from "@/lib/utils";
 import type { MainMenuPanels } from "@/payload-types";
 import { LinkSection } from "./link-section";
+import { CMSLink } from "@/components/cms/cms-link";
+import { Media } from "@/components/cms/media";
 
 type PanelProps = {
   panel: NonNullable<MainMenuPanels>[number];
@@ -65,17 +67,17 @@ export const Panel = ({
       )}
       data-theme="light"
     >
-      <div className="layout">
+      <div className="layout gap-y-0">
         <div
           className={cn(
             "col-span-full flex flex-col w-full box-border border-white/30"
           )}
         >
-          <div ref={cardRef} className="flex flex-row w-full box-border">
+          <div ref={cardRef} className="flex flex-1 flex-row w-full box-border">
             {/** links wrapper */}
             <div
               ref={linksRef}
-              className="flex flex-col justify-between box-border grow shrink relative"
+              className="flex flex-1 flex-col justify-between box-border grow shrink relative"
             >
               {/** links sections */}
               <div
@@ -96,6 +98,30 @@ export const Panel = ({
             </div>
           </div>
         </div>
+        {Array.isArray(panel.lowerLinks) && panel.lowerLinks.length > 0 && (
+          <div className="col-span-full border-t border-white/30 p-4">
+            {panel.lowerLinks.map((link, idx) => (
+              <CMSLink
+                key={`${link.id}-${idx}`}
+                {...link.link}
+                appearance="none"
+                className="flex items-center gap-1.5 px-3 py-2 group"
+              >
+                {link.icon && typeof link.icon === "object" && (
+                  <Media
+                    className="size-4 text-white"
+                    imgClassName="w-full h-auto max-w-full rounded-2xl"
+                    priority
+                    resource={link.icon}
+                  />
+                )}
+                <span className="text-sm group-hover:text-secondary">
+                  {link.label}
+                </span>
+              </CMSLink>
+            ))}
+          </div>
+        )}
       </div>
     </motion.div>
   );

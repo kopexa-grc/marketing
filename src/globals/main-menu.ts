@@ -100,6 +100,31 @@ export const MainMenu: GlobalConfig = {
                 },
               ],
             },
+            {
+              name: "lowerLinks",
+              type: "array",
+              fields: [
+                {
+                  name: "label",
+                  type: "text",
+                  required: true,
+                  localized: true,
+                },
+                {
+                  name: "icon",
+                  type: "upload",
+                  relationTo: "media",
+                  required: false,
+                  filterOptions: {
+                    mimeType: { contains: "image" },
+                  },
+                },
+                link({
+                  appearances: false,
+                  disableLabel: true,
+                }),
+              ],
+            },
           ],
         },
       ],

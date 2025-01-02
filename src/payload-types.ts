@@ -16,6 +16,14 @@ export type MainMenuPanels =
       enableDirectLink?: boolean | null;
       link?: CMSLinkField;
       navItems?: MainMenuSections;
+      lowerLinks?:
+        | {
+            label: string;
+            icon?: (number | null) | Media;
+            link?: CMSLinkField;
+            id?: string | null;
+          }[]
+        | null;
       id?: string | null;
     }[]
   | null;
@@ -1484,6 +1492,14 @@ export interface MainMenuPanelsSelect<T extends boolean = true> {
   enableDirectLink?: T;
   link?: T | CMSLinkFieldSelect<T>;
   navItems?: T | MainMenuSectionsSelect<T>;
+  lowerLinks?:
+    | T
+    | {
+        label?: T;
+        icon?: T;
+        link?: T | CMSLinkFieldSelect<T>;
+        id?: T;
+      };
   id?: T;
 }
 /**
