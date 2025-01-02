@@ -210,6 +210,7 @@ export interface Page {
     | CardGridBlock
     | FeatureGridBlock
     | SolutionShowcaseBlock
+    | ServiceCardsBlock
   )[];
   publishedAt?: string | null;
   slug?: string | null;
@@ -254,7 +255,6 @@ export interface CMSLinkField {
     value: number | Page;
   } | null;
   url?: string | null;
-  label: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -541,6 +541,45 @@ export interface SolutionShowcaseBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'solutionShowcase';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ServiceCardsBlock".
+ */
+export interface ServiceCardsBlock {
+  heading?: {
+    tagline?: string | null;
+    heading?: string | null;
+  };
+  cards?:
+    | {
+        tag?: string | null;
+        heading?: string | null;
+        description: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        };
+        enableLink?: boolean | null;
+        link?: {
+          link?: CMSLinkField;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'serviceCards';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -885,6 +924,7 @@ export interface PagesSelect<T extends boolean = true> {
         cardGrid?: T | CardGridBlockSelect<T>;
         featureGrid?: T | FeatureGridBlockSelect<T>;
         solutionShowcase?: T | SolutionShowcaseBlockSelect<T>;
+        serviceCards?: T | ServiceCardsBlockSelect<T>;
       };
   publishedAt?: T;
   slug?: T;
@@ -925,7 +965,6 @@ export interface CMSLinkFieldSelect<T extends boolean = true> {
   newTab?: T;
   reference?: T;
   url?: T;
-  label?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1097,6 +1136,34 @@ export interface SolutionShowcaseBlockSelect<T extends boolean = true> {
               mediaType?: T;
               image?: T;
               icon?: T;
+            };
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ServiceCardsBlock_select".
+ */
+export interface ServiceCardsBlockSelect<T extends boolean = true> {
+  heading?:
+    | T
+    | {
+        tagline?: T;
+        heading?: T;
+      };
+  cards?:
+    | T
+    | {
+        tag?: T;
+        heading?: T;
+        description?: T;
+        enableLink?: T;
+        link?:
+          | T
+          | {
+              link?: T | CMSLinkFieldSelect<T>;
             };
         id?: T;
       };

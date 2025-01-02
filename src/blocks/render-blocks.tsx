@@ -8,6 +8,7 @@ import { ContentBlock } from "./content/content-block";
 import { CardGridBlock } from "./card-grid/card-grid-block";
 import { FeatureGridBlock } from "./feature-grid/feature-grid-block";
 import { SolutionShowcaseBlock } from "./solution-showcase/solution-showcase-block";
+import { ServiceCardsBlock } from "./service-cards/service-cards-block";
 
 type Block = Page["layout"][0];
 
@@ -46,6 +47,9 @@ export const RenderBlocks = ({ blocks }: RenderBlocksProps) => {
       }
       case "solutionShowcase": {
         return <SolutionShowcaseBlock key={`${block.id}`} {...block} />;
+      }
+      case "serviceCards": {
+        return <ServiceCardsBlock key={`${block.id}`} {...block} />;
       }
       default: {
         return null;
