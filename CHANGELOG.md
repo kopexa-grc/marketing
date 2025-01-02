@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.3.1](https://github.com/kopexa-grc/marketing/compare/v2.3.0...v2.3.1) (2025-01-02)
+
+
+### Bug Fixes
+
+* add color transitions ([eb93074](https://github.com/kopexa-grc/marketing/commit/eb93074b0e0bce8c13995ca352c179d5f1d89b13))
+* desktop navbar spacing ([1b779e1](https://github.com/kopexa-grc/marketing/commit/1b779e1452c5d93feb304812d3ff630f6ac5279a))
+* fixed colors and spacing ([238a6b1](https://github.com/kopexa-grc/marketing/commit/238a6b1b4a55740c1af93ff9f2d7d1a02ce91ee0))
+
 ## [2.3.0](https://github.com/kopexa-grc/marketing/compare/v2.2.1...v2.3.0) (2025-01-02)
 
 
