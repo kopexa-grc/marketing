@@ -36,7 +36,7 @@ export const CallToActionBlock = ({ title, description, links, id }: Props) => {
         </div>
         {(links || []).map(({ link }, i) => (
           <div
-            key={`${id}-${link.url}-${i}`}
+            key={`${id}-${link?.url}-${i}`}
             className="col-span-full lg:col-span-6"
           >
             <Card className="border-transparent hover:border-primary relative group">
