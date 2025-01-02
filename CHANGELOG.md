@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.7.0](https://github.com/kopexa-grc/marketing/compare/v2.6.0...v2.7.0) (2025-01-02)
+
+
+### Features
+
+* animated mobile menu ([ab84ced](https://github.com/kopexa-grc/marketing/commit/ab84ced770efcd955776137c5782d61d893e7edb))
+
+
+### Bug Fixes
+
+* fixed heroes gutter on mobile ([f6f0220](https://github.com/kopexa-grc/marketing/commit/f6f0220ef9875e94a7f320e9afe9f0eebf7098db))
+* footer border ([95be8e8](https://github.com/kopexa-grc/marketing/commit/95be8e877ba5cab6e10d813d89f4ef69f2fee93f))
+
 ## [2.6.0](https://github.com/kopexa-grc/marketing/compare/v2.5.0...v2.6.0) (2025-01-02)
 
 
