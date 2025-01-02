@@ -44,6 +44,9 @@ dependencies:
   '@radix-ui/react-dialog':
     specifier: ^1.1.4
     version: 1.1.4(@types/react-dom@19.0.2)(@types/react@19.0.2)(react-dom@19.0.0)(react@19.0.0)
+  '@radix-ui/react-focus-scope':
+    specifier: ^1.1.1
+    version: 1.1.1(@types/react-dom@19.0.2)(@types/react@19.0.2)(react-dom@19.0.0)(react@19.0.0)
   '@radix-ui/react-label':
     specifier: ^2.1.1
     version: 2.1.1(@types/react-dom@19.0.2)(@types/react@19.0.2)(react-dom@19.0.0)(react@19.0.0)
@@ -110,6 +113,9 @@ dependencies:
   react-hook-form:
     specifier: ^7.54.2
     version: 7.54.2(react@19.0.0)
+  react-remove-scroll:
+    specifier: ^2.6.2
+    version: 2.6.2(@types/react@19.0.2)(react@19.0.0)
   sharp:
     specifier: ^0.33.5
     version: 0.33.5

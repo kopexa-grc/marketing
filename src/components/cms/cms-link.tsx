@@ -1,18 +1,18 @@
 import type { CMSLinkField, Page } from "@/payload-types";
 import { buttonVariants, type ButtonProps } from "../ui/button";
 import { cn } from "@/lib/utils";
-import type { ReactNode } from "react";
+import type { ComponentProps, ReactNode } from "react";
 import { Link } from "@/i18n/routing";
 
-export type CMSLinkType = Omit<CMSLinkField, "label"> & {
-  appearance?: ButtonProps["variant"] | "none";
-  size?: ButtonProps["size"];
-  label?: string | null;
-  children?: ReactNode;
-  className?: string;
-  "aria-label"?: string;
-  "aria-describedby"?: string;
-};
+type Omitted = "label" | "children" | "href" | "type";
+
+export type CMSLinkType = Omit<CMSLinkField, "label"> &
+  Omit<ComponentProps<"a">, Omitted> & {
+    appearance?: ButtonProps["variant"] | "none";
+    size?: ButtonProps["size"];
+    label?: string | null;
+    children?: ReactNode;
+  };
 
 type LinkType = CMSLinkField["type"];
 type Reference = CMSLinkField["reference"];
@@ -66,8 +66,7 @@ export const CMSLink = ({
   appearance,
   size,
   children,
-  "aria-label": ariaLabel,
-  "aria-describedby": ariadescribedby,
+  ...restProps
 }: CMSLinkType) => {
   const href = generateHref({ type, reference, url });
 
@@ -89,8 +88,7 @@ export const CMSLink = ({
       )}
       href={href || url || ""}
       {...newTabProps}
-      aria-label={ariaLabel}
-      aria-describedby={ariadescribedby}
+      {...restProps}
     >
       {children ? children : label}
     </Link>

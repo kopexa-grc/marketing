@@ -108,7 +108,7 @@
     }
 
     @screen lg {
-      @apply gap-x-12 grid-cols-12;
+      @apply gap-x-12 grid-cols-12 w-full;
     }
 
     @screen xl {
