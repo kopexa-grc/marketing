@@ -9,9 +9,14 @@ type LinkSectionProps = {
 
 export const LinkSection = ({ section, sectionsLength }: LinkSectionProps) => {
   return (
-    <div className="border-r last:border-none flex-auto p-8 max-w-96">
+    <div className="border-r border-white/30 last:border-none flex-auto p-4 max-w-96">
       {section.title && (
-        <p className={cn("font-sans text-base px-4 py-2.5", "font-semibold")}>
+        <p
+          className={cn(
+            "font-sans text-base px-4 py-2.5 text-secondary",
+            "font-semibold"
+          )}
+        >
           {section.title}
         </p>
       )}
@@ -34,14 +39,14 @@ export const LinkSection = ({ section, sectionsLength }: LinkSectionProps) => {
                 <div
                   className={cn(
                     "flex flex-col py-3 px-4 rounded-2xl",
-                    "group-hover:bg-accent"
+                    "group-hover:bg-white"
                   )}
                 >
                   <div className="flex flex-col gap-1">
-                    <span className="font-semibold leading-none text-sm group-hover:text-primary">
+                    <span className="text-navbar-panel-label-foreground font-semibold leading-none text-sm group-hover:text-primary">
                       {link.label}
                     </span>
-                    <span className="text-sm text-accent-foreground">
+                    <span className="text-sm text-white/80 group-hover:text-neutral-800">
                       {link.description}
                     </span>
                   </div>

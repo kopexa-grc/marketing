@@ -51,7 +51,7 @@ export function MainNav({ mainMenu }: MainNavProps) {
   }, [visiblePanel]);
 
   return (
-    <nav className="relative w-full flex flex-row items-center justify-between gap-12">
+    <nav className="w-full flex flex-row items-center justify-between gap-12">
       <Link href="/" className="relative group">
         <Logo />
       </Link>
@@ -104,7 +104,7 @@ export function MainNav({ mainMenu }: MainNavProps) {
           })}
       </ul>
 
-      <div className="flex items-center space-x-6">
+      <div className="flex items-center space-x-6" data-theme="dark">
         {Array.isArray(mainMenu.ctas) &&
           mainMenu.ctas.map((cta) => (
             <CMSLink

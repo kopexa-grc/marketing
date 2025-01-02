@@ -57,6 +57,13 @@ export default {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
         },
+        "navbar-panel": {
+          DEFAULT: "hsl(var(--navbar-panel-background))",
+        },
+        "navbar-panel-label": {
+          foreground: "hsl(var(--navbar-panel-label-foreground))",
+        },
+
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

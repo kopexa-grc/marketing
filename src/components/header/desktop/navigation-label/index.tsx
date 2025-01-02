@@ -42,15 +42,15 @@ export const NavigationLabel = forwardRef<HTMLLIElement, NavigationLabelProps>(
           className={cn(
             "flex items-center text-start no-underline cursor-default group",
             "px-4 py-2",
-            "rounded-md transition-colors duration-300",
+            "rounded-md transition-colors duration-100",
             // @TODO dark variants
-            "text-foreground",
-            "hover:bg-accent hover:text-accent-foreground",
-            "focus:bg-accent focus:text-accent-foreground focus:outline-none",
+            "text-primary-foreground/80",
+            "hover:bg-primary/80 hover:text-primary-foreground",
+            "focus:bg-accent focus:text-primary-foreground focus:outline-none",
             "disabled:pointer-events-none disabled:opacity-50"
           )}
         >
-          <div className="relative transition-colors duration-300">
+          <div className="relative transition-colors duration-200">
             <span className="font-semibold text-sm transition-colors duration-100 leading-none">
               {content}
             </span>

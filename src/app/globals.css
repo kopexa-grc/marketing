@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --color-primary: 224 81% 49%;
+  }
+
   :root,
   [data-theme="light"] {
     --background: 0 0% 100%;
@@ -13,10 +17,11 @@
     --popover-foreground: 20 14.3% 4.1%;
     /** my awesome yellow --primary: 47.9 95.8% 53.1%; --primary-foreground: 26 83.3% 14.1%; */
     /* --primary: 176 61% 19%; green */
-    --primary: 214 82% 49%;
+    /** hsl(213, 80%, 46%)*/
+    --primary: 224 81% 49%;
     --primary-foreground: 0 0% 100%;
     /* --secondary: 131 18% 69%; */
-    --secondary: 34 82% 49%;
+    --secondary: 42 100% 60%;
     --secondary-foreground: 0 0% 10%;
     --muted: 60 4.8% 95.9%;
     --muted-foreground: 25 5.3% 44.7%;
@@ -36,6 +41,9 @@
 
     --footer-background: 215 81% 10%;
     --footer-foreground: 0 0% 100%;
+
+    --navbar-panel-background: var(--color-primary);
+    --navbar-panel-label-foreground: 0 0% 100%;
   }
 
   .dark,
@@ -46,9 +54,9 @@
     --card-foreground: 60 9.1% 97.8%;
     --popover: 20 14.3% 4.1%;
     --popover-foreground: 60 9.1% 97.8%;
-    --primary: 214 82% 49%;
+    --primary: 224 81% 49%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 34 82% 49%;
+    --secondary: 42 100% 60%;
     --secondary-foreground: 0 0% 100%;
     --muted: 12 6.5% 15.1%;
     --muted-foreground: 24 5.4% 63.9%;
