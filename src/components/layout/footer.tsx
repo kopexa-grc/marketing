@@ -37,7 +37,7 @@ export const Footer = ({ footer }: FooterProps) => {
                 className={cn("group", "text-start border-b lg:border-none")}
                 key={`${column.id}`}
               >
-                <h4 className="text-base font-semibold mb-6">{column.label}</h4>
+                <h6 className="text-base font-semibold mb-6">{column.label}</h6>
                 <ul className="space-y-3">
                   {Array.isArray(column.navItems) &&
                     column.navItems.map((link) => (
