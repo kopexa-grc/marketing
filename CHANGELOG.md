@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.6.0](https://github.com/kopexa-grc/marketing/compare/v2.5.0...v2.6.0) (2025-01-02)
+
+
+### Features
+
+* menu lower links ([51e4a44](https://github.com/kopexa-grc/marketing/commit/51e4a44012e07a8365a5612e00566e61a1dd96a0))
+* **menu:** description is now available within mega menu ([7ae86c1](https://github.com/kopexa-grc/marketing/commit/7ae86c155283d109941b6a9c69e053e6d9ce9231))
+
+
+### Bug Fixes
+
+* footer heading order ([1130bdc](https://github.com/kopexa-grc/marketing/commit/1130bdc54c56066ce36efa992b87f276ac27d610))
+* social icons contrast ([acc7465](https://github.com/kopexa-grc/marketing/commit/acc7465b206f25550e81a825b81eba362acc119d))
+
 ## [2.5.0](https://github.com/kopexa-grc/marketing/compare/v2.4.3...v2.5.0) (2025-01-02)
 
 
