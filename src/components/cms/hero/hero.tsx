@@ -19,7 +19,7 @@ type Props = Pick<Page["hero"], Picked>;
 const hero = tv({
   slots: {
     wrapper: [
-      "relative py-16 md:py-20 lg:py-32 bg-primary text-primary-foreground",
+      "relative pt-xhuge pb-16 md:pb-20 lg:pb-32 bg-primary text-primary-foreground",
     ],
     container: ["layout"],
     content: ["col-span-4"],
