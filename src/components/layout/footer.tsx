@@ -4,7 +4,6 @@ import type { Footer as FooterType } from "@/payload-types";
 import { CMSLink } from "../cms/cms-link";
 import {
   ArrowRight,
-  ArrowUpRight,
   GithubIcon,
   LinkedinIcon,
   TwitterIcon,
@@ -101,17 +100,18 @@ export const Footer = ({ footer }: FooterProps) => {
             <div className="flex flex-wrap justify-center gap-4">
               {legal?.links?.map((item, index) => (
                 <div key={item.link?.label} className="flex items-center">
-                  <Link
+                  <CMSLink
+                    {...item.link}
+                    appearance="none"
                     className={cn(
                       "text-sm text-white/80",
                       "hover:text-white transition-colors",
                       "flex items-center gap-1 group"
                     )}
-                    href={item.link?.url ?? "#"}
                   >
                     {item.link?.label}
                     <ArrowRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </Link>
+                  </CMSLink>
                   {index < (legal.links?.length ?? 0) - 1 && (
                     <Separator
                       orientation="vertical"
