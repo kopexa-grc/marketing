@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.1](https://github.com/kopexa-grc/marketing/compare/v2.4.0...v2.4.1) (2025-01-02)
+
+
+### Bug Fixes
+
+* feature grid promo card ([f1e6107](https://github.com/kopexa-grc/marketing/commit/f1e61070cee2edec3eae0781f027ca8f9588ed57))
+
 ## [2.4.0](https://github.com/kopexa-grc/marketing/compare/v2.3.3...v2.4.0) (2025-01-02)
 
 
