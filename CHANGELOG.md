@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.9.0](https://github.com/kopexa-grc/marketing/compare/v2.8.0...v2.9.0) (2025-01-03)
+
+
+### Features
+
+* accessibility context ([ba6fb75](https://github.com/kopexa-grc/marketing/commit/ba6fb7516f913dd37818f10d16c99afa00c7abfd))
+* improved cookie banner and i18n ([5ae7f70](https://github.com/kopexa-grc/marketing/commit/5ae7f70a6d6c8901c57ace24f405bc82148ee6a8))
+
+
+### Bug Fixes
+
+* missing migrations ([4cc7d68](https://github.com/kopexa-grc/marketing/commit/4cc7d6837d4cff9f14192be4bf270d4f2f09f733))
+
 ## [2.8.0](https://github.com/kopexa-grc/marketing/compare/v2.7.0...v2.8.0) (2025-01-03)
 
 
