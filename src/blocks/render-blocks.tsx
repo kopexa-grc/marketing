@@ -10,6 +10,7 @@ import { FeatureGridBlock } from "./feature-grid/feature-grid-block";
 import { SolutionShowcaseBlock } from "./solution-showcase/solution-showcase-block";
 import { ServiceCardsBlock } from "./service-cards/service-cards-block";
 import { FormBlock } from "./form/form-block";
+import { FAQBlock } from "./faq/faq-block";
 
 type Block = Page["layout"][0];
 
@@ -54,6 +55,9 @@ export const RenderBlocks = ({ blocks }: RenderBlocksProps) => {
       }
       case "form": {
         return <FormBlock key={`${block.id}`} {...block} />;
+      }
+      case "faq-section": {
+        return <FAQBlock key={`${block.id}`} {...block} />;
       }
       default: {
         return null;

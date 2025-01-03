@@ -224,6 +224,7 @@ export interface Page {
     | SolutionShowcaseBlock
     | ServiceCardsBlock
     | FormBlock
+    | FAQBlock
   )[];
   publishedAt?: string | null;
   slug?: string | null;
@@ -799,6 +800,37 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FAQBlock".
+ */
+export interface FAQBlock {
+  headline: string;
+  faqs?:
+    | {
+        question: string;
+        answer: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'faq-section';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -969,6 +1001,7 @@ export interface PagesSelect<T extends boolean = true> {
         solutionShowcase?: T | SolutionShowcaseBlockSelect<T>;
         serviceCards?: T | ServiceCardsBlockSelect<T>;
         form?: T | FormBlockSelect<T>;
+        'faq-section'?: T | FAQBlockSelect<T>;
       };
   publishedAt?: T;
   slug?: T;
@@ -1226,6 +1259,22 @@ export interface FormBlockSelect<T extends boolean = true> {
   headingTag?: T;
   description?: T;
   contentLayout?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FAQBlock_select".
+ */
+export interface FAQBlockSelect<T extends boolean = true> {
+  headline?: T;
+  faqs?:
+    | T
+    | {
+        question?: T;
+        answer?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }

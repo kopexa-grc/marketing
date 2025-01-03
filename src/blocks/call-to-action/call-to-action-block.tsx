@@ -9,10 +9,10 @@ import { tv } from "tailwind-variants";
 
 const styles = tv({
   slots: {
-    root: "bg-accent lg:bg-transparent text-accent-foreground pt-xhuge",
+    root: "lg:bg-transparent text-accent-foreground pt-xhuge",
     wrapper: [
       "bg-accent px-5 py-16 layout space-y-8",
-      "lg:rounded-2xl lg:py-16 lg:px-16",
+      "rounded-2xl lg:py-16 lg:px-16",
     ],
     title: ["col-span-full text-center flex flex-col items-center"],
   },

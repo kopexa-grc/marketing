@@ -2,16 +2,6 @@ import type { Config } from "tailwindcss";
 import animate from "tailwindcss-animate";
 import containerQueries from "@tailwindcss/container-queries";
 import typography from "@tailwindcss/typography";
-import { cssVariables } from "./src/css-variables";
-import type { ResolvableTo, ScreensConfig } from "tailwindcss/types/config";
-
-const screens = Object.entries(cssVariables.screens).reduce(
-  (acc, [key, value]) => {
-    acc[key] = `${value}px`;
-    return acc;
-  },
-  {} as Record<string, string>
-) as ResolvableTo<ScreensConfig>;
 
 export default {
   darkMode: ["selector", '[data-mode="dark"]'],
@@ -125,8 +115,8 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       spacing: {
-        huge: "7.5rem",
-        xhuge: "10rem",
+        huge: "var(--gutter-huge)",
+        xhuge: "var(--gutter-xhuge)",
       },
     },
   },

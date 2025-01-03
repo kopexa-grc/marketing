@@ -10,7 +10,7 @@ import { tv } from "tailwind-variants";
 
 const styles = tv({
   slots: {
-    root: ["relative py-16", "overflow-hidden"],
+    root: ["relative pt-xhuge", "overflow-hidden"],
     container: ["layout"],
     header: ["col-span-full max-w-2xl", "mb-12"],
     heading: "mb-4",

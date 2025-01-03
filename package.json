@@ -19,6 +19,7 @@
     "ci": "payload migrate && pnpm build"
   },
   "dependencies": {
+    "@ark-ui/react": "^4.6.0",
     "@faceless-ui/window-info": "^2.1.2",
     "@hookform/resolvers": "^3.9.1",
     "@payloadcms/db-vercel-postgres": "^3.12.0",

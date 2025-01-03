@@ -129,4 +129,25 @@
       @apply space-y-20;
     }
   }
+
+  /** spacing **/
+  :root {
+    --gutter-huge: 1.5rem;
+    --gutter-xhuge: 3rem;
+
+    @screen sm {
+      --gutter-huge: 3.5rem;
+      --gutter-xhuge: 4rem;
+    }
+
+    @screen md {
+      --gutter-huge: 5rem;
+      --gutter-xhuge: 6rem;
+    }
+
+    @screen lg {
+      --gutter-huge: 7.5rem;
+      --gutter-xhuge: 10rem;
+    }
+  }
 }

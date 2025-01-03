@@ -18,6 +18,7 @@ import { SolutionShowcase } from "@/blocks/solution-showcase/config";
 import { Locales } from "@/i18n/routing";
 import { ServiceCards } from "@/blocks/service-cards/config";
 import { Form } from "@/blocks/form/config";
+import { FAQBlock } from "@/blocks/faq/config";
 
 export const Pages: CollectionConfig<"pages"> = {
   slug: "pages",
@@ -93,6 +94,7 @@ export const Pages: CollectionConfig<"pages"> = {
                 SolutionShowcase,
                 ServiceCards,
                 Form,
+                FAQBlock,
               ],
               required: true,
               admin: {
