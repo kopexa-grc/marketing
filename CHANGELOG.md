@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.10.0](https://github.com/kopexa-grc/marketing/compare/v2.9.0...v2.10.0) (2025-01-03)
+
+
+### Features
+
+* a11y support for faq block ([3884b3e](https://github.com/kopexa-grc/marketing/commit/3884b3e0f2bbc34becc67296b5067d19b5fc4961))
+* added faq block with ark and framer ([f7a46e2](https://github.com/kopexa-grc/marketing/commit/f7a46e245de1315efbf114119eb9ad566b637cf3))
+
 ## [2.9.0](https://github.com/kopexa-grc/marketing/compare/v2.8.0...v2.9.0) (2025-01-03)
 
 
