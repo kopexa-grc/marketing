@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.8.0](https://github.com/kopexa-grc/marketing/compare/v2.7.0...v2.8.0) (2025-01-03)
+
+
+### Features
+
+* forms ([935d569](https://github.com/kopexa-grc/marketing/commit/935d569923e7de5f675d1f3fab392ed140557cd1))
+
 ## [2.7.0](https://github.com/kopexa-grc/marketing/compare/v2.6.0...v2.7.0) (2025-01-02)
 
 
