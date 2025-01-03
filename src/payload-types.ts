@@ -223,6 +223,7 @@ export interface Page {
     | FeatureGridBlock
     | SolutionShowcaseBlock
     | ServiceCardsBlock
+    | FormBlock
   )[];
   publishedAt?: string | null;
   slug?: string | null;
@@ -597,46 +598,31 @@ export interface ServiceCardsBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "users".
+ * via the `definition` "FormBlock".
  */
-export interface User {
-  id: number;
-  name?: string | null;
-  roles: ('admin' | 'public')[];
-  updatedAt: string;
-  createdAt: string;
-  email: string;
-  resetPasswordToken?: string | null;
-  resetPasswordExpiration?: string | null;
-  salt?: string | null;
-  hash?: string | null;
-  loginAttempts?: number | null;
-  lockUntil?: string | null;
-  password?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "partners".
- */
-export interface Partner {
-  id: number;
-  name: string;
-  website: string;
-  email: string;
-  slug: string;
-  slugLock?: boolean | null;
-  /**
-   * Set to inactive to hide this partner from the directory.
-   */
-  agency_status?: ('active' | 'inactive') | null;
-  logo: number | Media;
-  /**
-   * This field is managed by the Featured Partners field in the Partner Program collection
-   */
-  featured?: boolean | null;
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
+export interface FormBlock {
+  form: number | Form;
+  heading?: string | null;
+  headingTag?: ('h1' | 'h2' | 'h3' | 'h4') | null;
+  description?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  contentLayout?: ('none' | 'left' | 'right') | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'form';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -813,6 +799,49 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "users".
+ */
+export interface User {
+  id: number;
+  name?: string | null;
+  roles: ('admin' | 'public')[];
+  updatedAt: string;
+  createdAt: string;
+  email: string;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiration?: string | null;
+  salt?: string | null;
+  hash?: string | null;
+  loginAttempts?: number | null;
+  lockUntil?: string | null;
+  password?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "partners".
+ */
+export interface Partner {
+  id: number;
+  name: string;
+  website: string;
+  email: string;
+  slug: string;
+  slugLock?: boolean | null;
+  /**
+   * Set to inactive to hide this partner from the directory.
+   */
+  agency_status?: ('active' | 'inactive') | null;
+  logo: number | Media;
+  /**
+   * This field is managed by the Featured Partners field in the Partner Program collection
+   */
+  featured?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "form-submissions".
  */
 export interface FormSubmission {
@@ -939,6 +968,7 @@ export interface PagesSelect<T extends boolean = true> {
         featureGrid?: T | FeatureGridBlockSelect<T>;
         solutionShowcase?: T | SolutionShowcaseBlockSelect<T>;
         serviceCards?: T | ServiceCardsBlockSelect<T>;
+        form?: T | FormBlockSelect<T>;
       };
   publishedAt?: T;
   slug?: T;
@@ -1183,6 +1213,19 @@ export interface ServiceCardsBlockSelect<T extends boolean = true> {
             };
         id?: T;
       };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FormBlock_select".
+ */
+export interface FormBlockSelect<T extends boolean = true> {
+  form?: T;
+  heading?: T;
+  headingTag?: T;
+  description?: T;
+  contentLayout?: T;
   id?: T;
   blockName?: T;
 }

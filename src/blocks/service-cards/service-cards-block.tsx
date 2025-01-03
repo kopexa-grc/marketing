@@ -2,6 +2,7 @@ import { CMSLink } from "@/components/cms/cms-link";
 import { RichText } from "@/components/cms/rich-text";
 import { Heading, Paragraph } from "@/components/ui/typography";
 import type { ServiceCardsBlock as ServiceCardsBlockProps } from "@/payload-types";
+import { ArrowRight } from "lucide-react";
 import { tv } from "tailwind-variants";
 
 type Props = ServiceCardsBlockProps;
@@ -56,6 +57,12 @@ export const ServiceCardsBlock = ({ heading, cards }: Props) => {
             >
               <div className={css.cardHeader()}>
                 <div className={css.tag()}>{card.tag}</div>
+                {card.enableLink && (
+                  <ArrowRight
+                    className="size-6 opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all"
+                    aria-hidden="true"
+                  />
+                )}
               </div>
               {card.enableLink ? (
                 <CMSLink {...card.link?.link} appearance="none">

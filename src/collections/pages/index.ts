@@ -17,6 +17,7 @@ import { FeatureGrid } from "@/blocks/feature-grid/config";
 import { SolutionShowcase } from "@/blocks/solution-showcase/config";
 import { Locales } from "@/i18n/routing";
 import { ServiceCards } from "@/blocks/service-cards/config";
+import { Form } from "@/blocks/form/config";
 
 export const Pages: CollectionConfig<"pages"> = {
   slug: "pages",
@@ -91,6 +92,7 @@ export const Pages: CollectionConfig<"pages"> = {
                 FeatureGrid,
                 SolutionShowcase,
                 ServiceCards,
+                Form,
               ],
               required: true,
               admin: {
