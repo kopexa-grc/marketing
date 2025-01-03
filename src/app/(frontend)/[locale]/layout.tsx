@@ -50,7 +50,9 @@ export default async function RootLayout({
     notFound();
   }
 
-  const messages = await getMessages();
+  const messages = await getMessages({
+    locale: params.locale,
+  });
 
   return (
     <html lang={params.locale}>

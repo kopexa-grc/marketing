@@ -1,1 +1,29 @@
-{}
+{
+  "privacy": {
+    "title": "Cookie-Einstellungen",
+    "mainText": "Wir verwenden Cookies und ähnliche Technologien auf unserer Website. Einige sind technisch notwendig, während andere uns helfen, diese Website und Ihre Erfahrung zu verbessern.",
+    "cookies": {
+      "essential": {
+        "title": "Notwendige Cookies",
+        "description": "Notwendige Cookies ermöglichen grundlegende Funktionen und sind für die einwandfreie Funktion der Website erforderlich.",
+        "status": "Immer aktiv"
+      },
+      "analytics": {
+        "title": "Analytische Cookies",
+        "description": "Analytische Cookies helfen uns zu verstehen, wie Besucher mit unserer Website interagieren.",
+        "status": "Optional"
+      },
+      "marketing": {
+        "title": "Marketing Cookies",
+        "description": "Marketing-Cookies werden verwendet, um Besuchern auf anderen Websites relevante Anzeigen zu präsentieren.",
+        "status": "Optional"
+      }
+    },
+    "actions": {
+      "acceptAll": "Alle akzeptieren",
+      "decline": "Ablehnen",
+      "customize": "Einstellungen anpassen",
+      "learnMore": "Cookie-Richtlinie"
+    }
+  }
+}

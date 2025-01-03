@@ -73,6 +73,7 @@ const PrivacyProvider: React.FC<PrivacyProviderProps> = (props) => {
     (accepted: boolean, rejected: boolean) => {
       setCookieConsent(accepted);
       setLocaleStorage(accepted, rejected, country || "");
+      setShowConsent(false);
     },
     [country]
   );
