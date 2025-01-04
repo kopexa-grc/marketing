@@ -30,7 +30,7 @@ export const PromoCardBlock = ({
               </Heading>
               {description && <Paragraph>{description}</Paragraph>}
             </PromoCard.Text>
-            {link && <CMSLink {...link} size="xl" />}
+            {link && <CMSLink {...link} size="xl" onPrimary={dark ?? false} />}
           </PromoCard.Content>
         </PromoCard.Root>
       </div>
