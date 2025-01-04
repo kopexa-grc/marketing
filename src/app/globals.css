@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --color-primary: 223 81% 35%;
+    --color-primary: 220 60% 19%;
   }
 
   :root,
@@ -15,11 +15,8 @@
     --card-foreground: 20 14.3% 4.1%;
     --popover: 0 0% 100%;
     --popover-foreground: 20 14.3% 4.1%;
-    /** my awesome yellow --primary: 47.9 95.8% 53.1%; --primary-foreground: 26 83.3% 14.1%; */
-    /* --primary: 176 61% 19%; green */
-    /** hsl(213, 80%, 46%)*/
-    /* --primary: 224 81% 49%; */
-    --primary: 223 81% 35%;
+    /* prefered: blue --primary: 223 81% 35%; */
+    --primary: 220 60% 19%;
     --primary-foreground: 0 0% 100%;
     /* --secondary: 131 18% 69%; */
     --secondary: 42 100% 60%;
@@ -33,7 +30,7 @@
     --border: 20 5.9% 90%;
     --input: 20 5.9% 90%;
 
-    --ring: 222.92 80.9% 34.9%;
+    --ring: 220 60% 19%;
 
     --radius: 0.5rem;
 
@@ -55,7 +52,7 @@
     --card-foreground: 60 9.1% 97.8%;
     --popover: 20 14.3% 4.1%;
     --popover-foreground: 60 9.1% 97.8%;
-    --primary: 223 81% 35%;
+    --primary: 220 60% 19%;
     --primary-foreground: 0 0% 100%;
     --secondary: 42 100% 60%;
     --secondary-foreground: 20 14.3% 4.1%;
@@ -67,8 +64,6 @@
     --destructive-foreground: 60 9.1% 97.8%;
     --border: 12 6.5% 15.1%;
     --input: 12 6.5% 15.1%;
-
-    --ring: 222.92 80.9% 34.9%;
 
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
