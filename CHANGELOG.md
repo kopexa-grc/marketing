@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.11.0](https://github.com/kopexa-grc/marketing/compare/v2.10.1...v2.11.0) (2025-01-04)
+
+
+### Features
+
+* darker blue as primary ([3f10d7e](https://github.com/kopexa-grc/marketing/commit/3f10d7ebfb79dbc9c02d91ce5d1f8565f4433e3f))
+
+
+### Bug Fixes
+
+* promo card ([818e25a](https://github.com/kopexa-grc/marketing/commit/818e25acdf4104bc135a7987484e58d4a9060d7b))
+
 ## [2.10.1](https://github.com/kopexa-grc/marketing/compare/v2.10.0...v2.10.1) (2025-01-04)
 
 
