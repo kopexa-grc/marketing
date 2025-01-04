@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.11.1](https://github.com/kopexa-grc/marketing/compare/v2.11.0...v2.11.1) (2025-01-04)
+
+
+### Bug Fixes
+
+* cta on navbar ([2a08eae](https://github.com/kopexa-grc/marketing/commit/2a08eaed63791e23505cabd0a1874fd95aba286a))
+* promo card on dark ([a66aa77](https://github.com/kopexa-grc/marketing/commit/a66aa770e86d13c2ed1a311216fe8c3b1b2f6aa1))
+
 ## [2.11.0](https://github.com/kopexa-grc/marketing/compare/v2.10.1...v2.11.0) (2025-01-04)
 
 
