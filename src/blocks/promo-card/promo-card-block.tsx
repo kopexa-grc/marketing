@@ -28,12 +28,7 @@ export const PromoCardBlock = ({
               <Heading level={3} as="p" className="mb-3">
                 {heading}
               </Heading>
-              {description && (
-                <Paragraph>
-                  Enable teams (human + AI) to intelligently automate the
-                  assessment process to focus on your daily business.
-                </Paragraph>
-              )}
+              {description && <Paragraph>{description}</Paragraph>}
             </PromoCard.Text>
             {link && <CMSLink {...link} size="xl" />}
           </PromoCard.Content>
