@@ -12,10 +12,11 @@ export type CMSLinkType = Omit<CMSLinkField, "label"> &
     size?: ButtonProps["size"];
     label?: string | null;
     children?: ReactNode;
+    onPrimary?: boolean;
   };
 
 type LinkType = CMSLinkField["type"];
-type Reference = CMSLinkField["reference"];
+export type Reference = CMSLinkField["reference"];
 
 type GenerateSlugType = {
   reference?: Reference;
@@ -66,6 +67,7 @@ export const CMSLink = ({
   appearance,
   size,
   children,
+  onPrimary,
   ...restProps
 }: CMSLinkType) => {
   const href = generateHref({ type, reference, url });
@@ -83,6 +85,7 @@ export const CMSLink = ({
           buttonVariants({
             variant: appearance,
             size,
+            onPrimary,
           }),
         className
       )}

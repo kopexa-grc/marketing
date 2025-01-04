@@ -17,7 +17,13 @@ export const Header = ({ mainMenu }: Props) => {
   return (
     <>
       {/* Sticky container - wraps everything */}
-      <header className="fixed top-0 w-full z-50 bg-primary text-primary-foreground">
+      <header
+        className={cn(
+          "fixed top-0 w-full z-50 text-primary-foreground",
+          "transition-colors",
+          isScrolled ? "bg-primary" : "bg-transparent"
+        )}
+      >
         <div className="relative h-20">
           {/* Subtle line decoration */}
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />

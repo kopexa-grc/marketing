@@ -20,15 +20,31 @@ const hero = tv({
   slots: {
     wrapper: [
       "relative pt-xhuge pb-16 md:pb-20 lg:pb-32 bg-primary text-primary-foreground",
+      "overflow-hidden",
     ],
-    container: ["layout"],
+    container: ["layout relative z-10"],
     content: ["col-span-4"],
     header: ["space-y-4"],
-    tagline: ["text-primary-foreground"],
-    heading: ["text-primary-foreground"],
-    body: ["flex flex-col"],
-    navigation: ["flex items-center mt-6 lg:mt-8 gap-4"],
-    mediaWrapper: ["col-span-full"],
+    tagline: [
+      "text-primary-foreground",
+      "motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-2 motion-safe:duration-700 motion-safe:fill-mode-both",
+    ],
+    heading: [
+      "text-primary-foreground",
+      "motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-3 motion-safe:duration-700 motion-safe:delay-150 motion-safe:fill-mode-both",
+    ],
+    body: [
+      "flex flex-col mt-4",
+      "motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-4 motion-safe:duration-700 motion-safe:delay-300 motion-safe:fill-mode-both",
+    ],
+    navigation: [
+      "flex items-center mt-6 lg:mt-8 gap-4",
+      "motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-5 motion-safe:duration-700 motion-safe:delay-500 motion-safe:fill-mode-both",
+    ],
+    mediaWrapper: [
+      "col-span-full",
+      "motion-safe:animate-in motion-safe:fade-in motion-safe:zoom-in-50 motion-safe:duration-1000 motion-safe:delay-200 motion-safe:fill-mode-both",
+    ],
     media: ["relative overflow-hidden rounded-2xl"],
     mediaImage: ["w-full h-auto max-w-full"],
   },
@@ -67,8 +83,8 @@ const hero = tv({
       layout: "start",
       hasMedia: true,
       className: {
-        content: "lg:pr-12",
-        mediaWrapper: "lg:pl-12",
+        content: "",
+        mediaWrapper: "",
       },
     },
   ],
@@ -95,6 +111,7 @@ export const Hero = ({
 
   return (
     <div className={css.wrapper()}>
+      {/* <BackgroundPattern /> */}
       <section aria-labelledby={headingId} id={id} className={css.container()}>
         <div className={css.content()} role="presentation" id={contentId}>
           <header className={css.header()}>
@@ -135,6 +152,7 @@ export const Hero = ({
                     size="lg"
                     aria-label={`${link.link?.label} - Call to action ${idx + 1}`}
                     aria-describedby={headingId}
+                    onPrimary
                   />
                 ))}
               </nav>
