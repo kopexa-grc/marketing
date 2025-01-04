@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.10.1](https://github.com/kopexa-grc/marketing/compare/v2.10.0...v2.10.1) (2025-01-04)
+
+
+### Bug Fixes
+
+* payload 3.14 and optimized hero a bit ([d040ed0](https://github.com/kopexa-grc/marketing/commit/d040ed0c9f8382b3f94b710024abd8e6ef4ead6e))
+
 ## [2.10.0](https://github.com/kopexa-grc/marketing/compare/v2.9.0...v2.10.0) (2025-01-03)
 
 
