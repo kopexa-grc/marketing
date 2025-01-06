@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.12.1](https://github.com/kopexa-grc/marketing/compare/v2.12.0...v2.12.1) (2025-01-06)
+
+
+### Bug Fixes
+
+* default open graph ([2bb1ac2](https://github.com/kopexa-grc/marketing/commit/2bb1ac28ea370d64614125a4c83c3ebf39b9b9de))
+
 ## [2.12.0](https://github.com/kopexa-grc/marketing/compare/v2.11.1...v2.12.0) (2025-01-06)
 
 
