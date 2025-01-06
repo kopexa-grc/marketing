@@ -1,6 +1,6 @@
 {
   "name": "marketing",
-  "version": "2.11.1",
+  "version": "2.12.0",
   "private": true,
   "engines": {
     "node": "^18.20.2 || >=20.9.0"
