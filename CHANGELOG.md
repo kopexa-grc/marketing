@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.12.0](https://github.com/kopexa-grc/marketing/compare/v2.11.1...v2.12.0) (2025-01-06)
+
+
+### Features
+
+* not found page ([ce0882e](https://github.com/kopexa-grc/marketing/commit/ce0882e86bec57309dd7dd92c90a86d9ef4632ed))
+
+
+### Bug Fixes
+
+* description tag on ahref ([2d5d9f5](https://github.com/kopexa-grc/marketing/commit/2d5d9f5a291d7685ce2a6d359976863f2613f5ae))
+* i18n ([4e3fd53](https://github.com/kopexa-grc/marketing/commit/4e3fd533c88be0972849f1e941534ea82fbdb179))
+* image sizes ([064e6f0](https://github.com/kopexa-grc/marketing/commit/064e6f0d0ed4580e66957a010ecc3330471d13de))
+* w3c div in a button ([496e1c4](https://github.com/kopexa-grc/marketing/commit/496e1c4376191514a1e9c8c190707320d9a53a02))
+* w3c div inside of a button ([f83e756](https://github.com/kopexa-grc/marketing/commit/f83e75626675f9a86e3a4ac0b4e390b3c4111e9d))
+
 ## [2.11.1](https://github.com/kopexa-grc/marketing/compare/v2.11.0...v2.11.1) (2025-01-04)
 
 
