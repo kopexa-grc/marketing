@@ -38,6 +38,15 @@ export const Users: CollectionConfig = {
       hasMany: true,
       required: true,
     },
+    {
+      name: "bio",
+      type: "textarea",
+    },
+    {
+      name: "avatar",
+      type: "upload",
+      relationTo: "media",
+    },
   ],
   timestamps: true,
 };
