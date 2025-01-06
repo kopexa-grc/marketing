@@ -43,12 +43,15 @@ export const CallToActionBlock = ({ title, description, links, id }: Props) => {
               <CardHeader className="pb-6 lg:pb-8">
                 <CardTitle>
                   <CMSLink
+                    type={link?.type}
+                    reference={link?.reference}
+                    url={link?.url}
+                    newTab={link?.newTab}
+                    label={link?.label}
                     appearance="none"
-                    className={cn(
-                      "before:top-0 before:left-0 before:w-full before:h-full before:absolute before:block"
-                    )}
-                    {...link}
-                  />
+                  >
+                    <span>{link?.label}</span>
+                  </CMSLink>
                 </CardTitle>
               </CardHeader>
               <CardContent>
