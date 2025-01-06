@@ -50,7 +50,7 @@ export const NavigationLabel = forwardRef<HTMLLIElement, NavigationLabelProps>(
             "disabled:pointer-events-none disabled:opacity-50"
           )}
         >
-          <div className="relative transition-colors duration-200">
+          <span className="block relative transition-colors duration-200">
             <span className="font-semibold text-sm transition-colors duration-100 leading-none">
               {content}
             </span>
@@ -60,7 +60,7 @@ export const NavigationLabel = forwardRef<HTMLLIElement, NavigationLabelProps>(
                 aria-hidden="true"
               />
             )}
-          </div>
+          </span>
         </Box>
         {children}
       </li>
