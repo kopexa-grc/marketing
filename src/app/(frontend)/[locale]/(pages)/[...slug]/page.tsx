@@ -27,12 +27,22 @@ export async function generateMetadata({
   const { isEnabled: draft } = await draftMode();
   const page = await getPage(slug, locale, draft);
 
+  // Construct the URL path
+  const path = Array.isArray(slug) ? slug.join("/") : "/";
+  const url = `/${locale}/${path}`;
+
   const ogImage =
     typeof page?.meta?.image === "object" &&
     page?.meta?.image !== null &&
     page?.meta?.image &&
     "url" in page.meta.image &&
     `${page.meta.image.url}`;
+
+  // Create language alternatives directly from i18n config
+  const languages: Record<string, string> = {
+    en: `/en/${path}`,
+    de: `/de/${path}`,
+  };
 
   // check if noIndex is true
   const noIndexMeta = page?.noindex ? { robots: "noindex" } : {};
@@ -49,9 +59,13 @@ export async function generateMetadata({
           ]
         : undefined,
       title: page?.meta?.title || "Payload",
-      url: Array.isArray(slug) ? slug.join("/") : "/",
+      url,
     }),
     title: page?.meta?.title || "Payload",
+    alternates: {
+      canonical: url,
+      languages,
+    },
     ...noIndexMeta, // Add noindex meta tag if noindex is true
   };
 }
