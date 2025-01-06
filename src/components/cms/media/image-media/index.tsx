@@ -50,7 +50,7 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
   const sizes = sizeFromProps
     ? sizeFromProps
     : Object.entries(screens)
-        .map(([, value]) => `(max-width: ${value}px) ${value * 2}w`)
+        .map(([, value]) => `(max-width: ${value}px) ${value * 2}vw`)
         .join(", ");
 
   return (
