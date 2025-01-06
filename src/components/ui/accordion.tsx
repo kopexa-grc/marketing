@@ -56,9 +56,9 @@ const AccordionTrigger = React.forwardRef<
       {...props}
     >
       {children}
-      <motion.div
+      <motion.span
         className={cn(
-          "rounded-full p-2",
+          "rounded-full p-2 inline-block",
           "bg-accent text-accent-foreground",
           "group-hover:bg-primary group-hover:text-primary-foreground",
           "transition-colors duration-200"
@@ -76,7 +76,7 @@ const AccordionTrigger = React.forwardRef<
           className="h-4 w-4 shrink-0"
           strokeWidth={2.5}
         />
-      </motion.div>
+      </motion.span>
     </AccordionPrimitive.ItemTrigger>
   );
 });
