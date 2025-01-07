@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.13.6](https://github.com/kopexa-grc/marketing/compare/v2.13.5...v2.13.6) (2025-01-07)
+
+
+### Bug Fixes
+
+* fixes external links ([bac0847](https://github.com/kopexa-grc/marketing/commit/bac084754d51230a668c5159b581ea29322e38e7))
+* path revalidation ([84bd887](https://github.com/kopexa-grc/marketing/commit/84bd887608163cc8ef7a09110ecd4c2e82633bdb))
+* truncate pagination ([3db91b9](https://github.com/kopexa-grc/marketing/commit/3db91b96d0e9972a39295fc97bee376bb7e5afac))
+
 ## [2.13.5](https://github.com/kopexa-grc/marketing/compare/v2.13.4...v2.13.5) (2025-01-07)
 
 
