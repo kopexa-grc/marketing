@@ -1,4 +1,8 @@
-import { MigrateUpArgs, MigrateDownArgs, sql } from '@payloadcms/db-vercel-postgres'
+import {
+  MigrateUpArgs,
+  MigrateDownArgs,
+  sql,
+} from "@payloadcms/db-vercel-postgres";
 
 export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   await db.execute(sql`
@@ -151,7 +155,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   ALTER TABLE "users" ADD COLUMN "social_links_twitter" varchar;
   ALTER TABLE "users" ADD COLUMN "social_links_linkedin" varchar;
   ALTER TABLE "users" ADD COLUMN "social_links_github" varchar;
-  ALTER TABLE "users" ADD COLUMN "slug" varchar;
+  ALTER TABLE "users" ADD COLUMN IF NOT EXISTS "slug" varchar;
   ALTER TABLE "users" ADD COLUMN "slug_lock" boolean DEFAULT true;
   ALTER TABLE "payload_locked_documents_rels" ADD COLUMN "posts_id" integer;
   ALTER TABLE "payload_locked_documents_rels" ADD COLUMN "categories_id" integer;
@@ -358,10 +362,14 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   CREATE INDEX IF NOT EXISTS "payload_locked_documents_rels_posts_id_idx" ON "payload_locked_documents_rels" USING btree ("posts_id");
   CREATE INDEX IF NOT EXISTS "payload_locked_documents_rels_categories_id_idx" ON "payload_locked_documents_rels" USING btree ("categories_id");
   ALTER TABLE "pages" DROP COLUMN IF EXISTS "hero_theme_color_mode";
-  ALTER TABLE "_pages_v" DROP COLUMN IF EXISTS "version_hero_theme_color_mode";`)
+  ALTER TABLE "_pages_v" DROP COLUMN IF EXISTS "version_hero_theme_color_mode";`);
 }
 
-export async function down({ db, payload, req }: MigrateDownArgs): Promise<void> {
+export async function down({
+  db,
+  payload,
+  req,
+}: MigrateDownArgs): Promise<void> {
   await db.execute(sql`
    ALTER TABLE "pages_blocks_latest_articles" DISABLE ROW LEVEL SECURITY;
   ALTER TABLE "pages_blocks_latest_articles_locales" DISABLE ROW LEVEL SECURITY;
@@ -429,5 +437,5 @@ export async function down({ db, payload, req }: MigrateDownArgs): Promise<void>
   ALTER TABLE "public"."main_menu_ctas" ALTER COLUMN "link_appearance" SET DATA TYPE "public"."enum_main_menu_ctas_link_appearance" USING "link_appearance"::"public"."enum_main_menu_ctas_link_appearance";
   DROP TYPE "public"."enum_posts_status";
   DROP TYPE "public"."enum__posts_v_version_status";
-  DROP TYPE "public"."enum__posts_v_published_locale";`)
+  DROP TYPE "public"."enum__posts_v_published_locale";`);
 }
