@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.13.3](https://github.com/kopexa-grc/marketing/compare/v2.13.2...v2.13.3) (2025-01-07)
+
+
+### Bug Fixes
+
+* fixed locale usage for BlogList Component ([a7b58ba](https://github.com/kopexa-grc/marketing/commit/a7b58ba65021b3f73338bc463e7aaaa736cf0e3b))
+
 ## [2.13.2](https://github.com/kopexa-grc/marketing/compare/v2.13.1...v2.13.2) (2025-01-07)
 
 
