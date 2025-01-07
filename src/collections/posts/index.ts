@@ -95,7 +95,11 @@ export const Posts: CollectionConfig = {
     /**
      * Sidebar below.
      */
-    ...slugField(),
+    ...slugField("title", {
+      slugOverrides: {
+        localized: true,
+      },
+    }),
     {
       name: "authors",
       type: "relationship",
