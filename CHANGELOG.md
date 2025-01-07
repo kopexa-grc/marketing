@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.13.5](https://github.com/kopexa-grc/marketing/compare/v2.13.4...v2.13.5) (2025-01-07)
+
+
+### Bug Fixes
+
+* slug translateable ([93b3755](https://github.com/kopexa-grc/marketing/commit/93b3755ea3a31bc8b77560d8817214e8d5afe2c8))
+
 ## [2.13.4](https://github.com/kopexa-grc/marketing/compare/v2.13.3...v2.13.4) (2025-01-07)
 
 
