@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.13.0](https://github.com/kopexa-grc/marketing/compare/v2.12.1...v2.13.0) (2025-01-07)
+
+
+### Features
+
+* **contenthub:** created the blog structure, fields, components ([ea23e57](https://github.com/kopexa-grc/marketing/commit/ea23e5704a6d557963418a1c18a08151aa7c544f))
+* **contenthub:** database migrations ([d66faf7](https://github.com/kopexa-grc/marketing/commit/d66faf70d1f5f16495700c81ac78c0b106f9e2c2))
+* extend user with more meta fields ([e97f27a](https://github.com/kopexa-grc/marketing/commit/e97f27abbecc75759979204f5d2b024bcee224ea))
+
 ## [2.12.1](https://github.com/kopexa-grc/marketing/compare/v2.12.0...v2.12.1) (2025-01-06)
 
 
