@@ -24,11 +24,13 @@ export const Categories: CollectionConfig = {
       name: "title",
       type: "text",
       required: true,
+      localized: true,
     },
     ...slugField(),
     {
       name: "description",
       type: "textarea",
+      localized: true,
     },
   ],
 };

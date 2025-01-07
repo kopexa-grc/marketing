@@ -43,6 +43,7 @@ export const Posts: CollectionConfig = {
       name: "title",
       type: "text",
       required: true,
+      localized: true,
     },
     {
       name: "featuredImage",
@@ -59,11 +60,13 @@ export const Posts: CollectionConfig = {
       type: "textarea",
       required: true,
       maxLength: 200,
+      localized: true,
     },
     // the actual content of our Post.
     {
       name: "lexicalContent",
       type: "richText",
+      localized: true,
     },
     {
       name: "tableOfContents",
@@ -74,6 +77,7 @@ export const Posts: CollectionConfig = {
         { name: "level", type: "number", required: true },
         { name: "id", type: "text", required: true },
       ],
+      localized: true,
     },
     {
       name: "relatedPosts",
