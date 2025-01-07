@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.13.4](https://github.com/kopexa-grc/marketing/compare/v2.13.3...v2.13.4) (2025-01-07)
+
+
+### Bug Fixes
+
+* added set Request Locale to all pages/layouts ([ceb7134](https://github.com/kopexa-grc/marketing/commit/ceb71342263e9c9a341a49d3e50f7f52a293afa1))
+
 ## [2.13.3](https://github.com/kopexa-grc/marketing/compare/v2.13.2...v2.13.3) (2025-01-07)
 
 
