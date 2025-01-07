@@ -5,7 +5,6 @@ import { Globe, type LucideIcon } from "lucide-react";
 import { GitHubIcon } from "@/components/icons/github-icon";
 import { LinkedInIcon } from "@/components/icons/linkedin-icon";
 import { TwitterIcon } from "@/components/icons/twitter-icon";
-import { Link } from "@/i18n/routing";
 
 type UserBiographySectionProps = {
   user: User;
@@ -67,7 +66,7 @@ export const UserBiographySection = ({ user }: UserBiographySectionProps) => {
         {/** social media links and website, socials with icons */}
         <nav className="flex gap-4 mt-4" aria-label="Social media profiles">
           {socialLinks.map((link) => (
-            <Link
+            <a
               key={link.href}
               href={link.href}
               target="_blank"
@@ -78,7 +77,7 @@ export const UserBiographySection = ({ user }: UserBiographySectionProps) => {
               <link.icon className="w-5 h-5" aria-hidden="true" />
               {link.showLabel && link.href}
               <span className="sr-only">{link.label}</span>
-            </Link>
+            </a>
           ))}
         </nav>
       </div>
