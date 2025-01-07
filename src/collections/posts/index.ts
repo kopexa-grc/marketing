@@ -188,8 +188,8 @@ export const Posts: CollectionConfig = {
     ],
     afterChange: [
       ({ doc }) => {
-        revalidatePath(`/blog/${doc.slug}`);
-        revalidatePath("/blog", "page");
+        revalidatePath(`/[locale]/blog/${doc.slug}`);
+        revalidatePath("/[locale]/blog", "page");
         console.log(`Revalidated: /blog/${doc.slug}`);
       },
     ],
