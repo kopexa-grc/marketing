@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.13.2](https://github.com/kopexa-grc/marketing/compare/v2.13.1...v2.13.2) (2025-01-07)
+
+
+### Bug Fixes
+
+* missing locals for blog ([eb6bd05](https://github.com/kopexa-grc/marketing/commit/eb6bd056726063d474acfbc11328127c3329f167))
+
 ## [2.13.1](https://github.com/kopexa-grc/marketing/compare/v2.13.0...v2.13.1) (2025-01-07)
 
 
