@@ -7,7 +7,7 @@ import { Link, Locales, type TLocale } from "@/i18n/routing";
 import { fetchBlogPost, fetchBlogPosts } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { ChevronRight } from "lucide-react";
-import { getFormatter } from "next-intl/server";
+import { getFormatter, setRequestLocale } from "next-intl/server";
 import { unstable_cache } from "next/cache";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
@@ -34,6 +34,7 @@ export default async function BlogPost({
   const { slug, locale } = await params;
 
   const article = await getPost(slug, locale, draft);
+  setRequestLocale(locale);
 
   if (!article) {
     notFound();

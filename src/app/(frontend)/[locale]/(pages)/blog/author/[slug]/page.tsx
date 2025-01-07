@@ -5,6 +5,7 @@ import { APP_URL } from "@/lib/config";
 import { fetchAuthor, fetchUsers } from "@/lib/data";
 import { mergeOpenGraph } from "@/lib/seo/mergeOpenGraph";
 import type { Media, User } from "@/payload-types";
+import { setRequestLocale } from "next-intl/server";
 import { unstable_cache } from "next/cache";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
@@ -49,6 +50,7 @@ export default async function AuthorPage({
   ]);
 
   const user = await getUser(slug, draft);
+  setRequestLocale(locale);
 
   if (!user) {
     notFound();

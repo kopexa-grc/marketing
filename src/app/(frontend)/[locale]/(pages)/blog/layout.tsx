@@ -1,7 +1,7 @@
 import { Header } from "@/components/header/header";
 import { Footer } from "@/components/layout/footer";
 import { fetchGlobals } from "@/lib/data";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { unstable_cache } from "next/cache";
 import { draftMode } from "next/headers";
 
@@ -28,6 +28,8 @@ export default async function BlogLayout({
 }>) {
   const { locale } = await params;
   const { isEnabled: draft } = await draftMode();
+
+  setRequestLocale(locale);
 
   const getGlobals = draft
     ? fetchGlobals

@@ -12,7 +12,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { APP_URL } from "@/lib/config";
 import { Locales, routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
-import { getMessages } from "next-intl/server";
+import { getMessages, setRequestLocale } from "next-intl/server";
 
 export const dynamic = "force-static";
 
@@ -49,6 +49,8 @@ export default async function RootLayout({
   if (!routing.locales.includes(params.locale as any)) {
     notFound();
   }
+
+  setRequestLocale(params.locale);
 
   const messages = await getMessages({
     locale: params.locale,

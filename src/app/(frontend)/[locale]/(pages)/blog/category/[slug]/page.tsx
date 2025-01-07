@@ -4,6 +4,7 @@ import { Heading, Paragraph } from "@/components/ui/typography";
 import { Link, Locales, type TLocale } from "@/i18n/routing";
 import { fetchCategories, fetchCategoryBySlug } from "@/lib/data";
 import { mergeOpenGraph } from "@/lib/seo/mergeOpenGraph";
+import { setRequestLocale } from "next-intl/server";
 import { unstable_cache } from "next/cache";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
@@ -27,6 +28,8 @@ export default async function CategoryPage({
   ]);
 
   const category = await getCategory(slug, locale, draft);
+  setRequestLocale(locale);
+
   if (!category) {
     notFound();
   }

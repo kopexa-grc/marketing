@@ -9,6 +9,7 @@ import { unstable_cache } from "next/cache";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 import { Locales } from "@/i18n/routing";
+import { setRequestLocale } from "next-intl/server";
 
 const getPage = async (slug: string[], locale: "en" | "de", draft?: boolean) =>
   draft
@@ -90,6 +91,8 @@ const Page = async ({
     getPage(slug, locale, draft),
     getGlobals(locale),
   ]);
+
+  setRequestLocale(locale);
 
   if (!page) {
     notFound();
