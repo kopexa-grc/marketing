@@ -161,14 +161,15 @@ function Breadcrumb({
   items: Array<{ label: string; href: string; current?: boolean }>;
 }) {
   return (
-    <nav aria-label="Breadcrumb" className="mb-6">
-      <ol className="flex flex-wrap items-center gap-2">
+    <nav aria-label="Breadcrumb" className="mb-6 min-w-0">
+      <ol className="flex items-center gap-2">
         {items.map((item, index) => (
-          <li key={item.href} className="flex items-center gap-2">
+          <li key={item.href} className="flex items-center gap-2 min-w-0">
             <Link
               href={item.href}
               className={cn(
-                "text-sm transition-colors hover:text-primary",
+                "text-sm transition-colors hover:text-primary truncate",
+                "max-w-[320px]",
                 item.current ? "font-medium" : "text-muted-foreground"
               )}
               aria-current={item.current ? "page" : undefined}
