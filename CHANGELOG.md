@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.13.1](https://github.com/kopexa-grc/marketing/compare/v2.13.0...v2.13.1) (2025-01-07)
+
+
+### Bug Fixes
+
+* add if not exists to slug migration for users ([0e3acbc](https://github.com/kopexa-grc/marketing/commit/0e3acbc9a7eab539acd2c09f16e83df464e057c6))
+
 ## [2.13.0](https://github.com/kopexa-grc/marketing/compare/v2.12.1...v2.13.0) (2025-01-07)
 
 
