@@ -1,7 +1,7 @@
 import type { Access } from "payload";
 
-export const authenticatedOrPublished: Access = ({ req: { user } }) => {
-  if (user) {
+export const publishedOnly: Access = ({ req: { user } }) => {
+  if (user?.roles?.includes("admin")) {
     return true;
   }
 
@@ -11,5 +11,3 @@ export const authenticatedOrPublished: Access = ({ req: { user } }) => {
     },
   };
 };
-
-export const anyone: Access = () => true;

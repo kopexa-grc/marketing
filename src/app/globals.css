@@ -127,20 +127,28 @@
 
   /** spacing **/
   :root {
+    --gutter-small: 0.5rem;
+    --gutter-medium: 1rem;
     --gutter-huge: 1.5rem;
-    --gutter-xhuge: 3rem;
+    --gutter-xhuge: 5rem;
 
     @screen sm {
+      --gutter-small: 1rem;
+      --gutter-medium: 2rem;
       --gutter-huge: 3.5rem;
-      --gutter-xhuge: 4rem;
+      --gutter-xhuge: 5rem;
     }
 
     @screen md {
+      --gutter-small: 1.5rem;
+      --gutter-medium: 3rem;
       --gutter-huge: 5rem;
       --gutter-xhuge: 6rem;
     }
 
     @screen lg {
+      --gutter-small: 2rem;
+      --gutter-medium: 4rem;
       --gutter-huge: 7.5rem;
       --gutter-xhuge: 10rem;
     }

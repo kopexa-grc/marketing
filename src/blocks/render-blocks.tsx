@@ -11,8 +11,13 @@ import { SolutionShowcaseBlock } from "./solution-showcase/solution-showcase-blo
 import { ServiceCardsBlock } from "./service-cards/service-cards-block";
 import { FormBlock } from "./form/form-block";
 import { FAQBlock } from "./faq/faq-block";
+import { LatestArticlesBlock } from "./latest-articles/latest-articles-block";
+import {
+  RelatedPosts,
+  type RelatedPostsBlock,
+} from "./related-posts/related-posts-block";
 
-type Block = Page["layout"][0];
+type Block = Page["layout"][0] | RelatedPostsBlock;
 
 export type RenderBlocksProps = {
   blocks: Block[];
@@ -58,6 +63,12 @@ export const RenderBlocks = ({ blocks }: RenderBlocksProps) => {
       }
       case "faq-section": {
         return <FAQBlock key={`${block.id}`} {...block} />;
+      }
+      case "latestArticles": {
+        return <LatestArticlesBlock key={`${block.id}`} {...block} />;
+      }
+      case "relatedPosts": {
+        return <RelatedPosts key={`${block.blockName}`} {...block} />;
       }
       default: {
         return null;

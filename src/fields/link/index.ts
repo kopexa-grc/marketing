@@ -1,6 +1,6 @@
 import { deepMerge, type Field } from "payload";
 
-export type LinkAppearances = "default" | "outline";
+export type LinkAppearances = "default" | "outline" | "link";
 
 export const appearanceOptions: Record<
   LinkAppearances,
@@ -13,6 +13,10 @@ export const appearanceOptions: Record<
   outline: {
     label: "Outline",
     value: "outline",
+  },
+  link: {
+    label: "Link",
+    value: "link",
   },
 };
 
@@ -124,6 +128,7 @@ export const link: LinkType = ({
     let appearanceOptionsToUse = [
       appearanceOptions.default,
       appearanceOptions.outline,
+      appearanceOptions.link,
     ];
 
     if (appearances) {

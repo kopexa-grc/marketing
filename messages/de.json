@@ -25,5 +25,13 @@
       "customize": "Einstellungen anpassen",
       "learnMore": "Cookie-Richtlinie"
     }
+  },
+  "blog": {
+    "metadata": {
+      "title": "Blog"
+    },
+    "hero": {
+      "description": "Entdecken Sie die neuesten Einblicke und Best Practices rund um Compliance, Audits und Zertifizierungen."
+    }
   }
 }

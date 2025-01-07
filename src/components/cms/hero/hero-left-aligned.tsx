@@ -4,15 +4,8 @@ import { RichText } from "../rich-text";
 import { CMSLink } from "../cms-link";
 import { Media } from "../media";
 import { tv } from "tailwind-variants";
-import { ColorMode } from "../color-mode";
 
-type Picked =
-  | "tagline"
-  | "heading"
-  | "description"
-  | "links"
-  | "media"
-  | "theme";
+type Picked = "tagline" | "heading" | "description" | "links" | "media";
 
 type Props = Pick<Page["hero"], Picked>;
 
@@ -54,14 +47,11 @@ export const HeroLeftAligned = ({
   description,
   links,
   media,
-  theme,
 }: Props) => {
   const css = hero();
 
   return (
-    <ColorMode
-      theme={theme}
-      as="section"
+    <section
       aria-labelledby="hero-heading"
       className={css.wrapper()}
       data-hero="default"
@@ -112,6 +102,6 @@ export const HeroLeftAligned = ({
           )}
         </div>
       </div>
-    </ColorMode>
+    </section>
   );
 };

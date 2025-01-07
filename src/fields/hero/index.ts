@@ -1,6 +1,5 @@
 import type { Field } from "payload";
 import { linkGroup } from "../linkGroup";
-import { themeField } from "../theme";
 
 export const hero: Field = {
   name: "hero",
@@ -24,7 +23,6 @@ export const hero: Field = {
       ],
       required: true,
     },
-    themeField(),
     {
       name: "layout",
       type: "select",

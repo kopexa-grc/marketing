@@ -13,6 +13,8 @@ import { Partners } from "./collections/partners";
 import { PartnerProgram } from "./globals/partner-program";
 import { MainMenu } from "./globals/main-menu";
 import { plugins } from "./lib/plugins";
+import { Posts } from "./collections/posts";
+import { Categories } from "./collections/categories";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -48,7 +50,7 @@ export default buildConfig({
     fallback: true,
   },
   globals: [MainMenu, Footer, PartnerProgram],
-  collections: [Pages, Users, Media, Partners],
+  collections: [Pages, Users, Media, Partners, Posts, Categories],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {

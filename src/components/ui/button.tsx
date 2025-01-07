@@ -50,6 +50,11 @@ const buttonVariants = tv({
         "hover:border-secondary hover:text-secondary",
       ],
     },
+    {
+      variant: "link",
+      onPrimary: true,
+      class: ["text-primary-foreground"],
+    },
   ],
   defaultVariants: {
     variant: "default",

@@ -3,31 +3,37 @@
 import { useScrollHeader } from "@/hooks/use-scroll-header";
 import { MainNav } from "./desktop";
 import { cn } from "@/lib/utils";
-import type { MainMenu, ThemeField } from "@/payload-types";
+import type { MainMenu } from "@/payload-types";
 import { NavbarMobile } from "./mobile";
+import { tv, type VariantProps } from "tailwind-variants";
+
+const header = tv({
+  base: "sticky top-0 w-full z-50 transition-colors",
+  variants: {
+    colorScheme: {
+      primary: ["bg-primary text-primary-foreground"],
+    },
+    isScrolled: {
+      true: "bg-primary",
+    },
+  },
+});
 
 type Props = {
   mainMenu: MainMenu;
-  theme: ThemeField;
-};
+  className?: string;
+} & VariantProps<typeof header>;
 
-export const Header = ({ mainMenu }: Props) => {
+export const Header = ({ mainMenu, className, colorScheme }: Props) => {
   const isScrolled = useScrollHeader(50);
+
+  const styles = header({ isScrolled, colorScheme });
 
   return (
     <>
       {/* Sticky container - wraps everything */}
-      <header
-        className={cn(
-          "fixed top-0 w-full z-50 text-primary-foreground",
-          "transition-colors",
-          isScrolled ? "bg-primary" : "bg-transparent"
-        )}
-      >
+      <header className={cn(styles, className)}>
         <div className="relative h-20">
-          {/* Subtle line decoration */}
-          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-
           {/* Desktop Navigation */}
           <div className="hidden lg:flex h-full">
             <div className="layout">
@@ -46,7 +52,7 @@ export const Header = ({ mainMenu }: Props) => {
           <div
             className={cn(
               "absolute bottom-0 left-0 right-0 h-px",
-              "bg-gradient-to-r from-transparent via-border to-transparent",
+              "bg-gradient-to-r from-transparent via-secondary to-transparent",
               "transition-opacity duration-300",
               isScrolled ? "opacity-100" : "opacity-0"
             )}

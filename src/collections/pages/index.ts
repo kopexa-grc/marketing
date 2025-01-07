@@ -19,6 +19,7 @@ import { Locales } from "@/i18n/routing";
 import { ServiceCards } from "@/blocks/service-cards/config";
 import { Form } from "@/blocks/form/config";
 import { FAQBlock } from "@/blocks/faq/config";
+import { LatestArticles } from "@/blocks/latest-articles/config";
 
 export const Pages: CollectionConfig<"pages"> = {
   slug: "pages",
@@ -95,6 +96,7 @@ export const Pages: CollectionConfig<"pages"> = {
                 ServiceCards,
                 Form,
                 FAQBlock,
+                LatestArticles,
               ],
               required: true,
               admin: {

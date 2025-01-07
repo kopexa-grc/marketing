@@ -63,7 +63,7 @@ export default async function RootLayout({
           <GoogleAnalytics />
         </head>
         <body
-          className={`antialiased bg-background text-foreground ${ManropeFont.variable}`}
+          className={`antialiased bg-background text-foreground flex flex-col min-h-screen ${ManropeFont.variable}`}
         >
           <NextIntlClientProvider messages={messages}>
             <GoogleTagManager />

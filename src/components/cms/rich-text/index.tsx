@@ -11,6 +11,9 @@ import {
 import type { SerializedEditorState } from "lexical";
 import { generateHref, type Reference } from "../cms-link";
 import { useLocale } from "next-intl";
+import type { JSX } from "react";
+import { slugify } from "@/lib/slugify";
+import { formatAnchor } from "./format-anchor";
 
 type Props = {
   content: SerializedEditorState;
@@ -47,6 +50,19 @@ const converters = (locale: string) => {
   }) => ({
     ...defaultConverters,
     ...LinkJSXConverter({ internalDocToHref: internalDocToHref(locale) }),
+    heading: ({ node, nodesToJSX }) => {
+      const children = nodesToJSX({
+        nodes: node.children,
+      });
+
+      // @ts-expect-error its available.
+      const childrenText = node.children?.[0]?.text as string;
+      const anchor = slugify(formatAnchor(childrenText));
+
+      const Tag = node.tag as keyof JSX.IntrinsicElements;
+
+      return <Tag id={anchor}>{children}</Tag>;
+    },
   });
   return jsxConverters;
 };

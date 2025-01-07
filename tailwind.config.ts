@@ -115,6 +115,8 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       spacing: {
+        small: "var(--gutter-small)",
+        medium: "var(--gutter-medium)",
         huge: "var(--gutter-huge)",
         xhuge: "var(--gutter-xhuge)",
       },

@@ -25,5 +25,13 @@
       "customize": "Customize settings",
       "learnMore": "Cookie policy"
     }
+  },
+  "blog": {
+    "metadata": {
+      "title": "Blog"
+    },
+    "hero": {
+      "description": "Explore the latest insights and best practices in compliance, audits, and certifications."
+    }
   }
 }

@@ -97,7 +97,7 @@ const Page = async ({
 
   return (
     <>
-      <Header mainMenu={mainMenu} theme={page.hero.theme} />
+      <Header mainMenu={mainMenu} colorScheme="primary" />
       <main>
         <HeroBlock page={page} />
         <RenderBlocks blocks={page.layout} />

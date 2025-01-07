@@ -13,7 +13,7 @@ export const plugins: Plugin[] = [
     },
   }),
   seoPlugin({
-    collections: ["pages"],
+    collections: ["pages", "posts"],
     uploadsCollection: "media",
   }),
   nestedDocsPlugin({

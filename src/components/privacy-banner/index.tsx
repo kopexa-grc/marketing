@@ -2,7 +2,6 @@
 
 import { cn } from "@/lib/utils";
 import { usePrivacy } from "@/providers/privacy";
-import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { AnimatePresence, motion, type Variants } from "motion/react";
 import { useAccessibilityContext } from "@/providers/accessibility";

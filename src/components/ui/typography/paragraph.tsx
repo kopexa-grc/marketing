@@ -4,7 +4,7 @@ import { Box, type BoxProps } from "../box";
 import { tv, type VariantProps } from "tailwind-variants";
 import { cn } from "@/lib/utils";
 
-const paragraphVariants = tv({
+export const paragraphVariants = tv({
   base: "font-normal text-base m-0",
   variants: {
     level: {

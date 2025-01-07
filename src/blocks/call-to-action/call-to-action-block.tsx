@@ -3,7 +3,6 @@ import { RichText } from "@/components/cms/rich-text";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Icon } from "@/components/ui/icon";
 import { Heading, Paragraph } from "@/components/ui/typography";
-import { cn } from "@/lib/utils";
 import type { CallToActionBlock as CTABlockProps } from "@/payload-types";
 import { tv } from "tailwind-variants";
 

@@ -116,6 +116,8 @@ export interface Config {
     users: User;
     media: Media;
     partners: Partner;
+    posts: Post;
+    categories: Category;
     forms: Form;
     'form-submissions': FormSubmission;
     'payload-locked-documents': PayloadLockedDocument;
@@ -128,6 +130,8 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     partners: PartnersSelect<false> | PartnersSelect<true>;
+    posts: PostsSelect<false> | PostsSelect<true>;
+    categories: CategoriesSelect<false> | CategoriesSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -185,7 +189,6 @@ export interface Page {
   noindex?: boolean | null;
   hero: {
     type: 'default' | 'hero';
-    theme: ThemeField;
     layout?: ('centered' | 'start') | null;
     tagline?: string | null;
     heading?: string | null;
@@ -225,6 +228,7 @@ export interface Page {
     | ServiceCardsBlock
     | FormBlock
     | FAQBlock
+    | LatestArticlesBlock
   )[];
   publishedAt?: string | null;
   slug?: string | null;
@@ -249,13 +253,6 @@ export interface Page {
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ThemeField".
- */
-export interface ThemeField {
-  colorMode: 'light' | 'dark';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -525,6 +522,13 @@ export interface FeatureGridBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'featureGrid';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ThemeField".
+ */
+export interface ThemeField {
+  colorMode: 'light' | 'dark';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -831,14 +835,85 @@ export interface FAQBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "LatestArticlesBlock".
+ */
+export interface LatestArticlesBlock {
+  heading: string;
+  description: string;
+  /**
+   * Select a category to show articles from
+   */
+  category: number | Category;
+  /**
+   * How many articles to show
+   */
+  numberOfArticles: number;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'latestArticles';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "categories".
+ */
+export interface Category {
+  id: number;
+  title: string;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  description?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
   id: number;
+  /**
+   * Enter the full name of the user.
+   */
   name?: string | null;
+  /**
+   * Select one or more roles for the user.
+   */
   roles: ('admin' | 'public')[];
+  /**
+   * A short biography of the user. Max 300 characters.
+   */
   bio?: string | null;
+  /**
+   * A short headline that describes the user's role.
+   */
+  headline?: string | null;
+  /**
+   * Upload a profile picture for the user.
+   */
   avatar?: (number | null) | Media;
+  /**
+   * Add links to the user's social media profiles.
+   */
+  socialLinks?: {
+    /**
+     * Enter the URL of the personal or business website.
+     */
+    website?: string | null;
+    /**
+     * Enter the Twitter handle (without @).
+     */
+    twitter?: string | null;
+    /**
+     * Enter the LinkedIn profile URL of the user.
+     */
+    linkedin?: string | null;
+    /**
+     * Enter the GitHub profile URL of the user.
+     */
+    github?: string | null;
+  };
+  slug?: string | null;
+  slugLock?: boolean | null;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -870,6 +945,58 @@ export interface Partner {
    * This field is managed by the Featured Partners field in the Partner Program collection
    */
   featured?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts".
+ */
+export interface Post {
+  id: number;
+  title: string;
+  /**
+   * Maximum upload size: 4MB. Recommended dimensions: 1200x630
+   */
+  featuredImage: number | Media;
+  excerpt: string;
+  lexicalContent?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  tableOfContents?:
+    | {
+        text: string;
+        level: number;
+        id: string | null;
+      }[]
+    | null;
+  relatedPosts?: (number | Post)[] | null;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  authors: (number | User)[];
+  publishedOn: string;
+  category: number | Category;
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (number | null) | Media;
+  };
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
@@ -913,6 +1040,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'partners';
         value: number | Partner;
+      } | null)
+    | ({
+        relationTo: 'posts';
+        value: number | Post;
+      } | null)
+    | ({
+        relationTo: 'categories';
+        value: number | Category;
       } | null)
     | ({
         relationTo: 'forms';
@@ -976,7 +1111,6 @@ export interface PagesSelect<T extends boolean = true> {
     | T
     | {
         type?: T;
-        theme?: T | ThemeFieldSelect<T>;
         layout?: T;
         tagline?: T;
         heading?: T;
@@ -1004,6 +1138,7 @@ export interface PagesSelect<T extends boolean = true> {
         serviceCards?: T | ServiceCardsBlockSelect<T>;
         form?: T | FormBlockSelect<T>;
         'faq-section'?: T | FAQBlockSelect<T>;
+        latestArticles?: T | LatestArticlesBlockSelect<T>;
       };
   publishedAt?: T;
   slug?: T;
@@ -1027,13 +1162,6 @@ export interface PagesSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ThemeField_select".
- */
-export interface ThemeFieldSelect<T extends boolean = true> {
-  colorMode?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1194,6 +1322,13 @@ export interface FeatureGridBlockSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ThemeField_select".
+ */
+export interface ThemeFieldSelect<T extends boolean = true> {
+  colorMode?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "SolutionShowcaseBlock_select".
  */
 export interface SolutionShowcaseBlockSelect<T extends boolean = true> {
@@ -1282,13 +1417,36 @@ export interface FAQBlockSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "LatestArticlesBlock_select".
+ */
+export interface LatestArticlesBlockSelect<T extends boolean = true> {
+  heading?: T;
+  description?: T;
+  category?: T;
+  numberOfArticles?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
   name?: T;
   roles?: T;
   bio?: T;
+  headline?: T;
   avatar?: T;
+  socialLinks?:
+    | T
+    | {
+        website?: T;
+        twitter?: T;
+        linkedin?: T;
+        github?: T;
+      };
+  slug?: T;
+  slugLock?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;
@@ -1333,6 +1491,51 @@ export interface PartnersSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts_select".
+ */
+export interface PostsSelect<T extends boolean = true> {
+  title?: T;
+  featuredImage?: T;
+  excerpt?: T;
+  lexicalContent?: T;
+  tableOfContents?:
+    | T
+    | {
+        text?: T;
+        level?: T;
+        id?: T;
+      };
+  relatedPosts?: T;
+  slug?: T;
+  slugLock?: T;
+  authors?: T;
+  publishedOn?: T;
+  category?: T;
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "categories_select".
+ */
+export interface CategoriesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  slugLock?: T;
+  description?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
