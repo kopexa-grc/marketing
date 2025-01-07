@@ -61,6 +61,7 @@ export default async function CategoryPage({
       <BlogList
         className="pt-10 lg:pt-16"
         category={category.id}
+        locale={locale}
         pagination={false}
       />
     </div>

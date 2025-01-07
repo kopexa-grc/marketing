@@ -43,7 +43,7 @@ export default async function AuthorPage({
 }: Readonly<{
   params: Promise<{ slug: string; locale: TLocale }>;
 }>) {
-  const [{ slug }, { isEnabled: draft }] = await Promise.all([
+  const [{ slug, locale }, { isEnabled: draft }] = await Promise.all([
     params,
     draftMode(),
   ]);
@@ -68,6 +68,7 @@ export default async function AuthorPage({
         className="pt-10 lg:pt-16"
         authorSlug={slug}
         pagination={false}
+        locale={locale}
       />
     </div>
   );
