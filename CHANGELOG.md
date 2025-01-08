@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.15.0](https://github.com/kopexa-grc/marketing/compare/v2.14.0...v2.15.0) (2025-01-08)
+
+
+### Features
+
+* content grid section ([63d1067](https://github.com/kopexa-grc/marketing/commit/63d106734cae3e5f8e30ee3ee9f9d58b830257ba))
+
 ## [2.14.0](https://github.com/kopexa-grc/marketing/compare/v2.13.6...v2.14.0) (2025-01-08)
 
 
