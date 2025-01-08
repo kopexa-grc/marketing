@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.14.0](https://github.com/kopexa-grc/marketing/compare/v2.13.6...v2.14.0) (2025-01-08)
+
+
+### Features
+
+* added feature section ([9aba9e2](https://github.com/kopexa-grc/marketing/commit/9aba9e2abdef27d5112b30961776f70779b6419a))
+
+
+### Bug Fixes
+
+* next directory ([5427528](https://github.com/kopexa-grc/marketing/commit/54275286962a983d29b7b59e01d56796e2344096))
+
 ## [2.13.6](https://github.com/kopexa-grc/marketing/compare/v2.13.5...v2.13.6) (2025-01-07)
 
 
