@@ -229,6 +229,7 @@ export interface Page {
     | FormBlock
     | FAQBlock
     | LatestArticlesBlock
+    | FeatureSectionBlock
   )[];
   publishedAt?: string | null;
   slug?: string | null;
@@ -267,6 +268,10 @@ export interface CMSLinkField {
   } | null;
   url?: string | null;
   label?: string | null;
+  /**
+   * Choose how the link should be rendered.
+   */
+  appearance?: ('default' | 'outline' | 'link') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -867,6 +872,55 @@ export interface Category {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "featureSectionBlock".
+ */
+export interface FeatureSectionBlock {
+  variant: 'variantOne';
+  eyebrow?: string | null;
+  heading: string;
+  headingTag: 'h1' | 'h2' | 'h3' | 'h4';
+  headingLevel: '1' | '2' | '3' | '4';
+  description?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  media?: (number | null) | Media;
+  features?:
+    | {
+        headline: string;
+        description: string;
+        mediaType?: ('none' | 'icon' | 'media') | null;
+        /**
+         * Enter icon name (e.g., 'CloudUpload', 'Lock')
+         */
+        icon?: string | null;
+        media?: (number | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
+  links?:
+    | {
+        link?: CMSLinkField;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'featureSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -1139,6 +1193,7 @@ export interface PagesSelect<T extends boolean = true> {
         form?: T | FormBlockSelect<T>;
         'faq-section'?: T | FAQBlockSelect<T>;
         latestArticles?: T | LatestArticlesBlockSelect<T>;
+        featureSection?: T | FeatureSectionBlockSelect<T>;
       };
   publishedAt?: T;
   slug?: T;
@@ -1173,6 +1228,7 @@ export interface CMSLinkFieldSelect<T extends boolean = true> {
   reference?: T;
   url?: T;
   label?: T;
+  appearance?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1424,6 +1480,37 @@ export interface LatestArticlesBlockSelect<T extends boolean = true> {
   description?: T;
   category?: T;
   numberOfArticles?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "featureSectionBlock_select".
+ */
+export interface FeatureSectionBlockSelect<T extends boolean = true> {
+  variant?: T;
+  eyebrow?: T;
+  heading?: T;
+  headingTag?: T;
+  headingLevel?: T;
+  description?: T;
+  media?: T;
+  features?:
+    | T
+    | {
+        headline?: T;
+        description?: T;
+        mediaType?: T;
+        icon?: T;
+        media?: T;
+        id?: T;
+      };
+  links?:
+    | T
+    | {
+        link?: T | CMSLinkFieldSelect<T>;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }

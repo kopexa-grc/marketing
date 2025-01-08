@@ -101,7 +101,7 @@ const Page = async ({
   return (
     <>
       <Header mainMenu={mainMenu} colorScheme="primary" />
-      <main>
+      <main className="flex-1">
         <HeroBlock page={page} />
         <RenderBlocks blocks={page.layout} />
       </main>

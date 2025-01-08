@@ -6,9 +6,9 @@ import { Link } from "@/i18n/routing";
 
 type Omitted = "label" | "children" | "href" | "type";
 
-export type CMSLinkType = Omit<CMSLinkField, "label"> &
+export type CMSLinkType = Omit<CMSLinkField, "label" | "appearance"> &
   Omit<ComponentProps<"a">, Omitted> & {
-    appearance?: ButtonProps["variant"] | "none";
+    appearance?: ButtonProps["variant"] | "none" | null;
     size?: ButtonProps["size"];
     label?: string | null;
     children?: ReactNode;
@@ -81,7 +81,8 @@ export const CMSLink = ({
   return (
     <Link
       className={cn(
-        appearance !== "none" &&
+        appearance &&
+          appearance !== "none" &&
           buttonVariants({
             variant: appearance,
             size,

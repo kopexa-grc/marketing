@@ -16,6 +16,7 @@ import {
   RelatedPosts,
   type RelatedPostsBlock,
 } from "./related-posts/related-posts-block";
+import { FeatureSectionBlock } from "./feature-section/feature-section-block";
 
 type Block = Page["layout"][0] | RelatedPostsBlock;
 
@@ -69,6 +70,9 @@ export const RenderBlocks = ({ blocks }: RenderBlocksProps) => {
       }
       case "relatedPosts": {
         return <RelatedPosts key={`${block.blockName}`} {...block} />;
+      }
+      case "featureSection": {
+        return <FeatureSectionBlock key={`${block.blockName}`} {...block} />;
       }
       default: {
         return null;

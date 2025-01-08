@@ -21,8 +21,12 @@ export const headingVariants = tv({
   },
 });
 
-type HeadingProps = BoxProps<"h1" | "h2" | "h3" | "h4" | "h5" | "p"> &
-  VariantProps<typeof headingVariants>;
+export type HeadingVariants = VariantProps<typeof headingVariants>;
+export type HeadingTags = "h1" | "h2" | "h3" | "h4" | "h5" | "p" | "span";
+
+type HeadingProps = BoxProps<HeadingTags> & {
+  level?: HeadingVariants["level"];
+};
 
 export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(
   (props, ref) => {
