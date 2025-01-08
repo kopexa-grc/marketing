@@ -17,6 +17,7 @@ import {
   type RelatedPostsBlock,
 } from "./related-posts/related-posts-block";
 import { FeatureSectionBlock } from "./feature-section/feature-section-block";
+import { ContentGridBlock } from "./content-grid/content-grid-block";
 
 type Block = Page["layout"][0] | RelatedPostsBlock;
 
@@ -69,10 +70,13 @@ export const RenderBlocks = ({ blocks }: RenderBlocksProps) => {
         return <LatestArticlesBlock key={`${block.id}`} {...block} />;
       }
       case "relatedPosts": {
-        return <RelatedPosts key={`${block.blockName}`} {...block} />;
+        return <RelatedPosts key={`${block.id}`} {...block} />;
       }
       case "featureSection": {
-        return <FeatureSectionBlock key={`${block.blockName}`} {...block} />;
+        return <FeatureSectionBlock key={`${block.id}`} {...block} />;
+      }
+      case "contentGrid": {
+        return <ContentGridBlock key={`${block.id}`} {...block} />;
       }
       default: {
         return null;

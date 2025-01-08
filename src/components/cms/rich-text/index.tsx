@@ -18,6 +18,7 @@ import { formatAnchor } from "./format-anchor";
 type Props = {
   content: SerializedEditorState;
   className?: string;
+  size?: "default" | "sm" | "md" | "lg" | "xl";
 };
 
 type NodeTypes = DefaultNodeTypes;
@@ -67,16 +68,21 @@ const converters = (locale: string) => {
   return jsxConverters;
 };
 
-export const RichText = ({ content, className }: Props) => {
+export const RichText = ({ content, className, size = "xl" }: Props) => {
   const locale = useLocale();
+
+  const proseSize = {
+    default: "prose",
+    sm: "prose-sm",
+    md: "prose md:prose-md",
+    lg: "prose md:prose-md lg:prose-lg",
+    xl: "prose md:prose-md lg:prose-xl",
+  }[size];
 
   return (
     <SerializedRichText
       converters={converters(locale)}
-      className={cn(
-        "max-w-none prose md:prose-md lg:prose-xl dark:prose-invert",
-        className
-      )}
+      className={cn("max-w-none", proseSize, " dark:prose-invert", className)}
       data={content}
     />
   );

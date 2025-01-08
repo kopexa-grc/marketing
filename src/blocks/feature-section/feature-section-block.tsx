@@ -85,8 +85,8 @@ function VariantOne({
       {Array.isArray(links) && links.length > 0 && (
         <div className="col-span-full">
           <div className="flex flex-col lg:flex-row gap-4">
-            {links.map((link) => (
-              <CMSLink key={link.id} {...link.link} />
+            {links.map((link, i) => (
+              <CMSLink key={`${link.id}-${i}`} {...link.link} />
             ))}
           </div>
         </div>

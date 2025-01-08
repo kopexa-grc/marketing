@@ -21,6 +21,7 @@ import { Form } from "@/blocks/form/config";
 import { FAQBlock } from "@/blocks/faq/config";
 import { LatestArticles } from "@/blocks/latest-articles/config";
 import { FeatureSection } from "@/blocks/feature-section/config";
+import { ContentGrid } from "@/blocks/content-grid/config";
 
 export const Pages: CollectionConfig<"pages"> = {
   slug: "pages",
@@ -91,6 +92,7 @@ export const Pages: CollectionConfig<"pages"> = {
                 Divider,
                 Metrics,
                 Content,
+                ContentGrid,
                 CardGrid,
                 FeatureGrid,
                 SolutionShowcase,

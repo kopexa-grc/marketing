@@ -222,6 +222,7 @@ export interface Page {
     | DividerBlock
     | MetricsBlock
     | ContentBlock
+    | ContentGridBlock
     | CardGridBlock
     | FeatureGridBlock
     | SolutionShowcaseBlock
@@ -458,6 +459,41 @@ export interface ContentBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'content';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ContentGridBlock".
+ */
+export interface ContentGridBlock {
+  variant?: 'sideBySide' | null;
+  heading: string;
+  headingTag: 'h1' | 'h2' | 'h3' | 'h4';
+  headingLevel: '1' | '2' | '3' | '4';
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  cells?:
+    | {
+        heading: string;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'contentGrid';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1186,6 +1222,7 @@ export interface PagesSelect<T extends boolean = true> {
         divider?: T | DividerBlockSelect<T>;
         metrics?: T | MetricsBlockSelect<T>;
         content?: T | ContentBlockSelect<T>;
+        contentGrid?: T | ContentGridBlockSelect<T>;
         cardGrid?: T | CardGridBlockSelect<T>;
         featureGrid?: T | FeatureGridBlockSelect<T>;
         solutionShowcase?: T | SolutionShowcaseBlockSelect<T>;
@@ -1304,6 +1341,26 @@ export interface ContentBlockSelect<T extends boolean = true> {
   columnOne?: T;
   columnTwo?: T;
   columnThree?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ContentGridBlock_select".
+ */
+export interface ContentGridBlockSelect<T extends boolean = true> {
+  variant?: T;
+  heading?: T;
+  headingTag?: T;
+  headingLevel?: T;
+  content?: T;
+  cells?:
+    | T
+    | {
+        heading?: T;
+        description?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }

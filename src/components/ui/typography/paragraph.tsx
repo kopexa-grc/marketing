@@ -5,10 +5,10 @@ import { tv, type VariantProps } from "tailwind-variants";
 import { cn } from "@/lib/utils";
 
 export const paragraphVariants = tv({
-  base: "font-normal text-base m-0",
+  base: "font-normal m-0",
   variants: {
     level: {
-      default: "",
+      default: "text-base",
       label: "font-semibold md:text-lg",
       small: "text-sm",
       large: "text-lg",
