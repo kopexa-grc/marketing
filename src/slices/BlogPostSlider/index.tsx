@@ -34,6 +34,12 @@ const BlogPostSlider = async ({ slice, context }: BlogPostSliderProps) => {
   const blogPosts = await client.getByType("blog", {
     filters: [filter.any("document.tags", tags)],
     pageSize: 10,
+    orderings: [
+      {
+        field: "my.blog.date",
+        direction: "desc",
+      },
+    ],
   });
 
   return (
