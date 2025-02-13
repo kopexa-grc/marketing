@@ -55,9 +55,7 @@ function Field({ field }: FieldProps) {
 
   return (
     <div className="grid gap-2">
-      <Label htmlFor={id} className="font-semibold">
-        {field.label}
-      </Label>
+      <Label htmlFor={id}>{field.label}</Label>
       {field.type === "Textarea" ? (
         <Textarea name={name} id={id} placeholder={placeholder} />
       ) : (
