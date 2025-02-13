@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.17.0](https://github.com/kopexa-grc/marketing/compare/v2.16.1...v2.17.0) (2025-02-13)
+
+
+### Features
+
+* marketing page space ([277a105](https://github.com/kopexa-grc/marketing/commit/277a1056f25cfee4379511880934143e125716da))
+
+
+### Bug Fixes
+
+* some fixies to layout, navbar ([2f5d2a5](https://github.com/kopexa-grc/marketing/commit/2f5d2a5801abc9e8264db5e0e4b4c70c33b94a06))
+
 ## [2.16.1](https://github.com/kopexa-grc/marketing/compare/v2.16.0...v2.16.1) (2025-02-13)
 
 
