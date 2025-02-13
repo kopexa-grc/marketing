@@ -8,7 +8,7 @@ This repository contains the source code for the **Kopexa Marketing Website**, s
 
 - **Content Hub**: Centralized knowledge base with blog articles, whitepapers, and best practices for compliance professionals.
 - **i18n Support**: Fully internationalized to serve content in multiple languages (e.g., English and German).
-- **CMS**: Powered by [PayloadCMS 3.x](https://payloadcms.com/) for robust content management.
+- **CMS**: Powered by [Prismic](https://prismic.io/) for robust content management.
 - **Frontend Framework**: Built with [Next.js 15](https://nextjs.org/) for server-side rendering and seamless user experiences.
 - **Styling**: Styled with [TailwindCSS](https://tailwindcss.com/) for rapid UI development.
 - **Language**: Fully implemented in [TypeScript](https://www.typescriptlang.org/) for type-safe code.
