@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.16.1](https://github.com/kopexa-grc/marketing/compare/v2.16.0...v2.16.1) (2025-02-13)
+
+
+### Bug Fixes
+
+* label ([ecdce06](https://github.com/kopexa-grc/marketing/commit/ecdce0614123372e7be1b7f4f4e734a6c8a5717e))
+
 ## [2.16.0](https://github.com/kopexa-grc/marketing/compare/v2.15.0...v2.16.0) (2025-02-13)
 
 
