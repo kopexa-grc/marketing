@@ -6,6 +6,24 @@
   "status": true,
   "json": {
     "Main": {
+      "theme": {
+        "type": "Select",
+        "config": {
+          "label": "Theme",
+          "placeholder": "",
+          "options": ["Inherit from Parent", "Light", "Dark"],
+          "default_value": "Inherit from Parent"
+        }
+      },
+      "navbar": {
+        "type": "Select",
+        "config": {
+          "label": "Navbar Theme",
+          "placeholder": "",
+          "options": ["Inherit from Parent", "Light", "Dark"],
+          "default_value": "Inherit from Parent"
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

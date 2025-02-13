@@ -1,6 +1,6 @@
 "use client";
 
-import { tv } from "tailwind-variants";
+import { tv, type VariantProps } from "tailwind-variants";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import type { LayoutDocument } from "../../../prismicio-types";
 import { MenuItemWithSubMenu } from "./menu-item-with-submenu";
@@ -33,6 +33,7 @@ const mainNavigationSlotRecipe = tv({
         ctaContainer: "bg-transparent",
         viewport: "bg-background",
       },
+      brand: {},
     },
   },
   defaultVariants: {
@@ -40,15 +41,19 @@ const mainNavigationSlotRecipe = tv({
   },
 });
 
+export type MainNavigationSlotRecipe = VariantProps<
+  typeof mainNavigationSlotRecipe
+>;
+
 type MainNavigationProps = {
   layout: LayoutDocument;
-};
+} & MainNavigationSlotRecipe;
 
 export const MainNavigation = (props: MainNavigationProps) => {
-  const { layout } = props;
+  const { layout, variant } = props;
 
   const pathname = usePathname();
-  const css = mainNavigationSlotRecipe();
+  const css = mainNavigationSlotRecipe({ variant });
 
   return (
     <nav aria-label="Main Navigation" className={css.root()}>
@@ -58,10 +63,18 @@ export const MainNavigation = (props: MainNavigationProps) => {
             <ul className="group flex gap-x-4 items-center justify-start relative z-10">
               {layout.data.slices.map((item) => {
                 if (item.variation === "default") {
-                  return <MenuItem key={item.id} slice={item} />;
+                  return (
+                    <MenuItem key={item.id} slice={item} variant={variant} />
+                  );
                 }
 
-                return <MenuItemWithSubMenu key={item.id} slice={item} />;
+                return (
+                  <MenuItemWithSubMenu
+                    key={item.id}
+                    variant={variant}
+                    slice={item}
+                  />
+                );
               })}
             </ul>
           </NavigationMenu.List>
@@ -70,11 +83,14 @@ export const MainNavigation = (props: MainNavigationProps) => {
           </div>
         </NavigationMenu.Root>
       </div>
-      <div className={css.ctaContainer()}>
+      <div
+        className={css.ctaContainer()}
+        data-theme={variant === "brand" ? "dark" : "light"}
+      >
         {layout.data.cta && (
           <PrismicNextLink
             field={layout.data.cta}
-            className={buttonVariants({ variant: "default" })}
+            className={buttonVariants({ variant: "outline" })}
           />
         )}
       </div>

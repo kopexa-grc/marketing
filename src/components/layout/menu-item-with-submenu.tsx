@@ -2,18 +2,18 @@ import { ChevronDown } from "lucide-react";
 import type { MenuItemSliceWithSubMenu } from "../../../prismicio-types";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { cn } from "@/lib/utils";
-import { menuItemRecipe } from "./recipe";
+import { type MenuItemRecipe, menuItemRecipe } from "./recipe";
 import { SliceZone } from "@prismicio/react";
 import { components } from "@/slices";
 
 type MenuItemWithSubMenuProps = {
   slice: MenuItemSliceWithSubMenu;
-};
+} & MenuItemRecipe;
 
 export const MenuItemWithSubMenu = (props: MenuItemWithSubMenuProps) => {
-  const { slice } = props;
+  const { slice, variant } = props;
 
-  const css = menuItemRecipe();
+  const css = menuItemRecipe({ variant });
 
   return (
     <NavigationMenu.Item>
@@ -25,7 +25,7 @@ export const MenuItemWithSubMenu = (props: MenuItemWithSubMenuProps) => {
           aria-hidden
         />
       </NavigationMenu.Trigger>
-      <NavigationMenu.Content className="absolute left-0 top-0 w-screen">
+      <NavigationMenu.Content className="absolute left-0 top-0 w-screen bg-background">
         <div className="container px-8 flex">
           <div className="flex flex-col lg:w-[26.6666666667%] lg:py-12 gap-3 my-6 lg:my-0">
             <SliceZone

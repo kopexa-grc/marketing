@@ -10,7 +10,10 @@ import * as prismicR from "@prismicio/richtext";
 import { notFound } from "next/navigation";
 import { headingRecipe } from "@/components/recipes/heading-recipe";
 import { buttonVariants } from "@/components/ui/button";
-import { TableOfContents } from "@/components/prismic/table-of-contents";
+import {
+  type DataSlice,
+  TableOfContents,
+} from "@/components/prismic/table-of-contents";
 import { BlogCategoryLink } from "../_components/blog-category-link";
 import { AuthorBadge } from "../_components/author-badge";
 
@@ -80,7 +83,7 @@ export default async function PrismigPage(props: Props) {
         </div>
       </header>
       <div className="container flex flex-col lg:grid lg:grid-cols-12 lg:gap-8 xl:gap-6 pt-10">
-        <div className="lg:col-span-8 lg:max-w-[46rem] pb-12 xl:pl-11 xl:pr-16 order-2">
+        <div className="lg:col-span-8 pb-12 xl:pl-11 xl:pr-16 order-2 group/blog">
           <SliceZone slices={page.data.slices} components={components} />
           <footer>
             {author && (
@@ -126,7 +129,11 @@ export default async function PrismigPage(props: Props) {
             <TableOfContents
               className="bg-background border-2 rounded-xl"
               tocTitle="Table of contents"
-              slices={page.data.slices}
+              slices={
+                page.data.slices.filter(
+                  (slice) => slice.slice_type === "text_content"
+                ) as DataSlice[]
+              }
             />
           </div>
         </aside>

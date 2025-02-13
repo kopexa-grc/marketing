@@ -1,10 +1,12 @@
+export type ThemeSettingValues = "Inherit from Parent" | "Light" | "Dark";
+
 type DarkTheme = "dark";
 type LightTheme = "light";
 
 type Theme = DarkTheme | LightTheme;
 
 export function resolveSliceThemeAttr(
-  theme: "Inherit from Parent" | "Light" | "Dark",
+  theme: ThemeSettingValues,
   parent: Theme = "light"
 ) {
   switch (theme) {

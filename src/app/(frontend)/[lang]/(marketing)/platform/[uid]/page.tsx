@@ -1,3 +1,5 @@
+import { MainLayout } from "@/components/layout/main-layout";
+import { getLayoutData } from "@/data/layout";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import { asImageSrc, isFilled } from "@prismicio/client";
@@ -18,11 +20,23 @@ export default async function PrismigPage(props: Props) {
   const params = await props.params;
 
   const client = createClient();
+  const layout = await getLayoutData(params.lang);
   const page = await client
     .getByUID("page", params.uid, { lang: params.lang })
     .catch(() => notFound());
 
-  return <SliceZone slices={page.data.slices} components={components} />;
+  return (
+    <MainLayout
+      layout={layout}
+      settings={{
+        header: {
+          variant: page.data.navbar_variant,
+        },
+      }}
+    >
+      <SliceZone slices={page.data.slices} components={components} />
+    </MainLayout>
+  );
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

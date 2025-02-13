@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { headingRecipe } from "../recipes/heading-recipe";
 import { ArrowDown } from "lucide-react";
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
-import type { RTNode, SliceZone } from "@prismicio/client";
+import type { RTNode } from "@prismicio/client";
 import { PrismicRichText } from "@prismicio/react";
 import type { TextContentSlice } from "../../../prismicio-types";
 import { slugifyHeading } from "./lib";
@@ -12,12 +12,12 @@ import { motion, useSpring, useTransform } from "motion/react";
 import { useWindowSize } from "usehooks-ts";
 import { usePathname } from "next/navigation";
 
-type DataSlice = TextContentSlice;
+export type DataSlice = TextContentSlice;
 
 type TableOfContentsProps = {
   tocTitle?: string;
   className?: string;
-  slices: SliceZone<DataSlice>;
+  slices: DataSlice[];
 };
 
 const collapsedHeight = 120;

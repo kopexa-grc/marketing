@@ -12,6 +12,15 @@
           "label": "UID"
         }
       },
+      "navbar_variant": {
+        "type": "Select",
+        "config": {
+          "label": "Navbar Variant",
+          "placeholder": "Select the Navbar Theme",
+          "options": ["default", "brand"],
+          "default_value": "default"
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

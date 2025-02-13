@@ -643,6 +643,36 @@ type HomePageDocumentDataSlicesSlice =
  */
 interface HomePageDocumentData {
   /**
+   * Theme field in *Home page*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Inherit from Parent
+   * - **API ID Path**: home_page.theme
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  theme: prismic.SelectField<
+    "Inherit from Parent" | "Light" | "Dark",
+    "filled"
+  >;
+
+  /**
+   * Navbar Theme field in *Home page*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Inherit from Parent
+   * - **API ID Path**: home_page.navbar
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  navbar: prismic.SelectField<
+    "Inherit from Parent" | "Light" | "Dark",
+    "filled"
+  >;
+
+  /**
    * Slice Zone field in *Home page*
    *
    * - **Field Type**: Slice Zone
@@ -976,6 +1006,18 @@ type PageDocumentDataSlicesSlice =
  * Content for Platform documents
  */
 interface PageDocumentData {
+  /**
+   * Navbar Variant field in *Platform*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Select the Navbar Theme
+   * - **Default Value**: default
+   * - **API ID Path**: page.navbar_variant
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  navbar_variant: prismic.SelectField<"default" | "brand", "filled">;
+
   /**
    * Slice Zone field in *Platform*
    *
