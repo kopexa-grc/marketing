@@ -14,6 +14,7 @@ import {
 } from "react";
 import { buttonVariants } from "../button";
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
+import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
 
 type CarouselApi = UseEmblaCarouselType[1];
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
@@ -56,7 +57,7 @@ export const CarouselRoot = ({
   orientation = "horizontal",
   opts,
   setApi,
-  plugins,
+  plugins = [],
   className,
   children,
   ...props
@@ -66,7 +67,7 @@ export const CarouselRoot = ({
       ...opts,
       axis: orientation === "horizontal" ? "x" : "y",
     },
-    plugins
+    [WheelGesturesPlugin(), ...plugins]
   );
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);

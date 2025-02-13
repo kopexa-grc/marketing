@@ -37,6 +37,7 @@
     "clsx": "^2.1.1",
     "cross-env": "^7.0.3",
     "embla-carousel-react": "^8.5.2",
+    "embla-carousel-wheel-gestures": "^8.0.1",
     "graphql": "^16.8.1",
     "lexical": "0.20.0",
     "lucide-react": "^0.469.0",
