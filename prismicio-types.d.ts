@@ -900,6 +900,71 @@ export type LegalHomeDocument<Lang extends string = string> =
     Lang
   >;
 
+type MarketingDocumentDataSlicesSlice = HeroSlice;
+
+/**
+ * Content for Marketing documents
+ */
+interface MarketingDocumentData {
+  /**
+   * Slice Zone field in *Marketing*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: marketing.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<MarketingDocumentDataSlicesSlice> /**
+   * Meta Title field in *Marketing*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: marketing.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Marketing*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: marketing.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Marketing*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: marketing.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Marketing document from Prismic
+ *
+ * - **API ID**: `marketing`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type MarketingDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<MarketingDocumentData>,
+    "marketing",
+    Lang
+  >;
+
 type PageDocumentDataSlicesSlice =
   | BenefitsSlice
   | FeaturesSlice
@@ -1278,6 +1343,7 @@ export type AllDocumentTypes =
   | LayoutDocument
   | LegalDocument
   | LegalHomeDocument
+  | MarketingDocument
   | PageDocument
   | ServicesDocument
   | SettingsDocument
@@ -3428,6 +3494,9 @@ declare module "@prismicio/client" {
       LegalHomeDocument,
       LegalHomeDocumentData,
       LegalHomeDocumentDataSlicesSlice,
+      MarketingDocument,
+      MarketingDocumentData,
+      MarketingDocumentDataSlicesSlice,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,

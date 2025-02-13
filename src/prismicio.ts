@@ -53,6 +53,10 @@ const routes: prismic.ClientConfig["routes"] = [
     path: "/:lang/enterprise",
   },
   {
+    type: "marketing",
+    path: "/:lang/:uid",
+  },
+  {
     type: "blog_home",
     path: "/:lang/blog",
   },
