@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.17.1](https://github.com/kopexa-grc/marketing/compare/v2.17.0...v2.17.1) (2025-02-13)
+
+
+### Bug Fixes
+
+* order of posts ([efa0bb3](https://github.com/kopexa-grc/marketing/commit/efa0bb398243efbc51bfcd3b92cefbaf9143eaa3))
+
 ## [2.17.0](https://github.com/kopexa-grc/marketing/compare/v2.16.1...v2.17.0) (2025-02-13)
 
 
