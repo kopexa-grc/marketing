@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.16.0](https://github.com/kopexa-grc/marketing/compare/v2.15.0...v2.16.0) (2025-02-13)
+
+
+### Features
+
+* moved to prismic ([0749653](https://github.com/kopexa-grc/marketing/commit/07496538f1c6a40cfb0cc9d83a23795ca4cd8cb2))
+
 ## [2.15.0](https://github.com/kopexa-grc/marketing/compare/v2.14.0...v2.15.0) (2025-01-08)
 
 
