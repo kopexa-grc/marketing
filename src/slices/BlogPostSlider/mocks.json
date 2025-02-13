@@ -1,0 +1,58 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"cta_link": {
+				"key": "c4b70fd6-7ae6-403d-a685-e8ff2ca9050d",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev",
+					"text": "thus"
+				}
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Enim nisi nulla ipsum culpa aliqua elit dolore irure ea quis excepteur tempor deserunt culpa sunt. Excepteur enim incididunt excepteur consequat tempor officia duis eu labore sit reprehenderit ipsum. Lorem sunt tempor voluptate aliquip esse consectetur dolore deserunt."
+						}
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Wheat"
+						}
+					}
+				]
+			},
+			"tags": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"tag",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "port",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

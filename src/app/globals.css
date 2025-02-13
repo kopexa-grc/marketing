@@ -4,7 +4,33 @@
 
 @layer base {
   :root {
-    --color-primary: 220 60% 19%;
+    --color-primary-50: 238 248 255;
+    --color-primary-100: 218 238 255;
+    --color-primary-200: 189 226 255;
+    --color-primary-300: 143 209 255;
+    --color-primary-400: 91 182 255;
+    --color-primary-500: 53 150 252;
+    --color-primary-600: 30 120 242;
+    --color-primary-700: 23 97 222;
+    --color-primary-800: 25 78 180;
+    --color-primary-900: 26 69 142;
+    --color-primary-950: 19 39 78;
+
+    --color-primary: var(--color-primary-950);
+    --color-black: 0 0% 8%;
+    --color-white: 0 0% 100%;
+
+    --color-gray-50: 245 245 248;
+    --color-gray-100: 232 232 237;
+    --color-gray-200: 224 223 230;
+    --color-gray-300: 203 203 214;
+    --color-gray-400: 182 181 196;
+    --color-gray-500: 164 161 179;
+    --color-gray-600: 145 140 159;
+    --color-gray-700: 125 120 138;
+    --color-gray-800: 102 98 113;
+    --color-gray-900: 85 82 93;
+    --color-gray-950: 49 48 54;
   }
 
   :root,
@@ -16,13 +42,13 @@
     --popover: 0 0% 100%;
     --popover-foreground: 20 14.3% 4.1%;
     /* prefered: blue --primary: 223 81% 35%; */
-    --primary: 220 60% 19%;
+    --primary: var(--color-primary-950);
     --primary-foreground: 0 0% 100%;
     /* --secondary: 131 18% 69%; */
     --secondary: 42 100% 60%;
     --secondary-foreground: 0 0% 10%;
-    --muted: 60 4.8% 95.9%;
-    --muted-foreground: 25 5.3% 44.7%;
+    --muted: var(--color-gray-100);
+    --muted-foreground: var(--color-gray-900);
     --accent: 240 22% 96%;
     --accent-foreground: 222.86 77.78% 5.29%;
     --destructive: 0 84.2% 60.2%;
@@ -46,8 +72,8 @@
 
   .dark,
   [data-theme="dark"] {
-    --background: 20 14.3% 4.1%;
-    --foreground: 60 9.1% 97.8%;
+    --background: var(--color-black);
+    --foreground: var(--color-white);
     --card: 20 14.3% 4.1%;
     --card-foreground: 60 9.1% 97.8%;
     --popover: 20 14.3% 4.1%;
@@ -56,8 +82,8 @@
     --primary-foreground: 0 0% 100%;
     --secondary: 42 100% 60%;
     --secondary-foreground: 20 14.3% 4.1%;
-    --muted: 12 6.5% 15.1%;
-    --muted-foreground: 24 5.4% 63.9%;
+    --muted: var(--color-gray-950);
+    --muted-foreground: var(--color-gray-200);
     --accent: 12 6.5% 15.1%;
     --accent-foreground: 60 9.1% 97.8%;
     --destructive: 0 62.8% 30.6%;
@@ -122,6 +148,18 @@
 
     @screen lg {
       @apply space-y-20;
+    }
+  }
+
+  .grid-wrapper {
+    @apply grid grid-cols-6;
+
+    @screen sm {
+      @apply grid-cols-12 gap-4;
+    }
+
+    @screen xl {
+      @apply gap-6;
     }
   }
 

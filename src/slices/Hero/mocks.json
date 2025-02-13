@@ -1,0 +1,249 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Transform Compliance with Dynamic Spaces",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"subheading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Traditional GRC systems struggle with dynamic compliance needs. Kopexa’s Spaces offer isolated environments that include their own Assessments, Actions, and Reports, empowering your organization to manage compliance efficiently at scale.",
+							"spans": []
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "",
+							"spans": []
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Move beyond static asset management. With Kopexa’s Spaces, manage your compliance processes flexibly across departments, projects, and partners.",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 0,
+									"end": 144
+								}
+							]
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"calltoactions": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"link",
+								{
+									"key": "3ec8f3a9-0a68-4845-9257-123a27a43ff2",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://twitter.com",
+										"text": "age",
+										"variant": "outline"
+									}
+								}
+							]
+						]
+					}
+				]
+			},
+			"image": {
+				"provider": "imgix",
+				"url": "https://images.unsplash.com/photo-1582789760972-c8916cebe649?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxOHx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzM5MTExMTM1fDA&ixlib=rb-4.0.3&q=85",
+				"alt": "orange fruit in water with water",
+				"origin": {
+					"id": "uYM_PQJ8VvY",
+					"url": "https://images.unsplash.com/photo-1582789760972-c8916cebe649?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxOHx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzM5MTExMTM1fDA&ixlib=rb-4.0.3&q=85",
+					"width": 4380,
+					"height": 2901
+				},
+				"width": 4380,
+				"height": 2901,
+				"edit": {
+					"background": "transparent",
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					}
+				},
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			}
+		},
+		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "centeredBackground",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Transform Compliance with Dynamic Spaces",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"subheading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Traditional GRC systems struggle with dynamic compliance needs. Kopexa’s Spaces offer isolated environments that include their own Assessments, Actions, and Reports, empowering your organization to manage compliance efficiently at scale.",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"eyebrow": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Build your blog with Prismic"
+			},
+			"calltoactions": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"link",
+								{
+									"key": "75b05908-6413-43cd-84dc-79f4b7e88026",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "#",
+										"text": "Get Started"
+									}
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"link",
+								{
+									"key": "a853e069-7216-460e-8eaf-7698e5c68305",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "#",
+										"text": "Reach us out.",
+										"variant": "outline"
+									}
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "centered",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Wheel"
+						}
+					}
+				]
+			},
+			"subheading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Culpa minim commodo ullamco commodo officia commodo minim ipsum tempor est eu ut esse nulla. Sunt velit consectetur magna adipisicing sit velit consequat."
+						}
+					}
+				]
+			},
+			"calltoactions": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"link",
+								{
+									"key": "d4cbc7df-c7ee-4d71-b725-010f670a4a4d",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://twitter.com",
+										"text": "sail",
+										"variant": "default"
+									}
+								}
+							]
+						]
+					}
+				]
+			},
+			"eyebrow": {
+				"__TYPE__": "FieldContent",
+				"value": "flow",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
+]

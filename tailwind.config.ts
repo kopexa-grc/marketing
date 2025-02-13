@@ -4,13 +4,21 @@ import containerQueries from "@tailwindcss/container-queries";
 import typography from "@tailwindcss/typography";
 
 export default {
-  darkMode: ["selector", '[data-mode="dark"]'],
+  darkMode: ["selector", '[data-theme="dark"]'],
   content: [
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/blocks/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/slices/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: "1.5rem",
+        lg: "2rem",
+      },
+    },
     extend: {
       colors: {
         background: "hsl(var(--background))",
@@ -24,7 +32,18 @@ export default {
           foreground: "hsl(var(--popover-foreground))",
         },
         primary: {
-          DEFAULT: "hsl(var(--primary))",
+          DEFAULT: "rgb(var(--primary))",
+          50: "rgb(var(--color-primary-50))",
+          100: "rgb(var(--color-primary-100))",
+          200: "rgb(var(--color-primary-200))",
+          300: "rgb(var(--color-primary-300))",
+          400: "rgb(var(--color-primary-400))",
+          500: "rgb(var(--color-primary-500))",
+          600: "rgb(var(--color-primary-600))",
+          700: "rgb(var(--color-primary-700))",
+          800: "rgb(var(--color-primary-800))",
+          900: "rgb(var(--color-primary-900))",
+          950: "rgb(var(--color-primary-950))",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
@@ -32,8 +51,8 @@ export default {
           foreground: "hsl(var(--secondary-foreground))",
         },
         muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+          DEFAULT: "rgb(var(--muted))",
+          foreground: "rgb(var(--muted-foreground))",
         },
         accent: {
           DEFAULT: "hsl(var(--accent))",
@@ -65,7 +84,8 @@ export default {
         nav: "50",
       },
       fontFamily: {
-        sans: ["var(--font-sans)"],
+        sans: ["var(--font-body)"],
+        heading: ["var(--font-sans)"],
       },
       borderRadius: {
         lg: "var(--radius)",

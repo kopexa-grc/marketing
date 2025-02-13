@@ -1,0 +1,98 @@
+{
+  "id": "footer_column",
+  "type": "SharedSlice",
+  "name": "FooterColumn",
+  "description": "FooterColumn",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading5"
+          }
+        },
+        "links": {
+          "type": "Link",
+          "config": {
+            "label": "Links",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": true
+          }
+        },
+        "column": {
+          "type": "Select",
+          "config": {
+            "label": "Column",
+            "placeholder": "",
+            "options": [
+              "1",
+              "2",
+              "3",
+              "4"
+            ],
+            "default_value": "1"
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "brand",
+      "name": "Brand",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading5"
+          }
+        },
+        "links": {
+          "type": "Link",
+          "config": {
+            "label": "Links",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": true
+          }
+        },
+        "column": {
+          "type": "Select",
+          "config": {
+            "label": "Column",
+            "placeholder": "",
+            "options": [
+              "1",
+              "2",
+              "3",
+              "4"
+            ],
+            "default_value": "1"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

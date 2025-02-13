@@ -1,0 +1,77 @@
+{
+  "id": "legal_table",
+  "type": "SharedSlice",
+  "name": "LegalTable",
+  "description": "LegalTable",
+  "variations": [
+    {
+      "id": "default",
+      "name": "One Column",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "table_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Table title",
+            "placeholder": "Table Title",
+            "allowTargetBlank": false,
+            "single": "heading2"
+          }
+        }
+      },
+      "items": {
+        "cell": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Column 1",
+            "placeholder": "Column 1 content...",
+            "allowTargetBlank": true,
+            "single": "paragraph,strong,em"
+          }
+        }
+      }
+    },
+    {
+      "id": "twoColumn",
+      "name": "Two Column",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "table_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Table title",
+            "placeholder": "Table Title",
+            "allowTargetBlank": false,
+            "single": "heading2"
+          }
+        }
+      },
+      "items": {
+        "cell": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Column 1",
+            "placeholder": "Column 1 content...",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "cellTwo": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Column 2",
+            "placeholder": "Column 2 content...",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        }
+      }
+    }
+  ]
+}

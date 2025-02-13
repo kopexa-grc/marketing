@@ -1,0 +1,57 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"label": {
+				"__TYPE__": "FieldContent",
+				"value": "machinery",
+				"type": "Text"
+			},
+			"link": {
+				"key": "f3e7f983-5c9f-47c4-89df-85726b045a9d",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com",
+					"text": "brief"
+				}
+			}
+		},
+		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "withSubMenu",
+		"primary": {
+			"label": {
+				"__TYPE__": "FieldContent",
+				"value": "pour",
+				"type": "Text"
+			},
+			"link": {
+				"key": "08ebc7fb-f5a2-438f-9693-378d5ad6c2b8",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com",
+					"text": "apart"
+				}
+			},
+			"subMenu": {
+				"key": "c88805b3-0a68-46dd-b31d-575c72f85519",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "DocumentLink",
+					"id": "mock_document_id"
+				}
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
+]

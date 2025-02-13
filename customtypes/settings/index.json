@@ -1,0 +1,26 @@
+{
+  "format": "custom",
+  "id": "settings",
+  "label": "Settings",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {},
+    "Copyright": {
+      "copyrightname": {
+        "type": "Text",
+        "config": {
+          "label": "CopyrightName",
+          "placeholder": "Kopexa"
+        }
+      },
+      "copyrightsince": {
+        "type": "Text",
+        "config": {
+          "label": "CopyrightSince",
+          "placeholder": "2020"
+        }
+      }
+    }
+  }
+}

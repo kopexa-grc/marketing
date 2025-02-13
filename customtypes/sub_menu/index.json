@@ -1,0 +1,63 @@
+{
+  "format": "custom",
+  "id": "sub_menu",
+  "label": "Sub menu",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Column 1": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID"
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "sub_menu_item": {
+              "type": "SharedSlice"
+            },
+            "heading": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    },
+    "Column 2": {
+      "slices1": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "sub_menu_item": {
+              "type": "SharedSlice"
+            },
+            "heading": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    },
+    "Column 3": {
+      "slices2": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "heading": {
+              "type": "SharedSlice"
+            },
+            "sub_menu_item": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    }
+  }
+}

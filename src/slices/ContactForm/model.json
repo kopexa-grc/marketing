@@ -1,0 +1,75 @@
+{
+  "id": "contact_form",
+  "type": "SharedSlice",
+  "name": "ContactForm",
+  "description": "ContactForm",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "The title of the section",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "A nice description of your product",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink"
+          }
+        },
+        "fields": {
+          "type": "Group",
+          "config": {
+            "label": "Fields",
+            "repeat": true,
+            "fields": {
+              "label": {
+                "config": {
+                  "label": "Field Label",
+                  "placeholder": ""
+                },
+                "type": "Text"
+              },
+              "placeholder": {
+                "config": {
+                  "label": "Field Placeholder",
+                  "placeholder": ""
+                },
+                "type": "Text"
+              },
+              "type": {
+                "config": {
+                  "label": "Field Type",
+                  "placeholder": "",
+                  "options": ["Text", "Email", "Textarea"],
+                  "default_value": "Text"
+                },
+                "type": "Select"
+              }
+            }
+          }
+        },
+        "submitButtonLabel": {
+          "config": {
+            "label": "Submit Button Label",
+            "placeholder": ""
+          },
+          "type": "Text"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"table_title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Board"
+						}
+					}
+				]
+			},
+			"column_1": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": []
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"cell",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Deserunt irure labore dolor sit tempor anim id ea cillum voluptate elit veniam. Nulla exercitation qui proident voluptate qui in tempor laboris incididunt amet dolore velit exercitation et. Cupidatat dolore ut sunt reprehenderit qui nisi elit nisi cupidatat magna id nulla."
+									}
+								}
+							]
+						}
+					]
+				]
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "twoColumn",
+		"primary": {
+			"table_title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Crowd"
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"cell",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Velit sit nisi dolor qui sunt duis commodo ullamco. Anim officia labore in et esse eu adipisicing tempor elit id elit magna."
+									}
+								}
+							]
+						}
+					],
+					[
+						"cellTwo",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Ea non qui velit id tempor. Enim minim labore enim voluptate minim esse elit minim veniam fugiat eu labore cupidatat eu. Reprehenderit eiusmod sunt velit nisi aliqua in ex proident nisi est sit laborum enim."
+									}
+								}
+							]
+						}
+					]
+				]
+			}
+		]
+	}
+]

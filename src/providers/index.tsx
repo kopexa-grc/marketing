@@ -2,7 +2,6 @@
 
 import { Toaster } from "@/components/ui/sonner";
 import { CookiesProvider } from "react-cookie";
-import { HeaderObverser } from "./header-observer";
 import { AccessibilityProvider } from "./accessibility";
 
 export const Providers: React.FC<{
@@ -11,7 +10,7 @@ export const Providers: React.FC<{
   return (
     <CookiesProvider>
       <AccessibilityProvider>
-        <HeaderObverser>{children}</HeaderObverser>
+        {children}
 
         <Toaster />
       </AccessibilityProvider>
