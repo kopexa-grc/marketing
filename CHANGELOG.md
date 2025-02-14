@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.18.0](https://github.com/kopexa-grc/marketing/compare/v2.17.1...v2.18.0) (2025-02-14)
+
+
+### Features
+
+* wheel for carousel ([cb831d6](https://github.com/kopexa-grc/marketing/commit/cb831d6cdc40db6b7d51cdafd3589cf131ac4679))
+
+
+### Bug Fixes
+
+* access token ([7b116ee](https://github.com/kopexa-grc/marketing/commit/7b116ee4f1750945d4a109395caa76380db260ba))
+* sitemap ([d12dd9e](https://github.com/kopexa-grc/marketing/commit/d12dd9e1489931489b078433ffb9cd63a82d0b8c))
+* sitemap ([f51f9b4](https://github.com/kopexa-grc/marketing/commit/f51f9b49d59a0abec7c55c9916981a67d2ab019d))
+
 ## [2.17.1](https://github.com/kopexa-grc/marketing/compare/v2.17.0...v2.17.1) (2025-02-13)
 
 
