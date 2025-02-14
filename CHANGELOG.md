@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.18.2](https://github.com/kopexa-grc/marketing/compare/v2.18.1...v2.18.2) (2025-02-14)
+
+
+### Bug Fixes
+
+* images ([1357789](https://github.com/kopexa-grc/marketing/commit/1357789a67d75a7f00d81f6dfed9af23d5e8ddaa))
+* slice simulator ([6b0f0f5](https://github.com/kopexa-grc/marketing/commit/6b0f0f5cb3e1a6b3d1b4a87e381eb3c54ae2ec88))
+
 ## [2.18.1](https://github.com/kopexa-grc/marketing/compare/v2.18.0...v2.18.1) (2025-02-14)
 
 
