@@ -7,10 +7,45 @@
 				"__TYPE__": "StructuredTextContent",
 				"value": [
 					{
+						"type": "heading2",
+						"content": {
+							"text": "Warum eine strategische Reihenfolge bei Zertifizierungen entscheidend ist",
+							"spans": []
+						},
+						"direction": "ltr"
+					},
+					{
 						"type": "paragraph",
 						"content": {
-							"text": "Nisi sunt incididunt enim."
-						}
+							"text": "Viele Unternehmen stehen vor der Herausforderung, mehrere Zertifizierungen in Qualitätsmanagement, IT-Sicherheit, Umwelt- und Arbeitsschutz umzusetzen. Eine durchdachte Reihenfolge hilft, Kosten und Zeit zu sparen, doppelte Arbeit zu vermeiden und Synergien zwischen den Standards zu nutzen.",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 78,
+									"end": 139
+								},
+								{
+									"type": "strong",
+									"start": 188,
+									"end": 290
+								}
+							]
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Diese Roadmap zeigt, welche Zertifizierungen in welcher Reihenfolge sinnvoll sind, ergänzt um Fallbeispiele aus der Praxis.",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 94,
+									"end": 122
+								}
+							]
+						},
+						"direction": "ltr"
 					}
 				]
 			}
