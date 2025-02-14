@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.18.1](https://github.com/kopexa-grc/marketing/compare/v2.18.0...v2.18.1) (2025-02-14)
+
+
+### Bug Fixes
+
+* removed comments and invalid middleware matcher ([4937210](https://github.com/kopexa-grc/marketing/commit/49372103e2314e00fee65591bd517da2b710b751))
+* sitemap ([efa2f6d](https://github.com/kopexa-grc/marketing/commit/efa2f6d176f10aa225f68ac7555107ee3def0f12))
+
 ## [2.18.0](https://github.com/kopexa-grc/marketing/compare/v2.17.1...v2.18.0) (2025-02-14)
 
 
