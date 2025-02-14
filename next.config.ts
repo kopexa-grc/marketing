@@ -6,7 +6,15 @@ const withNextIntl = createNextIntlPlugin();
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
-    domains: ["via.assets.so", "localhost"],
+    domains: ["via.assets.so", "localhost", "prismic.io"],
+    remotePatterns: [
+      {
+        hostname: "images.unsplash.com",
+      },
+      {
+        hostname: "images.prismic.io",
+      },
+    ],
   },
   async redirects() {
     return [
