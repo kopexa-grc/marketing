@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.19.0](https://github.com/kopexa-grc/marketing/compare/v2.18.2...v2.19.0) (2025-02-14)
+
+
+### Features
+
+* added border toggle to benefits for images ([fbcc8e6](https://github.com/kopexa-grc/marketing/commit/fbcc8e683f0f441f830f2f6971881aeb8264991c))
+
 ## [2.18.2](https://github.com/kopexa-grc/marketing/compare/v2.18.1...v2.18.2) (2025-02-14)
 
 
