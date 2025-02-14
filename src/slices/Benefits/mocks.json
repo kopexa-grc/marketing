@@ -104,6 +104,10 @@
 						}
 					}
 				]
+			},
+			"disable_image_border": {
+				"__TYPE__": "BooleanContent",
+				"value": true
 			}
 		},
 		"items": [
@@ -161,6 +165,10 @@
 				"alt": null,
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
+			},
+			"disable_image_border": {
+				"__TYPE__": "BooleanContent",
+				"value": true
 			}
 		},
 		"items": [

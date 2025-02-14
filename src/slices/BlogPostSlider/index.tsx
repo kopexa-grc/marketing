@@ -44,7 +44,7 @@ const BlogPostSlider = async ({ slice, context }: BlogPostSliderProps) => {
 
   return (
     <Carousel.Root
-      className="py-12 md:py-20 xl:py-24 w-full"
+      className="py-12 md:py-20 xl:py-24 w-full overflow-hidden"
       opts={{
         align: "start",
       }}

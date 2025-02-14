@@ -632,6 +632,7 @@ export type EnterpriseHomeDocument<Lang extends string = string> =
   >;
 
 type HomePageDocumentDataSlicesSlice =
+  | BlogPostSliderSlice
   | FeaturesSlice
   | HowItWorksSlice
   | BenefitsSlice
@@ -1474,6 +1475,17 @@ export interface BenefitsSliceImageTextListLeftPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   image: prismic.ImageField<never>;
+
+  /**
+   * Hide border on Image? field in *Benefits → Image Text List Left → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: benefits.imageTextListLeft.primary.disable_image_border
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  disable_image_border: prismic.BooleanField;
 }
 
 /**
@@ -1522,6 +1534,17 @@ export interface BenefitsSliceImageTextListRightPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   image: prismic.ImageField<never>;
+
+  /**
+   * Disable Image Border field in *Benefits → Image Text List Right → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: benefits.imageTextListRight.primary.disable_image_border
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  disable_image_border: prismic.BooleanField;
 }
 
 /**

@@ -74,6 +74,15 @@
             "constraint": {},
             "thumbnails": []
           }
+        },
+        "disable_image_border": {
+          "type": "Boolean",
+          "config": {
+            "label": "Hide border on Image?",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
         }
       },
       "items": {}
@@ -110,6 +119,15 @@
             "label": "Image",
             "constraint": {},
             "thumbnails": []
+          }
+        },
+        "disable_image_border": {
+          "type": "Boolean",
+          "config": {
+            "label": "Disable Image Border",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
           }
         }
       },

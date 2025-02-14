@@ -29,6 +29,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "blog_post_slider": {
+              "type": "SharedSlice"
+            },
             "features": {
               "type": "SharedSlice"
             },

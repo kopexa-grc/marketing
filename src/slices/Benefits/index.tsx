@@ -64,7 +64,9 @@ const BenefitImageTextListRight = ({
       </div>
       <figure className="md:w-1/2">
         <div className="relative p-px">
-          <div className="absolute inset-0 z-10 pointer-events-none rounded-2xl border-2" />
+          {!slice.primary.disable_image_border && (
+            <div className="absolute inset-0 z-10 pointer-events-none rounded-2xl border-2" />
+          )}
           <div className="overflow-hidden rounded-2xl relative">
             <PrismicNextImage field={slice.primary.image} className="w-full" />
           </div>
@@ -91,7 +93,9 @@ const BenefitImageTextListLeft = ({
       </div>
       <figure className="md:w-1/2">
         <div className="relative p-px">
-          <div className="absolute inset-0 z-10 pointer-events-none rounded-2xl border-2" />
+          {!slice.primary.disable_image_border && (
+            <div className="absolute inset-0 z-10 pointer-events-none rounded-2xl border-2" />
+          )}
           <div className="overflow-hidden rounded-2xl relative">
             <PrismicNextImage field={slice.primary.image} className="w-full" />
           </div>
