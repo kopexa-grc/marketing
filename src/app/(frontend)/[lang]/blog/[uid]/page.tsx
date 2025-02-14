@@ -46,9 +46,6 @@ export default async function BlogViewPage(props: Props) {
       }).format(new Date(page.data.date))
     : null;
 
-  console.log("BlogViewPage => page", page.uid, page.lang);
-  console.log("BlogViewPage => author", author?.uid);
-
   return (
     <article className="text-lg">
       <header className="container grid grid-cols-1 lg:grid-cols-2 gap-6 mt-12 lg:mb-20 items-center">
