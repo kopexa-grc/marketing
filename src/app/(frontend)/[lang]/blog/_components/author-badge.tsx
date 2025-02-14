@@ -1,4 +1,4 @@
-import { createClient } from "@/prismicio";
+import { getBlogAuthorByUID } from "@/data/get-author";
 import { asText, isFilled } from "@prismicio/client";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 
@@ -10,9 +10,8 @@ export type AuthorBadgeProps = {
 export async function AuthorBadge({ uid, lang }: AuthorBadgeProps) {
   if (!uid) return null;
 
-  const client = createClient();
-
-  const author = await client.getByUID("blog_author", uid, { lang });
+  const author = await getBlogAuthorByUID(uid, lang);
+  if (!author) return null;
 
   return (
     <div className="flex items-center gap-2 text-sm overflow-hidden">

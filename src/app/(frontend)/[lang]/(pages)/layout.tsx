@@ -13,6 +13,7 @@ export default async function PagesLayout({
   params: Promise<Params>;
 }) {
   const params = await promiseParams;
+
   const layout = await getLayoutData(params.lang);
 
   return <MainLayout layout={layout}>{children}</MainLayout>;

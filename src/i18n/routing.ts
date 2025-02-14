@@ -3,13 +3,14 @@ import { createNavigation } from "next-intl/navigation";
 
 export const Locales = ["en-us", "de-de"] as const;
 export type TLocale = "en-us" | "de-de";
+export const defaultLocale = "de-de";
 
 export const routing = defineRouting({
   // A list of all locales that are supported
   locales: Locales,
 
   // Used when no locale matches
-  defaultLocale: "en-us",
+  defaultLocale: defaultLocale,
 });
 
 // Lightweight wrappers around Next.js' navigation APIs

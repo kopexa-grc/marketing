@@ -1,4 +1,4 @@
-import { createClient } from "@/prismicio";
+import { getCategoryByUID } from "@/data/get-author";
 import { asText, isFilled } from "@prismicio/client";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 
@@ -11,9 +11,10 @@ export async function BlogCategoryLink(props: BlogCategoryLinkProps) {
 
   if (!uid) return null;
 
-  const client = createClient();
-
-  const category = await client.getByUID("blog_category", uid);
+  const category = await getCategoryByUID(uid);
+  if (!category) {
+    return null;
+  }
 
   return (
     <PrismicNextLink

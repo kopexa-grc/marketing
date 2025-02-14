@@ -1,10 +1,17 @@
+import { defaultLocale, Locales, type TLocale } from "@/i18n/routing";
 import { createClient } from "@/prismicio";
+import { cache } from "react";
 
-export async function getLayoutData(lang?: string) {
+export const getLayoutData = cache(async (lang?: string) => {
   const client = createClient();
 
+  let queryLang = lang;
+
+  if (queryLang && !Locales.includes(queryLang as TLocale)) {
+    queryLang = defaultLocale;
+  }
   const layoutData = await client.getSingle("layout", {
-    lang,
+    lang: queryLang,
     graphQuery: `{
         layout {
             ...layoutFields
@@ -30,7 +37,7 @@ export async function getLayoutData(lang?: string) {
   });
 
   return layoutData;
-}
+});
 
 /**
  * 

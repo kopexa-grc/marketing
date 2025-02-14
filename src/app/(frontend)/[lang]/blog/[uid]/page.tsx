@@ -1,5 +1,5 @@
 import { RichText } from "@/components/prismic/rich-text";
-import { getBlogAuthorByUID } from "@/data/get-author";
+import { getBlogAuthorByUID, getBlogByUID } from "@/data/get-author";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import { asImageSrc, isFilled } from "@prismicio/client";
@@ -26,16 +26,16 @@ type Props = {
   params: Promise<Params>;
 };
 
-export default async function PrismigPage(props: Props) {
+export default async function BlogViewPage(props: Props) {
   const params = await props.params;
 
-  const client = createClient();
-  const page = await client
-    .getByUID("blog", params.uid, { lang: params.lang })
-    .catch(() => notFound());
+  const page = await getBlogByUID(params.uid, params.lang);
+  if (!page) {
+    notFound();
+  }
 
   const author = isFilled.contentRelationship(page.data.author)
-    ? await getBlogAuthorByUID(page.data.author.uid)
+    ? await getBlogAuthorByUID(page.data.author.uid, params.lang)
     : null;
 
   const date = isFilled.date(page.data.date)
@@ -45,6 +45,9 @@ export default async function PrismigPage(props: Props) {
         year: "numeric",
       }).format(new Date(page.data.date))
     : null;
+
+  console.log("BlogViewPage => page", page.uid, page.lang);
+  console.log("BlogViewPage => author", author?.uid);
 
   return (
     <article className="text-lg">
@@ -144,10 +147,11 @@ export default async function PrismigPage(props: Props) {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { uid, lang } = await params;
-  const client = createClient();
-  const page = await client
-    .getByUID("blog", uid, { lang })
-    .catch(() => notFound());
+
+  const page = await getBlogByUID(uid, lang);
+  if (!page) {
+    return {};
+  }
 
   return {
     title: page.data.meta_title,
